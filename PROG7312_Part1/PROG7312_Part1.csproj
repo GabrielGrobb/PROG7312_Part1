@@ -133,7 +133,6 @@
     <None Include="bin\Debug\images\Prog.png" />
     <None Include="bin\Debug\images\Book.png" />
     <Content Include="bin\Debug\images\BookShelf.png" />
-    <None Include="bin\Debug\images\stats.png" />
     <None Include="bin\Debug\images\ProgStats.png" />
     <None Include="bin\Debug\images\helpImage1.png" />
     <None Include="bin\Debug\images\helpImage2.png" />
