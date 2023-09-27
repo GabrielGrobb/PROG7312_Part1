@@ -143,6 +143,26 @@ namespace PROG7312_Part1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap helpImage7 {
+            get {
+                object obj = ResourceManager.GetObject("helpImage7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap helpImage8 {
+            get {
+                object obj = ResourceManager.GetObject("helpImage8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Prog {
             get {
                 object obj = ResourceManager.GetObject("Prog", resourceCulture);
