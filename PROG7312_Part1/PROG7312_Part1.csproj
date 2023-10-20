@@ -160,6 +160,7 @@
     <None Include="bin\Debug\images\helpImage6.png" />
     <None Include="bin\Debug\images\helpImage7.png" />
     <None Include="bin\Debug\images\helpImage8.png" />
+    <None Include="bin\Debug\images\part2background.png" />
     <Content Include="bin\Debug\PROG7312_Part1.exe" />
     <Content Include="bin\Debug\PROG7312_Part1.pdb" />
   </ItemGroup>
