@@ -73,6 +73,18 @@
     <Compile Include="HelpForm.Designer.cs">
       <DependentUpon>HelpForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdentifyAreasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdentifyAreasForm.Designer.cs">
+      <DependentUpon>IdentifyAreasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdentifyAreasUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IdentifyAreasUserControl.Designer.cs">
+      <DependentUpon>IdentifyAreasUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,6 +111,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdentifyAreasForm.resx">
+      <DependentUpon>IdentifyAreasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdentifyAreasUserControl.resx">
+      <DependentUpon>IdentifyAreasUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
