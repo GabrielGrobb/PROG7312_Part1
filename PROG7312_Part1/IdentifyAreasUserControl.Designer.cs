@@ -43,13 +43,13 @@
             this.rightShelf1 = new System.Windows.Forms.Panel();
             this.rightShelf2 = new System.Windows.Forms.Panel();
             this.rightShelf3 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.descriptionPanel0 = new System.Windows.Forms.Panel();
+            this.descriptionPanel1 = new System.Windows.Forms.Panel();
+            this.descriptionPanel3 = new System.Windows.Forms.Panel();
+            this.descriptionPanel2 = new System.Windows.Forms.Panel();
+            this.descriptionPanel4 = new System.Windows.Forms.Panel();
+            this.descriptionPanel5 = new System.Windows.Forms.Panel();
+            this.descriptionPanel6 = new System.Windows.Forms.Panel();
             this.btnPause = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -64,6 +64,7 @@
             this.btnHelp.TabIndex = 38;
             this.btnHelp.Text = "Help?";
             this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // btnMainMenu
             // 
@@ -75,6 +76,7 @@
             this.btnMainMenu.TabIndex = 37;
             this.btnMainMenu.Text = "Main Menu";
             this.btnMainMenu.UseVisualStyleBackColor = false;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
             // 
             // btnResults
             // 
@@ -85,6 +87,7 @@
             this.btnResults.TabIndex = 36;
             this.btnResults.Text = "View Results";
             this.btnResults.UseVisualStyleBackColor = true;
+            this.btnResults.Click += new System.EventHandler(this.btnResults_Click);
             // 
             // btnRestart
             // 
@@ -96,6 +99,7 @@
             this.btnRestart.TabIndex = 35;
             this.btnRestart.Text = "Restart?";
             this.btnRestart.UseVisualStyleBackColor = false;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // btnStart
             // 
@@ -129,6 +133,7 @@
             this.btnReset.TabIndex = 32;
             this.btnReset.Text = "Reset Columns";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // leftShelf3
             // 
@@ -202,68 +207,68 @@
             this.rightShelf3.Size = new System.Drawing.Size(208, 38);
             this.rightShelf3.TabIndex = 41;
             // 
-            // panel1
+            // descriptionPanel0
             // 
-            this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel1.Location = new System.Drawing.Point(258, 456);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(208, 38);
-            this.panel1.TabIndex = 41;
+            this.descriptionPanel0.BackColor = System.Drawing.Color.Silver;
+            this.descriptionPanel0.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.descriptionPanel0.Location = new System.Drawing.Point(258, 456);
+            this.descriptionPanel0.Name = "descriptionPanel0";
+            this.descriptionPanel0.Size = new System.Drawing.Size(208, 38);
+            this.descriptionPanel0.TabIndex = 41;
             // 
-            // panel2
+            // descriptionPanel1
             // 
-            this.panel2.BackColor = System.Drawing.Color.Silver;
-            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel2.Location = new System.Drawing.Point(539, 456);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(208, 38);
-            this.panel2.TabIndex = 41;
+            this.descriptionPanel1.BackColor = System.Drawing.Color.Silver;
+            this.descriptionPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.descriptionPanel1.Location = new System.Drawing.Point(539, 456);
+            this.descriptionPanel1.Name = "descriptionPanel1";
+            this.descriptionPanel1.Size = new System.Drawing.Size(208, 38);
+            this.descriptionPanel1.TabIndex = 41;
             // 
-            // panel3
+            // descriptionPanel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.Silver;
-            this.panel3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel3.Location = new System.Drawing.Point(539, 511);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(208, 38);
-            this.panel3.TabIndex = 41;
+            this.descriptionPanel3.BackColor = System.Drawing.Color.Silver;
+            this.descriptionPanel3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.descriptionPanel3.Location = new System.Drawing.Point(539, 511);
+            this.descriptionPanel3.Name = "descriptionPanel3";
+            this.descriptionPanel3.Size = new System.Drawing.Size(208, 38);
+            this.descriptionPanel3.TabIndex = 41;
             // 
-            // panel4
+            // descriptionPanel2
             // 
-            this.panel4.BackColor = System.Drawing.Color.Silver;
-            this.panel4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel4.Location = new System.Drawing.Point(258, 511);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(208, 38);
-            this.panel4.TabIndex = 41;
+            this.descriptionPanel2.BackColor = System.Drawing.Color.Silver;
+            this.descriptionPanel2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.descriptionPanel2.Location = new System.Drawing.Point(258, 511);
+            this.descriptionPanel2.Name = "descriptionPanel2";
+            this.descriptionPanel2.Size = new System.Drawing.Size(208, 38);
+            this.descriptionPanel2.TabIndex = 41;
             // 
-            // panel5
+            // descriptionPanel4
             // 
-            this.panel5.BackColor = System.Drawing.Color.Silver;
-            this.panel5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel5.Location = new System.Drawing.Point(258, 564);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(208, 38);
-            this.panel5.TabIndex = 41;
+            this.descriptionPanel4.BackColor = System.Drawing.Color.Silver;
+            this.descriptionPanel4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.descriptionPanel4.Location = new System.Drawing.Point(258, 564);
+            this.descriptionPanel4.Name = "descriptionPanel4";
+            this.descriptionPanel4.Size = new System.Drawing.Size(208, 38);
+            this.descriptionPanel4.TabIndex = 41;
             // 
-            // panel6
+            // descriptionPanel5
             // 
-            this.panel6.BackColor = System.Drawing.Color.Silver;
-            this.panel6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel6.Location = new System.Drawing.Point(539, 564);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(208, 38);
-            this.panel6.TabIndex = 41;
+            this.descriptionPanel5.BackColor = System.Drawing.Color.Silver;
+            this.descriptionPanel5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.descriptionPanel5.Location = new System.Drawing.Point(539, 564);
+            this.descriptionPanel5.Name = "descriptionPanel5";
+            this.descriptionPanel5.Size = new System.Drawing.Size(208, 38);
+            this.descriptionPanel5.TabIndex = 41;
             // 
-            // panel7
+            // descriptionPanel6
             // 
-            this.panel7.BackColor = System.Drawing.Color.Silver;
-            this.panel7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel7.Location = new System.Drawing.Point(409, 627);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(208, 38);
-            this.panel7.TabIndex = 41;
+            this.descriptionPanel6.BackColor = System.Drawing.Color.Silver;
+            this.descriptionPanel6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.descriptionPanel6.Location = new System.Drawing.Point(409, 627);
+            this.descriptionPanel6.Name = "descriptionPanel6";
+            this.descriptionPanel6.Size = new System.Drawing.Size(208, 38);
+            this.descriptionPanel6.TabIndex = 41;
             // 
             // btnPause
             // 
@@ -296,13 +301,13 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnPause);
-            this.Controls.Add(this.panel7);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.descriptionPanel6);
+            this.Controls.Add(this.descriptionPanel5);
+            this.Controls.Add(this.descriptionPanel4);
+            this.Controls.Add(this.descriptionPanel2);
+            this.Controls.Add(this.descriptionPanel3);
+            this.Controls.Add(this.descriptionPanel1);
+            this.Controls.Add(this.descriptionPanel0);
             this.Controls.Add(this.rightShelf3);
             this.Controls.Add(this.rightShelf2);
             this.Controls.Add(this.rightShelf1);
@@ -339,16 +344,16 @@
         private System.Windows.Forms.Panel leftShelf1;
         private System.Windows.Forms.Panel leftShelf0;
         private System.Windows.Forms.Panel rightShelf0;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel descriptionPanel3;
         private System.Windows.Forms.Panel rightShelf1;
         private System.Windows.Forms.Panel rightShelf2;
         private System.Windows.Forms.Panel rightShelf3;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel descriptionPanel0;
+        private System.Windows.Forms.Panel descriptionPanel1;
+        private System.Windows.Forms.Panel descriptionPanel2;
+        private System.Windows.Forms.Panel descriptionPanel4;
+        private System.Windows.Forms.Panel descriptionPanel5;
+        private System.Windows.Forms.Panel descriptionPanel6;
         private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.Label label1;
     }

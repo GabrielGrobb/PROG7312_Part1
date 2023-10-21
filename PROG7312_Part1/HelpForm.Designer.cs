@@ -37,9 +37,10 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(359, 575);
+            this.btnBack.Location = new System.Drawing.Point(269, 467);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(133, 59);
+            this.btnBack.Size = new System.Drawing.Size(100, 48);
             this.btnBack.TabIndex = 0;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -47,9 +48,10 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(560, 575);
+            this.btnNext.Location = new System.Drawing.Point(420, 467);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(133, 59);
+            this.btnNext.Size = new System.Drawing.Size(100, 48);
             this.btnNext.TabIndex = 1;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -58,9 +60,10 @@
             // lblHelp
             // 
             this.lblHelp.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHelp.Location = new System.Drawing.Point(403, 20);
+            this.lblHelp.Location = new System.Drawing.Point(302, 16);
+            this.lblHelp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHelp.Name = "lblHelp";
-            this.lblHelp.Size = new System.Drawing.Size(268, 75);
+            this.lblHelp.Size = new System.Drawing.Size(201, 61);
             this.lblHelp.TabIndex = 3;
             this.lblHelp.Text = "Help / Tutorial";
             this.lblHelp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -70,21 +73,25 @@
             this.pBoxHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pBoxHelp.ErrorImage = null;
             this.pBoxHelp.InitialImage = null;
-            this.pBoxHelp.Location = new System.Drawing.Point(123, 109);
+            this.pBoxHelp.Location = new System.Drawing.Point(92, 89);
+            this.pBoxHelp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pBoxHelp.Name = "pBoxHelp";
-            this.pBoxHelp.Size = new System.Drawing.Size(829, 448);
+            this.pBoxHelp.Size = new System.Drawing.Size(622, 364);
             this.pBoxHelp.TabIndex = 2;
             this.pBoxHelp.TabStop = false;
             // 
             // HelpForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1103, 671);
+            this.ClientSize = new System.Drawing.Size(827, 545);
             this.Controls.Add(this.lblHelp);
             this.Controls.Add(this.pBoxHelp);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnBack);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximumSize = new System.Drawing.Size(843, 584);
+            this.MinimumSize = new System.Drawing.Size(843, 584);
             this.Name = "HelpForm";
             this.Text = "HelpForm";
             ((System.ComponentModel.ISupportInitialize)(this.pBoxHelp)).EndInit();

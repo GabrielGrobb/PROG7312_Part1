@@ -73,6 +73,12 @@
     <Compile Include="HelpForm.Designer.cs">
       <DependentUpon>HelpForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IDAreasHelpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IDAreasHelpForm.Designer.cs">
+      <DependentUpon>IDAreasHelpForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="IdentifyAreasForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IDAreasHelpForm.resx">
+      <DependentUpon>IDAreasHelpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdentifyAreasForm.resx">
       <DependentUpon>IdentifyAreasForm.cs</DependentUpon>
