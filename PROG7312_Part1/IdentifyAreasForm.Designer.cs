@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IdentifyAreasForm));
+            this.identifyAreasUserControl1 = new PROG7312_Part1.IdentifyAreasUserControl();
+            this.SuspendLayout();
+            // 
+            // identifyAreasUserControl1
+            // 
+            this.identifyAreasUserControl1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("identifyAreasUserControl1.BackgroundImage")));
+            this.identifyAreasUserControl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.identifyAreasUserControl1.Location = new System.Drawing.Point(0, 1);
+            this.identifyAreasUserControl1.Name = "identifyAreasUserControl1";
+            this.identifyAreasUserControl1.Size = new System.Drawing.Size(1000, 686);
+            this.identifyAreasUserControl1.TabIndex = 0;
+            // 
+            // IdentifyAreasForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(999, 689);
+            this.Controls.Add(this.identifyAreasUserControl1);
+            this.Name = "IdentifyAreasForm";
             this.Text = "IdentifyAreasForm";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private IdentifyAreasUserControl identifyAreasUserControl1;
     }
 }

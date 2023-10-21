@@ -12,6 +12,7 @@ namespace PROG7312_Part1
 {
     public partial class IdentifyAreasUserControl : UserControl
     {
+        //-------------------------------------------------------------------------------------------//
         /// <summary>
         ///  Variables:
         ///  seconds is for the timer.
@@ -24,7 +25,7 @@ namespace PROG7312_Part1
         private Panel selectedDescriptionPanel;
         private Random random = new Random();
 
-        private List<string> descriptions = new List<string>();
+        //-------------------------------------------------------------------------------------------//
 
         Dictionary<string, string> callNumberDescriptions = new Dictionary<string, string>
         {
@@ -40,12 +41,126 @@ namespace PROG7312_Part1
             { "900", "History and Geography" }
         };
 
+        //-------------------------------------------------------------------------------------------//
 
+        private Dictionary<string, string> leftShelfGeneratedOrder = new Dictionary<string, string>(); // Store the original order
+        private Dictionary<string, string> descriptionShelfGeneratedOrder = new Dictionary<string, string>(); // Store the original order
+        private Dictionary<string, string> randomlyChosencallNumberDescriptions = new Dictionary<string, string>();
+
+        //-------------------------------------------------------------------------------------------//
 
         public IdentifyAreasUserControl()
         {
             InitializeComponent();
         }
+
+        //-------------------------------------------------------------------------------------------//
+
+        private void IdentifyAreasUserControl_Load(object sender, EventArgs e)
+        {
+            GenerateRandomListings();
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        private void GenerateRandomListings()
+        {
+            RandomlySelectItems();
+            CreateLabelsForLeftShelf();
+            CreateLabelsForDescriptionShelf();
+
+        }
+
+        //-------------------------------------------------------------------------------------------//
+        // Method to randomly select 7 key-value pairs
+        private void RandomlySelectItems()
+        {
+            Random random = new Random();
+            List<KeyValuePair<string, string>> items = callNumberDescriptions.ToList();
+
+            // Shuffle the items to get a random order
+            for (int i = 0; i < items.Count - 1; i++)
+            {
+                int j = random.Next(i, items.Count);
+                var temp = items[i];
+                items[i] = items[j];
+                items[j] = temp;
+            }
+
+            // Select the first 7 items and add them to the randomlyChosencallNumberDescriptions dictionary
+            for (int i = 0; i < 7; i++)
+            {
+                randomlyChosencallNumberDescriptions.Add(items[i].Key, items[i].Value);
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        private void CreateLabelsForLeftShelf()
+        {
+            List<string> callNumbers = randomlyChosencallNumberDescriptions.Keys.ToList();
+            Random random = new Random();
+
+            for (int i = 0; i <= 3; i++)
+            {
+                int randomIndex = random.Next(callNumbers.Count);
+                string callNumber = callNumbers[randomIndex];
+                callNumbers.RemoveAt(randomIndex);
+
+                Panel leftShelf = Controls.Find($"leftShelf{i}", true).FirstOrDefault() as Panel;
+
+                leftShelf.BackColor = Color.Silver;
+
+                Label leftShelfLabel = new Label();
+                leftShelfLabel.Text = callNumber;
+                leftShelfLabel.TextAlign = ContentAlignment.MiddleCenter;
+                leftShelfLabel.Size = new Size(60, 40);
+
+                leftShelfLabel.Dock = DockStyle.Bottom;
+                leftShelfLabel.BorderStyle = BorderStyle.FixedSingle;
+                leftShelfLabel.BackColor = Color.Orange;
+                leftShelfLabel.AutoSize = false;
+
+                leftShelf.Controls.Add(leftShelfLabel);
+
+                leftShelfGeneratedOrder.Add(leftShelf.Name, leftShelfLabel.Text);
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        private void CreateLabelsForDescriptionShelf()
+        {
+            List<string> descriptionTexts = randomlyChosencallNumberDescriptions.Values.ToList();
+            Random random = new Random();
+
+            for (int i = 0; i <= 6; i++)
+            {
+                int randomIndex = random.Next(descriptionTexts.Count);
+                string descriptionText = descriptionTexts[randomIndex];
+                descriptionTexts.RemoveAt(randomIndex);
+
+                Panel descriptionShelf = Controls.Find($"descriptionShelf{i}", true).FirstOrDefault() as Panel;
+
+                descriptionShelf.BackColor = Color.Silver;
+
+                Label descriptionShelfLabel = new Label();
+                descriptionShelfLabel.Text = descriptionText;
+                descriptionShelfLabel.TextAlign = ContentAlignment.MiddleCenter;
+                descriptionShelfLabel.Size = new Size(60, 40);
+
+                descriptionShelfLabel.Dock = DockStyle.Bottom;
+                descriptionShelfLabel.BorderStyle = BorderStyle.FixedSingle;
+                descriptionShelfLabel.BackColor = Color.Orange;
+                descriptionShelfLabel.AutoSize = false;
+
+                descriptionShelf.Controls.Add(descriptionShelfLabel);
+
+                descriptionShelfGeneratedOrder.Add(descriptionShelf.Name, descriptionShelfLabel.Text);
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------//
 
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
@@ -60,6 +175,8 @@ namespace PROG7312_Part1
                 mainForm.Show();
             }
         }
+
+        //-------------------------------------------------------------------------------------------//
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
@@ -76,19 +193,27 @@ namespace PROG7312_Part1
             
         }
 
+        //-------------------------------------------------------------------------------------------//
+
         private void btnResults_Click(object sender, EventArgs e)
         {
 
         }
+
+        //-------------------------------------------------------------------------------------------//
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
 
         }
 
+        //-------------------------------------------------------------------------------------------//
+
         private void btnReset_Click(object sender, EventArgs e)
         {
 
         }
+
+        //-------------------------------------------------------------------------------------------//
     }
 }

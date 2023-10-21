@@ -43,13 +43,13 @@
             this.rightShelf1 = new System.Windows.Forms.Panel();
             this.rightShelf2 = new System.Windows.Forms.Panel();
             this.rightShelf3 = new System.Windows.Forms.Panel();
-            this.descriptionPanel0 = new System.Windows.Forms.Panel();
-            this.descriptionPanel1 = new System.Windows.Forms.Panel();
-            this.descriptionPanel3 = new System.Windows.Forms.Panel();
-            this.descriptionPanel2 = new System.Windows.Forms.Panel();
-            this.descriptionPanel4 = new System.Windows.Forms.Panel();
-            this.descriptionPanel5 = new System.Windows.Forms.Panel();
-            this.descriptionPanel6 = new System.Windows.Forms.Panel();
+            this.descriptionShelf0 = new System.Windows.Forms.Panel();
+            this.descriptionShelf1 = new System.Windows.Forms.Panel();
+            this.descriptionShelf3 = new System.Windows.Forms.Panel();
+            this.descriptionShelf2 = new System.Windows.Forms.Panel();
+            this.descriptionShelf4 = new System.Windows.Forms.Panel();
+            this.descriptionShelf5 = new System.Windows.Forms.Panel();
+            this.descriptionShelf6 = new System.Windows.Forms.Panel();
             this.btnPause = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -207,68 +207,68 @@
             this.rightShelf3.Size = new System.Drawing.Size(208, 38);
             this.rightShelf3.TabIndex = 41;
             // 
-            // descriptionPanel0
+            // descriptionShelf0
             // 
-            this.descriptionPanel0.BackColor = System.Drawing.Color.Silver;
-            this.descriptionPanel0.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.descriptionPanel0.Location = new System.Drawing.Point(258, 456);
-            this.descriptionPanel0.Name = "descriptionPanel0";
-            this.descriptionPanel0.Size = new System.Drawing.Size(208, 38);
-            this.descriptionPanel0.TabIndex = 41;
+            this.descriptionShelf0.BackColor = System.Drawing.Color.Silver;
+            this.descriptionShelf0.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.descriptionShelf0.Location = new System.Drawing.Point(258, 456);
+            this.descriptionShelf0.Name = "descriptionShelf0";
+            this.descriptionShelf0.Size = new System.Drawing.Size(208, 38);
+            this.descriptionShelf0.TabIndex = 41;
             // 
-            // descriptionPanel1
+            // descriptionShelf1
             // 
-            this.descriptionPanel1.BackColor = System.Drawing.Color.Silver;
-            this.descriptionPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.descriptionPanel1.Location = new System.Drawing.Point(539, 456);
-            this.descriptionPanel1.Name = "descriptionPanel1";
-            this.descriptionPanel1.Size = new System.Drawing.Size(208, 38);
-            this.descriptionPanel1.TabIndex = 41;
+            this.descriptionShelf1.BackColor = System.Drawing.Color.Silver;
+            this.descriptionShelf1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.descriptionShelf1.Location = new System.Drawing.Point(539, 456);
+            this.descriptionShelf1.Name = "descriptionShelf1";
+            this.descriptionShelf1.Size = new System.Drawing.Size(208, 38);
+            this.descriptionShelf1.TabIndex = 41;
             // 
-            // descriptionPanel3
+            // descriptionShelf3
             // 
-            this.descriptionPanel3.BackColor = System.Drawing.Color.Silver;
-            this.descriptionPanel3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.descriptionPanel3.Location = new System.Drawing.Point(539, 511);
-            this.descriptionPanel3.Name = "descriptionPanel3";
-            this.descriptionPanel3.Size = new System.Drawing.Size(208, 38);
-            this.descriptionPanel3.TabIndex = 41;
+            this.descriptionShelf3.BackColor = System.Drawing.Color.Silver;
+            this.descriptionShelf3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.descriptionShelf3.Location = new System.Drawing.Point(539, 511);
+            this.descriptionShelf3.Name = "descriptionShelf3";
+            this.descriptionShelf3.Size = new System.Drawing.Size(208, 38);
+            this.descriptionShelf3.TabIndex = 41;
             // 
-            // descriptionPanel2
+            // descriptionShelf2
             // 
-            this.descriptionPanel2.BackColor = System.Drawing.Color.Silver;
-            this.descriptionPanel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.descriptionPanel2.Location = new System.Drawing.Point(258, 511);
-            this.descriptionPanel2.Name = "descriptionPanel2";
-            this.descriptionPanel2.Size = new System.Drawing.Size(208, 38);
-            this.descriptionPanel2.TabIndex = 41;
+            this.descriptionShelf2.BackColor = System.Drawing.Color.Silver;
+            this.descriptionShelf2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.descriptionShelf2.Location = new System.Drawing.Point(258, 511);
+            this.descriptionShelf2.Name = "descriptionShelf2";
+            this.descriptionShelf2.Size = new System.Drawing.Size(208, 38);
+            this.descriptionShelf2.TabIndex = 41;
             // 
-            // descriptionPanel4
+            // descriptionShelf4
             // 
-            this.descriptionPanel4.BackColor = System.Drawing.Color.Silver;
-            this.descriptionPanel4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.descriptionPanel4.Location = new System.Drawing.Point(258, 564);
-            this.descriptionPanel4.Name = "descriptionPanel4";
-            this.descriptionPanel4.Size = new System.Drawing.Size(208, 38);
-            this.descriptionPanel4.TabIndex = 41;
+            this.descriptionShelf4.BackColor = System.Drawing.Color.Silver;
+            this.descriptionShelf4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.descriptionShelf4.Location = new System.Drawing.Point(258, 564);
+            this.descriptionShelf4.Name = "descriptionShelf4";
+            this.descriptionShelf4.Size = new System.Drawing.Size(208, 38);
+            this.descriptionShelf4.TabIndex = 41;
             // 
-            // descriptionPanel5
+            // descriptionShelf5
             // 
-            this.descriptionPanel5.BackColor = System.Drawing.Color.Silver;
-            this.descriptionPanel5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.descriptionPanel5.Location = new System.Drawing.Point(539, 564);
-            this.descriptionPanel5.Name = "descriptionPanel5";
-            this.descriptionPanel5.Size = new System.Drawing.Size(208, 38);
-            this.descriptionPanel5.TabIndex = 41;
+            this.descriptionShelf5.BackColor = System.Drawing.Color.Silver;
+            this.descriptionShelf5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.descriptionShelf5.Location = new System.Drawing.Point(539, 564);
+            this.descriptionShelf5.Name = "descriptionShelf5";
+            this.descriptionShelf5.Size = new System.Drawing.Size(208, 38);
+            this.descriptionShelf5.TabIndex = 41;
             // 
-            // descriptionPanel6
+            // descriptionShelf6
             // 
-            this.descriptionPanel6.BackColor = System.Drawing.Color.Silver;
-            this.descriptionPanel6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.descriptionPanel6.Location = new System.Drawing.Point(409, 627);
-            this.descriptionPanel6.Name = "descriptionPanel6";
-            this.descriptionPanel6.Size = new System.Drawing.Size(208, 38);
-            this.descriptionPanel6.TabIndex = 41;
+            this.descriptionShelf6.BackColor = System.Drawing.Color.Silver;
+            this.descriptionShelf6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.descriptionShelf6.Location = new System.Drawing.Point(409, 627);
+            this.descriptionShelf6.Name = "descriptionShelf6";
+            this.descriptionShelf6.Size = new System.Drawing.Size(208, 38);
+            this.descriptionShelf6.TabIndex = 41;
             // 
             // btnPause
             // 
@@ -301,13 +301,13 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnPause);
-            this.Controls.Add(this.descriptionPanel6);
-            this.Controls.Add(this.descriptionPanel5);
-            this.Controls.Add(this.descriptionPanel4);
-            this.Controls.Add(this.descriptionPanel2);
-            this.Controls.Add(this.descriptionPanel3);
-            this.Controls.Add(this.descriptionPanel1);
-            this.Controls.Add(this.descriptionPanel0);
+            this.Controls.Add(this.descriptionShelf6);
+            this.Controls.Add(this.descriptionShelf5);
+            this.Controls.Add(this.descriptionShelf4);
+            this.Controls.Add(this.descriptionShelf2);
+            this.Controls.Add(this.descriptionShelf3);
+            this.Controls.Add(this.descriptionShelf1);
+            this.Controls.Add(this.descriptionShelf0);
             this.Controls.Add(this.rightShelf3);
             this.Controls.Add(this.rightShelf2);
             this.Controls.Add(this.rightShelf1);
@@ -326,6 +326,7 @@
             this.DoubleBuffered = true;
             this.Name = "IdentifyAreasUserControl";
             this.Size = new System.Drawing.Size(1000, 686);
+            this.Load += new System.EventHandler(this.IdentifyAreasUserControl_Load);
             this.ResumeLayout(false);
 
         }
@@ -344,16 +345,16 @@
         private System.Windows.Forms.Panel leftShelf1;
         private System.Windows.Forms.Panel leftShelf0;
         private System.Windows.Forms.Panel rightShelf0;
-        private System.Windows.Forms.Panel descriptionPanel3;
+        private System.Windows.Forms.Panel descriptionShelf3;
         private System.Windows.Forms.Panel rightShelf1;
         private System.Windows.Forms.Panel rightShelf2;
         private System.Windows.Forms.Panel rightShelf3;
-        private System.Windows.Forms.Panel descriptionPanel0;
-        private System.Windows.Forms.Panel descriptionPanel1;
-        private System.Windows.Forms.Panel descriptionPanel2;
-        private System.Windows.Forms.Panel descriptionPanel4;
-        private System.Windows.Forms.Panel descriptionPanel5;
-        private System.Windows.Forms.Panel descriptionPanel6;
+        private System.Windows.Forms.Panel descriptionShelf0;
+        private System.Windows.Forms.Panel descriptionShelf1;
+        private System.Windows.Forms.Panel descriptionShelf2;
+        private System.Windows.Forms.Panel descriptionShelf4;
+        private System.Windows.Forms.Panel descriptionShelf5;
+        private System.Windows.Forms.Panel descriptionShelf6;
         private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.Label label1;
     }
