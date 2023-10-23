@@ -117,6 +117,7 @@
             this.btnStart.TabIndex = 34;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // lblTimer
             // 

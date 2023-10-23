@@ -273,6 +273,11 @@ namespace PROG7312_Part1
             return TimeSpan.FromSeconds(seconds);
         }
 
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+          
+        }
+
         //-------------------------------------------------------------------------------------------//
     }
 }
