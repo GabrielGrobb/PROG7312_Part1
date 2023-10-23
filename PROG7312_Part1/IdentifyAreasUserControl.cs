@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -48,6 +49,8 @@ namespace PROG7312_Part1
         };
 
         //-------------------------------------------------------------------------------------------//
+
+        private Dictionary<string, KeyValuePair<string, string>> correctOrderStructure = new Dictionary<string, KeyValuePair<string, string>>();
 
         private Dictionary<string, string> leftShelfGeneratedOrder = new Dictionary<string, string>(); // Store the original order
         private Dictionary<string, string> descriptionShelfGeneratedOrder = new Dictionary<string, string>(); // Store the original order
@@ -259,6 +262,43 @@ namespace PROG7312_Part1
             {
                 DescriptionPanelRightClick();
             }
+
+            // Check if all values in the rightShelfOccupancyStatus dictionary are true
+            /*bool allRightShelfOccupied = rightShelfOccupancyStatus.All(kvp => kvp.Value);
+
+            if (allRightShelfOccupied)
+            {
+                // Perform validation based on correctOrderStructure
+                int score = 0;
+
+                foreach (var entry in correctOrderStructure)
+                {
+                    string rightShelfPanelName = entry.Key;
+                    string expectedCallNumber = entry.Value.Key;
+                    string expectedDescription = entry.Value.Value;
+
+                    // Find the right shelf panel
+                    Panel rightShelfPanel = Controls.Find(rightShelfPanelName, true).FirstOrDefault() as Panel;
+
+                    // Find the corresponding description panel in the right shelf panel
+                    Panel descriptionPanelInRightShelf = rightShelfPanel.Controls.OfType<Panel>().FirstOrDefault();
+
+                    if (descriptionPanelInRightShelf != null)
+                    {
+                        string actualDescription = descriptionPanelInRightShelf.Controls.OfType<Label>().FirstOrDefault()?.Text;
+
+                        // Compare the actual description with the expected description
+                        if (actualDescription == expectedDescription)
+                        {
+                            score++; // Increment the score for a correct placement
+                        }
+                    }
+                }
+
+                // Display the score in a message box
+                MessageBox.Show($"Your Score: {score}/{correctOrderStructure.Count}");
+            }*/
+
         }
 
         //-------------------------------------------------------------------------------------------//
