@@ -47,6 +47,9 @@ namespace PROG7312_Part1
         private Dictionary<string, string> descriptionShelfGeneratedOrder = new Dictionary<string, string>(); // Store the original order
         private Dictionary<string, string> randomlyChosencallNumberDescriptions = new Dictionary<string, string>();
 
+        private Dictionary<string, Point> originalRightShelfLocations = new Dictionary<string, Point>();
+        private Dictionary<string, bool> rightShelfOccupancyStatus = new Dictionary<string, bool>();
+
         //-------------------------------------------------------------------------------------------//
 
         public IdentifyAreasUserControl()
@@ -59,6 +62,10 @@ namespace PROG7312_Part1
         private void IdentifyAreasUserControl_Load(object sender, EventArgs e)
         {
             GenerateRandomListings();
+
+            btnReset.Enabled = false;
+            btnRestart.Enabled = false;
+            lblTimer.Text = "Timer: 0 seconds";
         }
 
         //-------------------------------------------------------------------------------------------//
@@ -68,6 +75,8 @@ namespace PROG7312_Part1
             RandomlySelectItems();
             CreateLabelsForLeftShelf();
             CreateLabelsForDescriptionShelf();
+
+            StoreRightShlfProperties();
 
         }
 
@@ -162,6 +171,30 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Used ChatGPT.
+        /// This method iterates through all the top shelves with the
+        /// names starting with topShelf followed by a integer.
+        /// The properties are added to the corresponding 
+        /// dictionaries.
+        /// </summary>
+        private void StoreRightShlfProperties()
+        {
+            for (int i = 0; i <= 3; i++)
+            {
+                Panel rightShelfPanel = Controls.Find($"rightShelf{i}", true).FirstOrDefault() as Panel;
+
+                if (rightShelfPanel != null)
+                {
+                    originalRightShelfLocations[$"rightShelf{i}"] = rightShelfPanel.Location;
+
+                    rightShelfOccupancyStatus[$"rightShelf{i}"] = false;
+                }
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
             // Display the user's score
@@ -212,6 +245,37 @@ namespace PROG7312_Part1
         private void btnReset_Click(object sender, EventArgs e)
         {
 
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// As the timer ticks, the label holding the time
+        /// will be updated.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void identifyAreas_timer_Tick(object sender, EventArgs e)
+        {
+            seconds++;
+            lblTimer.Text = $"Timer: {seconds} seconds";
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Getting the time it took for the user
+        /// to complete the game.
+        /// </summary>
+        /// <returns></returns>
+        private TimeSpan GetTimeTaken()
+        {
+            return TimeSpan.FromSeconds(seconds);
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+          
         }
 
         //-------------------------------------------------------------------------------------------//
