@@ -1,10 +1,12 @@
-﻿using System;
+﻿using BooksClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,8 +25,12 @@ namespace PROG7312_Part1
         private int seconds = 0;
         private bool isTimerRunning = false;
         private Panel selectedDescriptionPanel;
-        private Random random = new Random();
+        private List<string> books = new List<string>();
 
+        /// <summary>
+        /// A boolean array to check if the top shelf is occupied.
+        /// </summary>
+        private bool[] bottomShelfOccupancyStatus = new bool[7]; // Assuming you have 7 top shelf panels
         //-------------------------------------------------------------------------------------------//
 
         Dictionary<string, string> callNumberDescriptions = new Dictionary<string, string>
@@ -48,7 +54,10 @@ namespace PROG7312_Part1
         private Dictionary<string, string> randomlyChosencallNumberDescriptions = new Dictionary<string, string>();
 
         private Dictionary<string, Point> originalRightShelfLocations = new Dictionary<string, Point>();
+        private Dictionary<Panel, Point> originalBottomShelfLocations = new Dictionary<Panel, Point>();
+
         private Dictionary<string, bool> rightShelfOccupancyStatus = new Dictionary<string, bool>();
+        private Dictionary<string, string> descriptionShelfLabelToRightShelfMap = new Dictionary<string, string>();
 
         //-------------------------------------------------------------------------------------------//
 
@@ -110,7 +119,7 @@ namespace PROG7312_Part1
             List<string> callNumbers = randomlyChosencallNumberDescriptions.Keys.ToList();
             Random random = new Random();
 
-            for (int i = 0; i <= 3; i++)
+            for (int i = 1; i < 5; i++)
             {
                 int randomIndex = random.Next(callNumbers.Count);
                 string callNumber = callNumbers[randomIndex];
@@ -143,8 +152,9 @@ namespace PROG7312_Part1
             List<string> descriptionTexts = randomlyChosencallNumberDescriptions.Values.ToList();
             Random random = new Random();
 
-            for (int i = 0; i <= 6; i++)
+            for (int i = 1; i <= 7; i++)
             {
+                
                 int randomIndex = random.Next(descriptionTexts.Count);
                 string descriptionText = descriptionTexts[randomIndex];
                 descriptionTexts.RemoveAt(randomIndex);
@@ -162,6 +172,8 @@ namespace PROG7312_Part1
                 descriptionShelfLabel.BorderStyle = BorderStyle.FixedSingle;
                 descriptionShelfLabel.BackColor = Color.Orange;
                 descriptionShelfLabel.AutoSize = false;
+
+                books.Add(descriptionShelfLabel.Text);
 
                 descriptionShelf.Controls.Add(descriptionShelfLabel);
 
@@ -191,6 +203,124 @@ namespace PROG7312_Part1
                     rightShelfOccupancyStatus[$"rightShelf{i}"] = false;
                 }
             }
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// This event executes when the mouse button is clicked
+        /// and not relased. It handles when either the left or 
+        /// right button is clicked. 
+        /// </summary>
+        /// <param name="sender">Refers to the clicked on panel being dragged and brought to front.</param>
+        /// <param name="e">Refers to the mouse button clicked</param>
+        private void IdentifyAreasControl_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                selectedDescriptionPanel = sender as Panel;
+                ControlExtension.Draggable(sender as Panel, true);
+                selectedDescriptionPanel.BringToFront();
+                SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            }
+            if (e.Button == MouseButtons.Right)
+            {
+                selectedDescriptionPanel = sender as Panel;
+                ControlExtension.Draggable(sender as Panel, true);
+                selectedDescriptionPanel.BringToFront();
+                this.DoubleBuffered = true;
+                SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            }
+        }
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// This event executes when the mouse button is released.
+        /// It handles when either the left or right button is released.
+        /// If a panel is not selected, nothing will occur.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void IdentifyAreasControl_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (selectedDescriptionPanel == null)
+            {
+                return;
+            }
+
+            if (e.Button == MouseButtons.Left)
+            {
+                
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// As the timer ticks, the label holding the time
+        /// will be updated.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void identifyAreas_timer_Tick(object sender, EventArgs e)
+        {
+            seconds++;
+            lblTimer.Text = $"Timer: {seconds} seconds";
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            btnStart.Enabled = false;
+            btnRestart.Enabled = false;
+
+            foreach (Panel descriptionShelf in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("descriptionShelf")))
+            {
+                descriptionShelf.MouseDown -= IdentifyAreasControl_MouseDown;
+                descriptionShelf.MouseUp -= IdentifyAreasControl_MouseUp;
+            }
+
+            for (int i = 1; i <= books.Count; i++)
+            {
+                Panel descriptionShelf = Controls.Find($"descriptionShelf{i}", true).FirstOrDefault() as Panel;
+
+                descriptionShelf.MouseDown += IdentifyAreasControl_MouseDown;
+                descriptionShelf.MouseUp += IdentifyAreasControl_MouseUp;
+                descriptionShelf.Draggable(true);
+                descriptionShelf.BringToFront();
+            }
+
+            if (!isTimerRunning)
+            {
+                identifyAreas_timer.Start();
+                isTimerRunning = true;
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        private void btnRestart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        private void btnResults_Click(object sender, EventArgs e)
+        {
+
         }
 
         //-------------------------------------------------------------------------------------------//
@@ -227,57 +357,6 @@ namespace PROG7312_Part1
         }
 
         //-------------------------------------------------------------------------------------------//
-
-        private void btnResults_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //-------------------------------------------------------------------------------------------//
-
-        private void btnRestart_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //-------------------------------------------------------------------------------------------//
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        //-------------------------------------------------------------------------------------------//
-
-        /// <summary>
-        /// As the timer ticks, the label holding the time
-        /// will be updated.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void identifyAreas_timer_Tick(object sender, EventArgs e)
-        {
-            seconds++;
-            lblTimer.Text = $"Timer: {seconds} seconds";
-        }
-
-        //-------------------------------------------------------------------------------------------//
-
-        /// <summary>
-        /// Getting the time it took for the user
-        /// to complete the game.
-        /// </summary>
-        /// <returns></returns>
-        private TimeSpan GetTimeTaken()
-        {
-            return TimeSpan.FromSeconds(seconds);
-        }
-
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        //-------------------------------------------------------------------------------------------//
     }
 }
+//---------------------------------------------EndOfFile---------------------------------------------//

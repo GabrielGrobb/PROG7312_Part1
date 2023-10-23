@@ -69,7 +69,11 @@ namespace PROG7312_Part1
 
         private void btnReplacingBooks_Click(object sender, EventArgs e)
         {
-            progressTimer.Start();   
+            progressTimer.Start();
+            BookForm myBookForm = new BookForm();
+            myBookForm.Show();
+
+            this.Hide();
         }
 
         //------------------------------------------------------------------------------------------//
@@ -119,11 +123,6 @@ namespace PROG7312_Part1
             if (pgDataLoad.Value >= pgDataLoad.Maximum)
             {
                 progressTimer.Stop();
-
-                BookForm myBookForm = new BookForm();
-                myBookForm.Show();
-
-                this.Hide();
             }
 
         }
@@ -149,8 +148,11 @@ namespace PROG7312_Part1
         /// <param name="e"></param>
         private void btnIdentifyAreas_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Game is in working Progress...\n"
-                            , "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            progressTimer.Start();
+            IdentifyAreasForm myIdentifyAreasForm = new IdentifyAreasForm();
+            myIdentifyAreasForm.Show();
+
+            this.Hide();
         }
 
         //------------------------------------------------------------------------------------------//
