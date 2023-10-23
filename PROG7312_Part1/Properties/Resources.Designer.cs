@@ -163,6 +163,16 @@ namespace PROG7312_Part1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap part2background {
+            get {
+                object obj = ResourceManager.GetObject("part2background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Prog {
             get {
                 object obj = ResourceManager.GetObject("Prog", resourceCulture);
