@@ -54,7 +54,7 @@ namespace PROG7312_Part1
         private Dictionary<string, string> randomlyChosencallNumberDescriptions = new Dictionary<string, string>();
 
         private Dictionary<string, Point> originalRightShelfLocations = new Dictionary<string, Point>();
-        private Dictionary<Panel, Point> originalBottomShelfLocations = new Dictionary<Panel, Point>();
+        private Dictionary<Panel, Point> originalDescriptionShelfLocations = new Dictionary<Panel, Point>();
 
         private Dictionary<string, bool> rightShelfOccupancyStatus = new Dictionary<string, bool>();
         private Dictionary<string, string> descriptionShelfLabelToRightShelfMap = new Dictionary<string, string>();
@@ -161,6 +161,8 @@ namespace PROG7312_Part1
 
                 Panel descriptionShelf = Controls.Find($"descriptionShelf{i}", true).FirstOrDefault() as Panel;
 
+                originalDescriptionShelfLocations[descriptionShelf] = descriptionShelf.Location;
+
                 descriptionShelf.BackColor = Color.Silver;
 
                 Label descriptionShelfLabel = new Label();
@@ -172,6 +174,7 @@ namespace PROG7312_Part1
                 descriptionShelfLabel.BorderStyle = BorderStyle.FixedSingle;
                 descriptionShelfLabel.BackColor = Color.Orange;
                 descriptionShelfLabel.AutoSize = false;
+                descriptionShelfLabel.Enabled = false;
 
                 books.Add(descriptionShelfLabel.Text);
 
@@ -192,7 +195,7 @@ namespace PROG7312_Part1
         /// </summary>
         private void StoreRightShlfProperties()
         {
-            for (int i = 0; i <= 3; i++)
+            for (int i = 1; i <= 4; i++)
             {
                 Panel rightShelfPanel = Controls.Find($"rightShelf{i}", true).FirstOrDefault() as Panel;
 
@@ -250,14 +253,181 @@ namespace PROG7312_Part1
 
             if (e.Button == MouseButtons.Left)
             {
-                
+                DescriptionPanelLeftClick();
             }
             else if (e.Button == MouseButtons.Right)
             {
-                
+                DescriptionPanelRightClick();
             }
         }
 
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Used ChatGPT here.
+        /// This method is called when the left mouse button is clicked.
+        /// When a book is clicked on, dependent on where; it will locate the
+        /// closest top panel. The top panel with a book will become occupied.
+        /// The book recieves a the top shelf panel location
+        /// The book and the top shelf panel are mapped together.
+        /// </summary>
+        private void DescriptionPanelLeftClick()
+        {
+            Panel closestRightShelf = FindClosestRightShelf(selectedDescriptionPanel);
+
+            if (closestRightShelf == null)
+            {
+                return;
+            }
+
+            string topShelfName = closestRightShelf.Name;
+
+            if (IsTopShelfOccupied(topShelfName))
+            {
+                return;
+            }
+
+            if (selectedDescriptionPanel.Tag is Panel prevTopShelf)
+            {
+                string prevTopShelfName = prevTopShelf.Name;
+                rightShelfOccupancyStatus[prevTopShelfName] = false;
+            }
+
+            int newX = closestRightShelf.Left + (closestRightShelf.Width - selectedDescriptionPanel.Width) / 2;
+            int newY = closestRightShelf.Top + (closestRightShelf.Height - selectedDescriptionPanel.Height) / 2;
+            selectedDescriptionPanel.Location = new Point(newX, newY);
+
+            rightShelfOccupancyStatus[topShelfName] = true;
+
+            selectedDescriptionPanel.Tag = closestRightShelf;
+
+            descriptionShelfLabelToRightShelfMap[closestRightShelf.Name] = selectedDescriptionPanel.Name;
+        }
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Used ChatGPT here.
+        /// This method is called when the right mouse button is clicked.
+        /// When a book is clicked on, it will return to its originally
+        /// generated panel. The top panel without a book will become unoccupied.
+        /// The book recieves it's original location.
+        /// </summary>
+        private void DescriptionPanelRightClick()
+        {
+            if (!originalDescriptionShelfLocations.TryGetValue(selectedDescriptionPanel, out Point originalLocation))
+            {
+                return;
+            }
+
+            selectedDescriptionPanel.Location = originalLocation;
+            int index = GetBottomShelfIndex(selectedDescriptionPanel);
+            bottomShelfOccupancyStatus[index] = true;
+
+            if (!(selectedDescriptionPanel.Tag is Panel prevTopShelf))
+            {
+                return;
+            }
+
+            string prevTopShelfName = prevTopShelf.Name;
+            rightShelfOccupancyStatus[prevTopShelfName] = false;
+
+            descriptionShelfLabelToRightShelfMap.Remove(prevTopShelfName);
+
+            selectedDescriptionPanel.Tag = null;
+        }
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Used ChatGPT here.
+        /// A boolean method to return if a top shelf panel
+        /// is occupied by a book.
+        /// </summary>
+        /// <param name="topShelfName"></param>
+        /// <returns></returns>
+        private bool IsTopShelfOccupied(string rightShelfName)
+        {
+            return rightShelfOccupancyStatus.ContainsKey(rightShelfName) && rightShelfOccupancyStatus[rightShelfName];
+        }
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Used ChatGPT here.
+        /// A method of type Panel to calculate the center points
+        /// of a book and find the nearest open top shelf.
+        /// </summary>
+        /// <param name="bottomShelfPanel">closest avaliable top shelf panel</param>
+        /// <returns></returns>
+        private Panel FindClosestRightShelf(Panel descriptionShelfPanel)
+        {
+            Point bottomCenter = Class1.CalculateCenter(descriptionShelfPanel);
+
+            Panel closestTopShelf = FindClosestUnoccupiedRightShelf(bottomCenter);
+
+            return closestTopShelf;
+        }
+        //-------------------------------------------------------------------------------------------//
+        /// <summary>
+        /// Used ChatGPT here.
+        /// Iterates through all the top shelf panels.
+        /// Finds the closest and unoccupied panel.
+        /// checks if the distance is more than the closest distance
+        /// between the top and bottom panels.
+        /// </summary>
+        /// <param name="bottomCenter"></param>
+        /// <returns></returns>
+        private Panel FindClosestUnoccupiedRightShelf(Point bottomCenter)
+        {
+            Panel closestTopShelf = null;
+            double closestDistance = double.MaxValue;
+
+            foreach (Control control in Controls)
+            {
+                if (!(control is Panel rightShelfPanel) || !rightShelfPanel.Name.StartsWith("rightShelf"))
+                    continue;
+
+                string rightShelfName = rightShelfPanel.Name;
+                int index = GetRightShelfIndex(rightShelfPanel);
+
+                if (rightShelfOccupancyStatus.ContainsKey(rightShelfName) && rightShelfOccupancyStatus[rightShelfName])
+                    continue;
+
+                Point topCenter = Class1.CalculateCenter(rightShelfPanel);
+
+                double distance = Class1.CalculateDistance(bottomCenter, topCenter);
+
+                if (distance < closestDistance)
+                {
+                    closestTopShelf = rightShelfPanel;
+                    closestDistance = distance;
+                }
+            }
+
+            return closestTopShelf;
+        }
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Finds and returns the index of the top shelf panel
+        /// </summary>
+        /// <param name="topShelfPanel"></param>
+        /// <returns></returns>
+        private int GetRightShelfIndex(Panel rightShelfPanel)
+        {
+            int index = int.Parse(Regex.Match(rightShelfPanel.Name, @"\d+").Value) - 1;
+            return index;
+        }
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Finds and returns the index of the bottom shelf panel
+        /// </summary>
+        /// <param name="bottomShelfPanel"></param>
+        /// <returns></returns>
+        private int GetBottomShelfIndex(Panel descriptionShelfPanel)
+        {
+            int index = int.Parse(Regex.Match(descriptionShelfPanel.Name, @"\d+").Value) - 1;
+            return index;
+        }
         //-------------------------------------------------------------------------------------------//
 
         /// <summary>
@@ -272,6 +442,17 @@ namespace PROG7312_Part1
             lblTimer.Text = $"Timer: {seconds} seconds";
         }
 
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Getting the time it took for the user
+        /// to complete the game.
+        /// </summary>
+        /// <returns></returns>
+        private TimeSpan GetTimeTaken()
+        {
+            return TimeSpan.FromSeconds(seconds);
+        }
         //-------------------------------------------------------------------------------------------//
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -306,21 +487,97 @@ namespace PROG7312_Part1
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            btnReset.Enabled = false;
+            btnStart.Enabled = true;
 
+            seconds = 0;
+
+            lblTimer.Text = "Timer: 0 seconds";
+
+            foreach (Panel bottomShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("descriptionShelf")))
+            {
+
+                ControlExtension.Draggable(bottomShelfPanel, false);
+
+                bottomShelfPanel.MouseDown -= IdentifyAreasControl_MouseDown;
+                bottomShelfPanel.MouseUp -= IdentifyAreasControl_MouseUp;
+
+                if (!originalDescriptionShelfLocations.TryGetValue(bottomShelfPanel, out Point originalLocation))
+                {
+                    continue;
+                }
+
+                bottomShelfPanel.Location = originalLocation;
+
+                int index = GetBottomShelfIndex(bottomShelfPanel);
+                bottomShelfOccupancyStatus[index] = true;
+
+                if (bottomShelfPanel.Tag is Panel prevTopShelf)
+                {
+                    string prevTopShelfName = prevTopShelf.Name;
+
+                    rightShelfOccupancyStatus[prevTopShelfName] = false;
+
+                    descriptionShelfLabelToRightShelfMap.Remove(prevTopShelfName);
+                }
+
+                bottomShelfPanel.Tag = null;
+            }
         }
 
         //-------------------------------------------------------------------------------------------//
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
+            // Display the user's score
+            DialogResult myResult = MessageBox.Show("Are you sure you would like to Restart?\n" +
+                "Restarting will change the labels and where the books need to be placed.\n" +
+                "Click Yes to Confirm or No to Cancel."
+              , "Restart", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+            if (myResult == DialogResult.Yes)
+            {
+                btnReset.Enabled = false;
+                btnStart.Enabled = true;
+
+                seconds = 0;
+
+                lblTimer.Text = "Timer: 0 seconds";
+                identifyAreas_timer.Stop();
+
+                foreach (Panel bottomShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("descriptionShelf")))
+                {
+                    ControlExtension.Draggable(bottomShelfPanel, false);
+                    bottomShelfPanel.MouseDown -= IdentifyAreasControl_MouseDown;
+                    bottomShelfPanel.MouseUp -= IdentifyAreasControl_MouseUp;
+                    bottomShelfPanel.Controls.Clear();
+
+                    originalDescriptionShelfLocations.TryGetValue(bottomShelfPanel, out Point originalLocation);
+                    bottomShelfPanel.Location = originalLocation;
+                    int index = GetBottomShelfIndex(bottomShelfPanel);
+                    bottomShelfOccupancyStatus[index] = true;
+
+                    rightShelfOccupancyStatus[bottomShelfPanel.Name] = false;
+
+                    descriptionShelfLabelToRightShelfMap.Remove(bottomShelfPanel.Name);
+                }
+
+                //originalGeneratedOrder.Clear();
+                //correctOrderStructure.Clear();
+                books.Clear();
+
+                GenerateRandomListings();
+
+                btnReset.Enabled = false;
+                btnRestart.Enabled = false;
+            }
         }
 
         //-------------------------------------------------------------------------------------------//
 
         private void btnResults_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         //-------------------------------------------------------------------------------------------//
