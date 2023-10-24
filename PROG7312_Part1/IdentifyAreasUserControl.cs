@@ -17,6 +17,7 @@ namespace PROG7312_Part1
     {
         private IdentifyAreasHelperClass helper;
 
+        private int randomNumber;
         //-------------------------------------------------------------------------------------------//
         /// <summary>
         ///  Variables:
@@ -27,7 +28,7 @@ namespace PROG7312_Part1
         /// </summary>
         private int seconds = 0;
         private bool isTimerRunning = false;
-        private Panel selectedDescriptionPanel;
+        private Panel selectedPanel;
         private List<string> books = new List<string>();
 
         /// <summary>
@@ -102,7 +103,7 @@ namespace PROG7312_Part1
             helper.StoreRightShelfProperties(controls);*/
 
             Random random = new Random();
-            int randomNumber = random.Next(2); // Generates either 0 or 1
+            randomNumber = random.Next(2); // Generates either 0 or 1
 
             if (randomNumber == 0)
             {
@@ -160,16 +161,16 @@ namespace PROG7312_Part1
         {
             if (e.Button == MouseButtons.Left)
             {
-                selectedDescriptionPanel = sender as Panel;
+                selectedPanel = sender as Panel;
                 ControlExtension.Draggable(sender as Panel, true);
-                selectedDescriptionPanel.BringToFront();
+                selectedPanel.BringToFront();
                 SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             }
             if (e.Button == MouseButtons.Right)
             {
-                selectedDescriptionPanel = sender as Panel;
+                selectedPanel = sender as Panel;
                 ControlExtension.Draggable(sender as Panel, true);
-                selectedDescriptionPanel.BringToFront();
+                selectedPanel.BringToFront();
                 this.DoubleBuffered = true;
                 SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             }
@@ -185,18 +186,18 @@ namespace PROG7312_Part1
         /// <param name="e"></param>
         private void IdentifyAreasControl_MouseUp(object sender, MouseEventArgs e)
         {
-            if (selectedDescriptionPanel == null)
+            if (selectedPanel == null)
             {
                 return;
             }
 
             if (e.Button == MouseButtons.Left)
             {
-                DescriptionPanelLeftClick();
+                PanelLeftClick();
             }
             else if (e.Button == MouseButtons.Right)
             {
-                DescriptionPanelRightClick();
+                PanelRightClick();
             }
         }
 
@@ -210,9 +211,9 @@ namespace PROG7312_Part1
         /// The book recieves a the top shelf panel location
         /// The book and the top shelf panel are mapped together.
         /// </summary>
-        private void DescriptionPanelLeftClick()
+        private void PanelLeftClick()
         {
-            Panel closestRightShelf = FindClosestRightShelf(selectedDescriptionPanel);
+            Panel closestRightShelf = FindClosestTopShelf(selectedPanel);
 
             if (closestRightShelf == null)
             {
@@ -226,21 +227,21 @@ namespace PROG7312_Part1
                 return;
             }
 
-            if (selectedDescriptionPanel.Tag is Panel prevTopShelf)
+            if (selectedPanel.Tag is Panel prevTopShelf)
             {
                 string prevTopShelfName = prevTopShelf.Name;
                 rightShelfOccupancyStatus[prevTopShelfName] = false;
             }
 
-            int newX = closestRightShelf.Left + (closestRightShelf.Width - selectedDescriptionPanel.Width) / 2;
-            int newY = closestRightShelf.Top + (closestRightShelf.Height - selectedDescriptionPanel.Height) / 2;
-            selectedDescriptionPanel.Location = new Point(newX, newY);
+            int newX = closestRightShelf.Left + (closestRightShelf.Width - selectedPanel.Width) / 2;
+            int newY = closestRightShelf.Top + (closestRightShelf.Height - selectedPanel.Height) / 2;
+            selectedPanel.Location = new Point(newX, newY);
 
             rightShelfOccupancyStatus[topShelfName] = true;
 
-            selectedDescriptionPanel.Tag = closestRightShelf;
+            selectedPanel.Tag = closestRightShelf;
 
-            descriptionShelfLabelToRightShelfMap[closestRightShelf.Name] = selectedDescriptionPanel.Name;
+            descriptionShelfLabelToRightShelfMap[closestRightShelf.Name] = selectedPanel.Name;
         }
         //-------------------------------------------------------------------------------------------//
 
@@ -251,18 +252,18 @@ namespace PROG7312_Part1
         /// generated panel. The top panel without a book will become unoccupied.
         /// The book recieves it's original location.
         /// </summary>
-        private void DescriptionPanelRightClick()
+        private void PanelRightClick()
         {
-            if (!originalDescriptionShelfLocations.TryGetValue(selectedDescriptionPanel, out Point originalLocation))
+            if (!originalDescriptionShelfLocations.TryGetValue(selectedPanel, out Point originalLocation))
             {
                 return;
             }
 
-            selectedDescriptionPanel.Location = originalLocation;
-            int index = GetBottomShelfIndex(selectedDescriptionPanel);
+            selectedPanel.Location = originalLocation;
+            int index = GetBottomShelfIndex(selectedPanel);
             bottomShelfOccupancyStatus[index] = true;
 
-            if (!(selectedDescriptionPanel.Tag is Panel prevTopShelf))
+            if (!(selectedPanel.Tag is Panel prevTopShelf))
             {
                 return;
             }
@@ -272,7 +273,7 @@ namespace PROG7312_Part1
 
             descriptionShelfLabelToRightShelfMap.Remove(prevTopShelfName);
 
-            selectedDescriptionPanel.Tag = null;
+            selectedPanel.Tag = null;
         }
         //-------------------------------------------------------------------------------------------//
 
@@ -283,9 +284,9 @@ namespace PROG7312_Part1
         /// </summary>
         /// <param name="topShelfName"></param>
         /// <returns></returns>
-        private bool IsTopShelfOccupied(string rightShelfName)
+        private bool IsTopShelfOccupied(string topShelfName)
         {
-            return rightShelfOccupancyStatus.ContainsKey(rightShelfName) && rightShelfOccupancyStatus[rightShelfName];
+            return rightShelfOccupancyStatus.ContainsKey(topShelfName) && rightShelfOccupancyStatus[topShelfName];
         }
         //-------------------------------------------------------------------------------------------//
 
@@ -296,11 +297,20 @@ namespace PROG7312_Part1
         /// </summary>
         /// <param name="bottomShelfPanel">closest avaliable top shelf panel</param>
         /// <returns></returns>
-        private Panel FindClosestRightShelf(Panel descriptionShelfPanel)
+        private Panel FindClosestTopShelf(Panel bottomShelfPanel)
         {
-            Point bottomCenter = Class1.CalculateCenter(descriptionShelfPanel);
+            Point bottomCenter = Class1.CalculateCenter(bottomShelfPanel);
+            _ = new Panel();
+            Panel closestTopShelf;
+            if (randomNumber == 0)
+            {
+                closestTopShelf = FindClosestUnoccupiedRightShelf(bottomCenter);
+            }
+            else
+            {
+                closestTopShelf = FindClosestUnoccupiedLeftShelf(bottomCenter);
+            }
 
-            Panel closestTopShelf = FindClosestUnoccupiedRightShelf(bottomCenter);
 
             return closestTopShelf;
         }
@@ -325,7 +335,7 @@ namespace PROG7312_Part1
                     continue;
 
                 string rightShelfName = rightShelfPanel.Name;
-                int index = GetRightShelfIndex(rightShelfPanel);
+                int index = GetTopShelfIndex(rightShelfPanel);
 
                 if (rightShelfOccupancyStatus.ContainsKey(rightShelfName) && rightShelfOccupancyStatus[rightShelfName])
                     continue;
@@ -343,6 +353,36 @@ namespace PROG7312_Part1
 
             return closestTopShelf;
         }
+
+        private Panel FindClosestUnoccupiedLeftShelf(Point bottomCenter)
+        {
+            Panel closestTopShelf = null;
+            double closestDistance = double.MaxValue;
+
+            foreach (Control control in Controls)
+            {
+                if (!(control is Panel leftShelfPanel) || !leftShelfPanel.Name.StartsWith("leftShelf"))
+                    continue;
+
+                string leftShelfName = leftShelfPanel.Name;
+                int index = GetTopShelfIndex(leftShelfPanel);
+
+                if (rightShelfOccupancyStatus.ContainsKey(leftShelfName) && rightShelfOccupancyStatus[leftShelfName])
+                    continue;
+
+                Point topCenter = Class1.CalculateCenter(leftShelfPanel);
+
+                double distance = Class1.CalculateDistance(bottomCenter, topCenter);
+
+                if (distance < closestDistance)
+                {
+                    closestTopShelf = leftShelfPanel;
+                    closestDistance = distance;
+                }
+            }
+
+            return closestTopShelf;
+        }
         //-------------------------------------------------------------------------------------------//
 
         /// <summary>
@@ -350,9 +390,9 @@ namespace PROG7312_Part1
         /// </summary>
         /// <param name="topShelfPanel"></param>
         /// <returns></returns>
-        private int GetRightShelfIndex(Panel rightShelfPanel)
+        private int GetTopShelfIndex(Panel topShelfPanel)
         {
-            int index = int.Parse(Regex.Match(rightShelfPanel.Name, @"\d+").Value) - 1;
+            int index = int.Parse(Regex.Match(topShelfPanel.Name, @"\d+").Value) - 1;
             return index;
         }
         //-------------------------------------------------------------------------------------------//
@@ -362,9 +402,9 @@ namespace PROG7312_Part1
         /// </summary>
         /// <param name="bottomShelfPanel"></param>
         /// <returns></returns>
-        private int GetBottomShelfIndex(Panel descriptionShelfPanel)
+        private int GetBottomShelfIndex(Panel bottomShelfPanel)
         {
-            int index = int.Parse(Regex.Match(descriptionShelfPanel.Name, @"\d+").Value) - 1;
+            int index = int.Parse(Regex.Match(bottomShelfPanel.Name, @"\d+").Value) - 1;
             return index;
         }
         //-------------------------------------------------------------------------------------------//
@@ -396,6 +436,18 @@ namespace PROG7312_Part1
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            if (randomNumber == 0)
+            {
+                DescriptionGeneration();
+            }
+            else 
+            {
+                CallNumbersGeneration();
+            }
+        }
+
+        private void DescriptionGeneration() 
+        {
             btnStart.Enabled = false;
             btnRestart.Enabled = false;
 
@@ -422,9 +474,48 @@ namespace PROG7312_Part1
             }
         }
 
+        private void CallNumbersGeneration()
+        {
+            btnStart.Enabled = false;
+            btnRestart.Enabled = false;
+
+            foreach (Panel callingShelf in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("callingShelf")))
+            {
+                callingShelf.MouseDown -= IdentifyAreasControl_MouseDown;
+                callingShelf.MouseUp -= IdentifyAreasControl_MouseUp;
+            }
+
+            for (int i = 1; i <= books.Count; i++)
+            {
+                Panel callingShelf = Controls.Find($"callingShelf{i}", true).FirstOrDefault() as Panel;
+
+                callingShelf.MouseDown += IdentifyAreasControl_MouseDown;
+                callingShelf.MouseUp += IdentifyAreasControl_MouseUp;
+                callingShelf.Draggable(true);
+                callingShelf.BringToFront();
+            }
+
+            if (!isTimerRunning)
+            {
+                identifyAreas_timer.Start();
+                isTimerRunning = true;
+            }
+        }
         //-------------------------------------------------------------------------------------------//
 
         private void btnReset_Click(object sender, EventArgs e)
+        {
+            if (randomNumber == 0)
+            {
+                DescriptionGenerationReset();
+            }
+            else
+            {
+                CallingNumbersGenerationReset();
+            }
+        }
+
+        private void DescriptionGenerationReset() 
         {
             btnReset.Enabled = false;
             btnStart.Enabled = true;
@@ -464,6 +555,45 @@ namespace PROG7312_Part1
             }
         }
 
+        private void CallingNumbersGenerationReset() 
+        {
+            btnReset.Enabled = false;
+            btnStart.Enabled = true;
+
+            seconds = 0;
+
+            lblTimer.Text = "Timer: 0 seconds";
+
+            foreach (Panel callingNumberShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("callingShelf")))
+            {
+
+                ControlExtension.Draggable(callingNumberShelfPanel, false);
+
+                callingNumberShelfPanel.MouseDown -= IdentifyAreasControl_MouseDown;
+                callingNumberShelfPanel.MouseUp -= IdentifyAreasControl_MouseUp;
+
+                if (!originalDescriptionShelfLocations.TryGetValue(callingNumberShelfPanel, out Point originalLocation))
+                {
+                    continue;
+                }
+
+                callingNumberShelfPanel.Location = originalLocation;
+
+                int index = GetBottomShelfIndex(callingNumberShelfPanel);
+                bottomShelfOccupancyStatus[index] = true;
+
+                if (callingNumberShelfPanel.Tag is Panel prevTopShelf)
+                {
+                    string prevTopShelfName = prevTopShelf.Name;
+
+                    rightShelfOccupancyStatus[prevTopShelfName] = false;
+
+                    descriptionShelfLabelToRightShelfMap.Remove(prevTopShelfName);
+                }
+
+                callingNumberShelfPanel.Tag = null;
+            }
+        }
         //-------------------------------------------------------------------------------------------//
 
         private void btnRestart_Click(object sender, EventArgs e)
