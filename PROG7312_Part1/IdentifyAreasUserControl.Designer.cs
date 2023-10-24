@@ -62,15 +62,17 @@
             this.callingShelf6 = new System.Windows.Forms.Panel();
             this.callingShelf4 = new System.Windows.Forms.Panel();
             this.callingShelf7 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnHelp
             // 
             this.btnHelp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHelp.Location = new System.Drawing.Point(830, 73);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHelp.Location = new System.Drawing.Point(1107, 90);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(138, 38);
+            this.btnHelp.Size = new System.Drawing.Size(184, 47);
             this.btnHelp.TabIndex = 38;
             this.btnHelp.Text = "Help?";
             this.btnHelp.UseVisualStyleBackColor = true;
@@ -80,9 +82,10 @@
             // 
             this.btnMainMenu.BackColor = System.Drawing.Color.Transparent;
             this.btnMainMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMainMenu.Location = new System.Drawing.Point(830, 14);
+            this.btnMainMenu.Location = new System.Drawing.Point(1107, 17);
+            this.btnMainMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMainMenu.Name = "btnMainMenu";
-            this.btnMainMenu.Size = new System.Drawing.Size(138, 38);
+            this.btnMainMenu.Size = new System.Drawing.Size(184, 47);
             this.btnMainMenu.TabIndex = 37;
             this.btnMainMenu.Text = "Main Menu";
             this.btnMainMenu.UseVisualStyleBackColor = false;
@@ -91,9 +94,10 @@
             // btnResults
             // 
             this.btnResults.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnResults.Location = new System.Drawing.Point(15, 260);
+            this.btnResults.Location = new System.Drawing.Point(20, 320);
+            this.btnResults.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnResults.Name = "btnResults";
-            this.btnResults.Size = new System.Drawing.Size(138, 38);
+            this.btnResults.Size = new System.Drawing.Size(184, 47);
             this.btnResults.TabIndex = 36;
             this.btnResults.Text = "View Results";
             this.btnResults.UseVisualStyleBackColor = true;
@@ -103,9 +107,10 @@
             // 
             this.btnRestart.BackColor = System.Drawing.Color.Transparent;
             this.btnRestart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestart.Location = new System.Drawing.Point(15, 200);
+            this.btnRestart.Location = new System.Drawing.Point(20, 246);
+            this.btnRestart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(138, 38);
+            this.btnRestart.Size = new System.Drawing.Size(184, 47);
             this.btnRestart.TabIndex = 35;
             this.btnRestart.Text = "Restart?";
             this.btnRestart.UseVisualStyleBackColor = false;
@@ -115,9 +120,10 @@
             // 
             this.btnStart.BackColor = System.Drawing.Color.Lime;
             this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStart.Location = new System.Drawing.Point(15, 14);
+            this.btnStart.Location = new System.Drawing.Point(20, 17);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(138, 38);
+            this.btnStart.Size = new System.Drawing.Size(184, 47);
             this.btnStart.TabIndex = 34;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = false;
@@ -128,9 +134,10 @@
             this.lblTimer.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimer.ForeColor = System.Drawing.Color.Lime;
-            this.lblTimer.Location = new System.Drawing.Point(209, 14);
+            this.lblTimer.Location = new System.Drawing.Point(279, 17);
+            this.lblTimer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(257, 38);
+            this.lblTimer.Size = new System.Drawing.Size(343, 47);
             this.lblTimer.TabIndex = 33;
             this.lblTimer.Text = "label1";
             this.lblTimer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -138,9 +145,10 @@
             // btnReset
             // 
             this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReset.Location = new System.Drawing.Point(15, 137);
+            this.btnReset.Location = new System.Drawing.Point(20, 169);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(138, 38);
+            this.btnReset.Size = new System.Drawing.Size(184, 47);
             this.btnReset.TabIndex = 32;
             this.btnReset.Text = "Reset Columns";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -150,9 +158,10 @@
             // 
             this.btnPause.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnPause.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPause.Location = new System.Drawing.Point(15, 73);
+            this.btnPause.Location = new System.Drawing.Point(20, 90);
+            this.btnPause.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(138, 38);
+            this.btnPause.Size = new System.Drawing.Size(184, 47);
             this.btnPause.TabIndex = 43;
             this.btnPause.Text = "Pause";
             this.btnPause.UseVisualStyleBackColor = false;
@@ -162,9 +171,10 @@
             this.lblDescription.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescription.ForeColor = System.Drawing.Color.Blue;
-            this.lblDescription.Location = new System.Drawing.Point(474, 389);
+            this.lblDescription.Location = new System.Drawing.Point(632, 479);
+            this.lblDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(419, 38);
+            this.lblDescription.Size = new System.Drawing.Size(559, 47);
             this.lblDescription.TabIndex = 44;
             this.lblDescription.Text = "Descriptions";
             this.lblDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -178,72 +188,80 @@
             // 
             this.leftShelf1.BackColor = System.Drawing.Color.Transparent;
             this.leftShelf1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.leftShelf1.Location = new System.Drawing.Point(406, 73);
+            this.leftShelf1.Location = new System.Drawing.Point(542, 145);
+            this.leftShelf1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.leftShelf1.Name = "leftShelf1";
-            this.leftShelf1.Size = new System.Drawing.Size(60, 40);
+            this.leftShelf1.Size = new System.Drawing.Size(80, 49);
             this.leftShelf1.TabIndex = 45;
             // 
             // leftShelf2
             // 
             this.leftShelf2.BackColor = System.Drawing.Color.Transparent;
             this.leftShelf2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.leftShelf2.Location = new System.Drawing.Point(406, 137);
+            this.leftShelf2.Location = new System.Drawing.Point(542, 224);
+            this.leftShelf2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.leftShelf2.Name = "leftShelf2";
-            this.leftShelf2.Size = new System.Drawing.Size(60, 40);
+            this.leftShelf2.Size = new System.Drawing.Size(80, 49);
             this.leftShelf2.TabIndex = 46;
             // 
             // leftShelf3
             // 
             this.leftShelf3.BackColor = System.Drawing.Color.Transparent;
             this.leftShelf3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.leftShelf3.Location = new System.Drawing.Point(406, 210);
+            this.leftShelf3.Location = new System.Drawing.Point(542, 313);
+            this.leftShelf3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.leftShelf3.Name = "leftShelf3";
-            this.leftShelf3.Size = new System.Drawing.Size(60, 40);
+            this.leftShelf3.Size = new System.Drawing.Size(80, 49);
             this.leftShelf3.TabIndex = 47;
             // 
             // leftShelf4
             // 
             this.leftShelf4.BackColor = System.Drawing.Color.Transparent;
             this.leftShelf4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.leftShelf4.Location = new System.Drawing.Point(406, 279);
+            this.leftShelf4.Location = new System.Drawing.Point(542, 398);
+            this.leftShelf4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.leftShelf4.Name = "leftShelf4";
-            this.leftShelf4.Size = new System.Drawing.Size(60, 40);
+            this.leftShelf4.Size = new System.Drawing.Size(80, 49);
             this.leftShelf4.TabIndex = 48;
             // 
             // rightShelf1
             // 
             this.rightShelf1.BackColor = System.Drawing.Color.Transparent;
             this.rightShelf1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rightShelf1.Location = new System.Drawing.Point(479, 73);
+            this.rightShelf1.Location = new System.Drawing.Point(640, 145);
+            this.rightShelf1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rightShelf1.Name = "rightShelf1";
-            this.rightShelf1.Size = new System.Drawing.Size(200, 40);
+            this.rightShelf1.Size = new System.Drawing.Size(267, 49);
             this.rightShelf1.TabIndex = 49;
             // 
             // rightShelf2
             // 
             this.rightShelf2.BackColor = System.Drawing.Color.Transparent;
             this.rightShelf2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rightShelf2.Location = new System.Drawing.Point(479, 137);
+            this.rightShelf2.Location = new System.Drawing.Point(640, 224);
+            this.rightShelf2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rightShelf2.Name = "rightShelf2";
-            this.rightShelf2.Size = new System.Drawing.Size(200, 40);
+            this.rightShelf2.Size = new System.Drawing.Size(267, 49);
             this.rightShelf2.TabIndex = 50;
             // 
             // rightShelf3
             // 
             this.rightShelf3.BackColor = System.Drawing.Color.Transparent;
             this.rightShelf3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rightShelf3.Location = new System.Drawing.Point(479, 210);
+            this.rightShelf3.Location = new System.Drawing.Point(640, 313);
+            this.rightShelf3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rightShelf3.Name = "rightShelf3";
-            this.rightShelf3.Size = new System.Drawing.Size(200, 40);
+            this.rightShelf3.Size = new System.Drawing.Size(267, 49);
             this.rightShelf3.TabIndex = 51;
             // 
             // rightShelf4
             // 
             this.rightShelf4.BackColor = System.Drawing.Color.Transparent;
             this.rightShelf4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rightShelf4.Location = new System.Drawing.Point(479, 279);
+            this.rightShelf4.Location = new System.Drawing.Point(640, 398);
+            this.rightShelf4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rightShelf4.Name = "rightShelf4";
-            this.rightShelf4.Size = new System.Drawing.Size(200, 40);
+            this.rightShelf4.Size = new System.Drawing.Size(267, 49);
             this.rightShelf4.TabIndex = 52;
             // 
             // descriptionShelf1
@@ -251,63 +269,70 @@
             this.descriptionShelf1.AllowDrop = true;
             this.descriptionShelf1.BackColor = System.Drawing.Color.Transparent;
             this.descriptionShelf1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.descriptionShelf1.Location = new System.Drawing.Point(474, 450);
+            this.descriptionShelf1.Location = new System.Drawing.Point(632, 554);
+            this.descriptionShelf1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.descriptionShelf1.Name = "descriptionShelf1";
-            this.descriptionShelf1.Size = new System.Drawing.Size(200, 40);
+            this.descriptionShelf1.Size = new System.Drawing.Size(267, 49);
             this.descriptionShelf1.TabIndex = 53;
             // 
             // descriptionShelf2
             // 
             this.descriptionShelf2.BackColor = System.Drawing.Color.Transparent;
             this.descriptionShelf2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.descriptionShelf2.Location = new System.Drawing.Point(693, 450);
+            this.descriptionShelf2.Location = new System.Drawing.Point(924, 554);
+            this.descriptionShelf2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.descriptionShelf2.Name = "descriptionShelf2";
-            this.descriptionShelf2.Size = new System.Drawing.Size(200, 40);
+            this.descriptionShelf2.Size = new System.Drawing.Size(267, 49);
             this.descriptionShelf2.TabIndex = 54;
             // 
             // descriptionShelf3
             // 
             this.descriptionShelf3.BackColor = System.Drawing.Color.Transparent;
             this.descriptionShelf3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.descriptionShelf3.Location = new System.Drawing.Point(474, 505);
+            this.descriptionShelf3.Location = new System.Drawing.Point(632, 622);
+            this.descriptionShelf3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.descriptionShelf3.Name = "descriptionShelf3";
-            this.descriptionShelf3.Size = new System.Drawing.Size(200, 40);
+            this.descriptionShelf3.Size = new System.Drawing.Size(267, 49);
             this.descriptionShelf3.TabIndex = 55;
             // 
             // descriptionShelf4
             // 
             this.descriptionShelf4.BackColor = System.Drawing.Color.Transparent;
             this.descriptionShelf4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.descriptionShelf4.Location = new System.Drawing.Point(693, 505);
+            this.descriptionShelf4.Location = new System.Drawing.Point(924, 622);
+            this.descriptionShelf4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.descriptionShelf4.Name = "descriptionShelf4";
-            this.descriptionShelf4.Size = new System.Drawing.Size(200, 40);
+            this.descriptionShelf4.Size = new System.Drawing.Size(267, 49);
             this.descriptionShelf4.TabIndex = 56;
             // 
             // descriptionShelf5
             // 
             this.descriptionShelf5.BackColor = System.Drawing.Color.Transparent;
             this.descriptionShelf5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.descriptionShelf5.Location = new System.Drawing.Point(474, 560);
+            this.descriptionShelf5.Location = new System.Drawing.Point(632, 689);
+            this.descriptionShelf5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.descriptionShelf5.Name = "descriptionShelf5";
-            this.descriptionShelf5.Size = new System.Drawing.Size(200, 40);
+            this.descriptionShelf5.Size = new System.Drawing.Size(267, 49);
             this.descriptionShelf5.TabIndex = 57;
             // 
             // descriptionShelf6
             // 
             this.descriptionShelf6.BackColor = System.Drawing.Color.Transparent;
             this.descriptionShelf6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.descriptionShelf6.Location = new System.Drawing.Point(695, 560);
+            this.descriptionShelf6.Location = new System.Drawing.Point(927, 689);
+            this.descriptionShelf6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.descriptionShelf6.Name = "descriptionShelf6";
-            this.descriptionShelf6.Size = new System.Drawing.Size(200, 40);
+            this.descriptionShelf6.Size = new System.Drawing.Size(267, 49);
             this.descriptionShelf6.TabIndex = 58;
             // 
             // descriptionShelf7
             // 
             this.descriptionShelf7.BackColor = System.Drawing.Color.Transparent;
             this.descriptionShelf7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.descriptionShelf7.Location = new System.Drawing.Point(474, 616);
+            this.descriptionShelf7.Location = new System.Drawing.Point(632, 758);
+            this.descriptionShelf7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.descriptionShelf7.Name = "descriptionShelf7";
-            this.descriptionShelf7.Size = new System.Drawing.Size(200, 40);
+            this.descriptionShelf7.Size = new System.Drawing.Size(267, 49);
             this.descriptionShelf7.TabIndex = 59;
             // 
             // lblCallingNumbers
@@ -315,9 +340,10 @@
             this.lblCallingNumbers.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblCallingNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCallingNumbers.ForeColor = System.Drawing.Color.Blue;
-            this.lblCallingNumbers.Location = new System.Drawing.Point(172, 389);
+            this.lblCallingNumbers.Location = new System.Drawing.Point(229, 479);
+            this.lblCallingNumbers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCallingNumbers.Name = "lblCallingNumbers";
-            this.lblCallingNumbers.Size = new System.Drawing.Size(294, 38);
+            this.lblCallingNumbers.Size = new System.Drawing.Size(392, 47);
             this.lblCallingNumbers.TabIndex = 60;
             this.lblCallingNumbers.Text = "Calling Numbers";
             this.lblCallingNumbers.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -326,71 +352,106 @@
             // 
             this.callingShelf1.BackColor = System.Drawing.Color.Transparent;
             this.callingShelf1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.callingShelf1.Location = new System.Drawing.Point(406, 450);
+            this.callingShelf1.Location = new System.Drawing.Point(541, 554);
+            this.callingShelf1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.callingShelf1.Name = "callingShelf1";
-            this.callingShelf1.Size = new System.Drawing.Size(60, 40);
+            this.callingShelf1.Size = new System.Drawing.Size(80, 49);
             this.callingShelf1.TabIndex = 46;
             // 
             // callingShelf2
             // 
             this.callingShelf2.BackColor = System.Drawing.Color.Transparent;
             this.callingShelf2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.callingShelf2.Location = new System.Drawing.Point(329, 450);
+            this.callingShelf2.Location = new System.Drawing.Point(439, 554);
+            this.callingShelf2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.callingShelf2.Name = "callingShelf2";
-            this.callingShelf2.Size = new System.Drawing.Size(60, 40);
+            this.callingShelf2.Size = new System.Drawing.Size(80, 49);
             this.callingShelf2.TabIndex = 47;
             // 
             // callingShelf3
             // 
             this.callingShelf3.BackColor = System.Drawing.Color.Transparent;
             this.callingShelf3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.callingShelf3.Location = new System.Drawing.Point(250, 450);
+            this.callingShelf3.Location = new System.Drawing.Point(333, 554);
+            this.callingShelf3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.callingShelf3.Name = "callingShelf3";
-            this.callingShelf3.Size = new System.Drawing.Size(60, 40);
+            this.callingShelf3.Size = new System.Drawing.Size(80, 49);
             this.callingShelf3.TabIndex = 47;
             // 
             // callingShelf5
             // 
             this.callingShelf5.BackColor = System.Drawing.Color.Transparent;
             this.callingShelf5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.callingShelf5.Location = new System.Drawing.Point(406, 505);
+            this.callingShelf5.Location = new System.Drawing.Point(541, 622);
+            this.callingShelf5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.callingShelf5.Name = "callingShelf5";
-            this.callingShelf5.Size = new System.Drawing.Size(60, 40);
+            this.callingShelf5.Size = new System.Drawing.Size(80, 49);
             this.callingShelf5.TabIndex = 47;
             // 
             // callingShelf6
             // 
             this.callingShelf6.BackColor = System.Drawing.Color.Transparent;
             this.callingShelf6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.callingShelf6.Location = new System.Drawing.Point(329, 505);
+            this.callingShelf6.Location = new System.Drawing.Point(439, 622);
+            this.callingShelf6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.callingShelf6.Name = "callingShelf6";
-            this.callingShelf6.Size = new System.Drawing.Size(60, 40);
+            this.callingShelf6.Size = new System.Drawing.Size(80, 49);
             this.callingShelf6.TabIndex = 47;
             // 
             // callingShelf4
             // 
             this.callingShelf4.BackColor = System.Drawing.Color.Transparent;
             this.callingShelf4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.callingShelf4.Location = new System.Drawing.Point(172, 450);
+            this.callingShelf4.Location = new System.Drawing.Point(229, 554);
+            this.callingShelf4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.callingShelf4.Name = "callingShelf4";
-            this.callingShelf4.Size = new System.Drawing.Size(60, 40);
+            this.callingShelf4.Size = new System.Drawing.Size(80, 49);
             this.callingShelf4.TabIndex = 47;
             // 
             // callingShelf7
             // 
             this.callingShelf7.BackColor = System.Drawing.Color.Transparent;
             this.callingShelf7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.callingShelf7.Location = new System.Drawing.Point(250, 505);
+            this.callingShelf7.Location = new System.Drawing.Point(333, 622);
+            this.callingShelf7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.callingShelf7.Name = "callingShelf7";
-            this.callingShelf7.Size = new System.Drawing.Size(60, 40);
+            this.callingShelf7.Size = new System.Drawing.Size(80, 49);
             this.callingShelf7.TabIndex = 47;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Blue;
+            this.label1.Location = new System.Drawing.Point(390, 94);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(232, 47);
+            this.label1.TabIndex = 61;
+            this.label1.Text = "Calling Numbers";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Blue;
+            this.label2.Location = new System.Drawing.Point(635, 94);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(272, 47);
+            this.label2.TabIndex = 62;
+            this.label2.Text = "Descriptions";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // IdentifyAreasUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PROG7312_Part1.Properties.Resources.part2background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.callingShelf7);
             this.Controls.Add(this.callingShelf4);
             this.Controls.Add(this.callingShelf6);
@@ -424,8 +485,9 @@
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.btnReset);
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "IdentifyAreasUserControl";
-            this.Size = new System.Drawing.Size(1000, 686);
+            this.Size = new System.Drawing.Size(1333, 844);
             this.Load += new System.EventHandler(this.IdentifyAreasUserControl_Load);
             this.ResumeLayout(false);
 
@@ -466,5 +528,7 @@
         private System.Windows.Forms.Panel callingShelf6;
         private System.Windows.Forms.Panel callingShelf4;
         private System.Windows.Forms.Panel callingShelf7;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

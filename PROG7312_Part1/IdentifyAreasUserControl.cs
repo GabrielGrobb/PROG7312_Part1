@@ -107,6 +107,7 @@ namespace PROG7312_Part1
 
             if (randomNumber == 0)
             {
+                lblCallingNumbers.Visible = false;
                 RandomlySelectItems();
                 helper.CreateLabelsForLeftShelf(controls);
                 helper.CreateLabelsForDescriptionShelf(controls);
@@ -114,16 +115,13 @@ namespace PROG7312_Part1
             }
             else
             {
+                lblDescription.Visible = false;
                 RandomlySelectItems();
                 helper.CreateLabelsForRightShelf(controls);
                 helper.CreateLabelsForCallingNumberShelf(controls);
                 helper.StoreLeftShelfProperties(controls);
             }
 
-        }
-        private void RandomlyGenerateAndCallMethods(Control.ControlCollection controls)
-        {
-            
         }
         //-------------------------------------------------------------------------------------------//
         // Method to randomly select 7 key-value pairs
