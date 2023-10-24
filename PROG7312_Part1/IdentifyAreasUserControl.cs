@@ -15,6 +15,8 @@ namespace PROG7312_Part1
 {
     public partial class IdentifyAreasUserControl : UserControl
     {
+        private IdentifyAreasHelperClass helper;
+
         //-------------------------------------------------------------------------------------------//
         /// <summary>
         ///  Variables:
@@ -67,13 +69,14 @@ namespace PROG7312_Part1
         public IdentifyAreasUserControl()
         {
             InitializeComponent();
+            
         }
 
         //-------------------------------------------------------------------------------------------//
 
         private void IdentifyAreasUserControl_Load(object sender, EventArgs e)
         {
-            GenerateRandomListings();
+            GenerateRandomListings(Controls);
 
             btnReset.Enabled = false;
             btnRestart.Enabled = false;
@@ -82,16 +85,45 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
-        private void GenerateRandomListings()
+        private void GenerateRandomListings(Control.ControlCollection controls)
         {
-            RandomlySelectItems();
-            CreateLabelsForLeftShelf();
-            CreateLabelsForDescriptionShelf();
+            var helper = new IdentifyAreasHelperClass(
+                randomlyChosencallNumberDescriptions,
+                leftShelfGeneratedOrder,
+                descriptionShelfGeneratedOrder,
+                originalDescriptionShelfLocations,
+                originalRightShelfLocations,
+                rightShelfOccupancyStatus,
+                books);
 
-            StoreRightShlfProperties();
+            /*RandomlySelectItems();
+            helper.CreateLabelsForLeftShelf(controls);
+            helper.CreateLabelsForDescriptionShelf(controls);
+            helper.StoreRightShelfProperties(controls);*/
+
+            Random random = new Random();
+            int randomNumber = random.Next(2); // Generates either 0 or 1
+
+            if (randomNumber == 0)
+            {
+                RandomlySelectItems();
+                helper.CreateLabelsForLeftShelf(controls);
+                helper.CreateLabelsForDescriptionShelf(controls);
+                helper.StoreRightShelfProperties(controls);
+            }
+            else
+            {
+                RandomlySelectItems();
+                helper.CreateLabelsForRightShelf(controls);
+                helper.CreateLabelsForCallingNumberShelf(controls);
+                helper.StoreLeftShelfProperties(controls);
+            }
 
         }
-
+        private void RandomlyGenerateAndCallMethods(Control.ControlCollection controls)
+        {
+            
+        }
         //-------------------------------------------------------------------------------------------//
         // Method to randomly select 7 key-value pairs
         private void RandomlySelectItems()
@@ -112,102 +144,6 @@ namespace PROG7312_Part1
             for (int i = 0; i < 7; i++)
             {
                 randomlyChosencallNumberDescriptions.Add(items[i].Key, items[i].Value);
-            }
-        }
-
-        //-------------------------------------------------------------------------------------------//
-
-        private void CreateLabelsForLeftShelf()
-        {
-            List<string> callNumbers = randomlyChosencallNumberDescriptions.Keys.ToList();
-            Random random = new Random();
-
-            for (int i = 1; i < 5; i++)
-            {
-                int randomIndex = random.Next(callNumbers.Count);
-                string callNumber = callNumbers[randomIndex];
-                callNumbers.RemoveAt(randomIndex);
-
-                Panel leftShelf = Controls.Find($"leftShelf{i}", true).FirstOrDefault() as Panel;
-
-                leftShelf.BackColor = Color.Silver;
-
-                Label leftShelfLabel = new Label();
-                leftShelfLabel.Text = callNumber;
-                leftShelfLabel.TextAlign = ContentAlignment.MiddleCenter;
-                leftShelfLabel.Size = new Size(60, 40);
-
-                leftShelfLabel.Dock = DockStyle.Bottom;
-                leftShelfLabel.BorderStyle = BorderStyle.FixedSingle;
-                leftShelfLabel.BackColor = Color.Orange;
-                leftShelfLabel.AutoSize = false;
-
-                leftShelf.Controls.Add(leftShelfLabel);
-
-                leftShelfGeneratedOrder.Add(leftShelf.Name, leftShelfLabel.Text);
-            }
-        }
-
-        //-------------------------------------------------------------------------------------------//
-
-        private void CreateLabelsForDescriptionShelf()
-        {
-            List<string> descriptionTexts = randomlyChosencallNumberDescriptions.Values.ToList();
-            Random random = new Random();
-
-            for (int i = 1; i <= 7; i++)
-            {
-                
-                int randomIndex = random.Next(descriptionTexts.Count);
-                string descriptionText = descriptionTexts[randomIndex];
-                descriptionTexts.RemoveAt(randomIndex);
-
-                Panel descriptionShelf = Controls.Find($"descriptionShelf{i}", true).FirstOrDefault() as Panel;
-
-                originalDescriptionShelfLocations[descriptionShelf] = descriptionShelf.Location;
-
-                descriptionShelf.BackColor = Color.Silver;
-
-                Label descriptionShelfLabel = new Label();
-                descriptionShelfLabel.Text = descriptionText;
-                descriptionShelfLabel.TextAlign = ContentAlignment.MiddleCenter;
-                descriptionShelfLabel.Size = new Size(60, 40);
-
-                descriptionShelfLabel.Dock = DockStyle.Bottom;
-                descriptionShelfLabel.BorderStyle = BorderStyle.FixedSingle;
-                descriptionShelfLabel.BackColor = Color.Orange;
-                descriptionShelfLabel.AutoSize = false;
-                descriptionShelfLabel.Enabled = false;
-
-                books.Add(descriptionShelfLabel.Text);
-
-                descriptionShelf.Controls.Add(descriptionShelfLabel);
-
-                descriptionShelfGeneratedOrder.Add(descriptionShelf.Name, descriptionShelfLabel.Text);
-            }
-        }
-
-        //-------------------------------------------------------------------------------------------//
-
-        /// <summary>
-        /// Used ChatGPT.
-        /// This method iterates through all the top shelves with the
-        /// names starting with topShelf followed by a integer.
-        /// The properties are added to the corresponding 
-        /// dictionaries.
-        /// </summary>
-        private void StoreRightShlfProperties()
-        {
-            for (int i = 1; i <= 4; i++)
-            {
-                Panel rightShelfPanel = Controls.Find($"rightShelf{i}", true).FirstOrDefault() as Panel;
-
-                if (rightShelfPanel != null)
-                {
-                    originalRightShelfLocations[$"rightShelf{i}"] = rightShelfPanel.Location;
-
-                    rightShelfOccupancyStatus[$"rightShelf{i}"] = false;
-                }
             }
         }
 
@@ -262,43 +198,6 @@ namespace PROG7312_Part1
             {
                 DescriptionPanelRightClick();
             }
-
-            // Check if all values in the rightShelfOccupancyStatus dictionary are true
-            /*bool allRightShelfOccupied = rightShelfOccupancyStatus.All(kvp => kvp.Value);
-
-            if (allRightShelfOccupied)
-            {
-                // Perform validation based on correctOrderStructure
-                int score = 0;
-
-                foreach (var entry in correctOrderStructure)
-                {
-                    string rightShelfPanelName = entry.Key;
-                    string expectedCallNumber = entry.Value.Key;
-                    string expectedDescription = entry.Value.Value;
-
-                    // Find the right shelf panel
-                    Panel rightShelfPanel = Controls.Find(rightShelfPanelName, true).FirstOrDefault() as Panel;
-
-                    // Find the corresponding description panel in the right shelf panel
-                    Panel descriptionPanelInRightShelf = rightShelfPanel.Controls.OfType<Panel>().FirstOrDefault();
-
-                    if (descriptionPanelInRightShelf != null)
-                    {
-                        string actualDescription = descriptionPanelInRightShelf.Controls.OfType<Label>().FirstOrDefault()?.Text;
-
-                        // Compare the actual description with the expected description
-                        if (actualDescription == expectedDescription)
-                        {
-                            score++; // Increment the score for a correct placement
-                        }
-                    }
-                }
-
-                // Display the score in a message box
-                MessageBox.Show($"Your Score: {score}/{correctOrderStructure.Count}");
-            }*/
-
         }
 
         //-------------------------------------------------------------------------------------------//
@@ -606,7 +505,7 @@ namespace PROG7312_Part1
                 //correctOrderStructure.Clear();
                 books.Clear();
 
-                GenerateRandomListings();
+                //GenerateRandomListings();
 
                 btnReset.Enabled = false;
                 btnRestart.Enabled = false;

@@ -85,6 +85,7 @@
     <Compile Include="IdentifyAreasForm.Designer.cs">
       <DependentUpon>IdentifyAreasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdentifyAreasHelperClass.cs" />
     <Compile Include="IdentifyAreasUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
