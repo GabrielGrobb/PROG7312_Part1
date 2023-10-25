@@ -41,32 +41,25 @@ namespace PROG7312_Part1
 
         Dictionary<string, string> callNumberDescriptions = new Dictionary<string, string>
         {
-            { "000", "Generalities" },
-            { "100", "Philosophy" },
-            { "200", "Religion" },
-            { "300", "Social Sciences" },
-            { "400", "Language" },
-            { "500", "Natural Sciences and Mathematics" },
-            { "600", "Technology" },
-            { "700", "Arts and Recreation" },
-            { "800", "Literature" },
+            { "000", "Generalities" }, { "100", "Philosophy" }, { "200", "Religion" },
+            { "300", "Social Sciences" }, { "400", "Language" }, { "500", "Natural Sciences and Mathematics" },
+            { "600", "Technology" }, { "700", "Arts and Recreation" }, { "800", "Literature" },
             { "900", "History and Geography" }
         };
 
         //-------------------------------------------------------------------------------------------//
 
-
-
         private Dictionary<string, string> ExpectedOrder = new Dictionary<string, string>();
         private Dictionary<string, string> topShelfGeneratedOrder = new Dictionary<string, string>(); // Store the original order
         private Dictionary<string, string> bottomShelfGeneratedOrder = new Dictionary<string, string>(); // Store the original order
         private Dictionary<string, string> randomlyChosencallNumberDescriptions = new Dictionary<string, string>();
+        private Dictionary<string, string> randomlyChosenDescriptionsCallNumbers = new Dictionary<string, string>();
 
         private Dictionary<string, Point> originalTopShelfLocations = new Dictionary<string, Point>();
         private Dictionary<Panel, Point> originalBottomShelfLocations = new Dictionary<Panel, Point>();
 
-        private Dictionary<string, bool> rightShelfOccupancyStatus = new Dictionary<string, bool>();
-        private Dictionary<string, string> descriptionShelfLabelToRightShelfMap = new Dictionary<string, string>();
+        private Dictionary<string, bool> topShelfOccupancyStatus = new Dictionary<string, bool>();
+        private Dictionary<string, string> bottomShelfToTopShelfMap = new Dictionary<string, string>();
 
         //-------------------------------------------------------------------------------------------//
 
@@ -82,7 +75,6 @@ namespace PROG7312_Part1
             GenerateRandomListings(Controls);
 
             btnReset.Enabled = false;
-            btnRestart.Enabled = false;
             lblTimer.Text = "Timer: 0 seconds";
         }
 
@@ -90,45 +82,50 @@ namespace PROG7312_Part1
 
         private void GenerateRandomListings(Control.ControlCollection controls)
         {
-            var helper = new IdentifyAreasHelperClass(
-                randomlyChosencallNumberDescriptions,
-                topShelfGeneratedOrder,
-                bottomShelfGeneratedOrder,
-                originalBottomShelfLocations,
-                originalTopShelfLocations,
-                rightShelfOccupancyStatus,
-                books);
+            var helper = new IdentifyAreasHelperClass(randomlyChosencallNumberDescriptions, randomlyChosenDescriptionsCallNumbers,
+                topShelfGeneratedOrder, bottomShelfGeneratedOrder, originalBottomShelfLocations, originalTopShelfLocations,
+                topShelfOccupancyStatus, books);
 
-            //Random random = new Random();
-            //randomNumber = random.Next(2); // Generates either 0 or 1
+            Random random = new Random();
+            randomNumber = random.Next(2); // Generates either 0 or 1
 
-            //if (randomNumber == 0 || randomNumber == 1)
-            //{
+            if (randomNumber == 0)
+            {
                 lblCallingNumbers.Visible = false;
                 RandomlySelectItems();
-                helper.CreateLabelsForLeftShelf(controls);
+                helper.CreateLabelsForTopLeftShelf(controls);
                 helper.CreateLabelsForDescriptionShelf(controls);
-                helper.StoreRightShelfProperties(controls);
+                helper.StoreTopRightShelfProperties(controls);
 
                 foreach (var kvp in topShelfGeneratedOrder)
                 {
                     if (randomlyChosencallNumberDescriptions.TryGetValue(kvp.Value, out string description))
                     {
                         // Replace 'description' with the description panel name
-                        string descriptionPanelName = GetMatchingDescriptionPanelName(description);
-                        ExpectedOrder[$"rightShelf{kvp.Key.Substring(9)}"] = descriptionPanelName;
+                        string bottomPanelName = GetMatchingDescriptionPanelName(description);
+                        ExpectedOrder[$"rightShelf{kvp.Key.Substring(9)}"] = bottomPanelName;
                     }
                 }
 
-            //}
-            /*else
+            }
+            else
             {
                 lblDescription.Visible = false;
                 RandomlySelectItems();
                 helper.CreateLabelsForRightShelf(controls);
                 helper.CreateLabelsForCallingNumberShelf(controls);
                 helper.StoreLeftShelfProperties(controls);
-            }*/
+
+                foreach (var kvp in topShelfGeneratedOrder)
+                {
+                    if (randomlyChosenDescriptionsCallNumbers.TryGetValue(kvp.Value, out string callingNumber))
+                    {
+                        // Replace 'description' with the description panel name
+                        string bottomPanelName = GetMatchingDescriptionPanelName(callingNumber);
+                        ExpectedOrder[$"leftShelf{kvp.Key.Substring(10)}"] = bottomPanelName;
+                    }
+                }
+            }
         }
 
         //-------------------------------------------------------------------------------------------//
@@ -167,9 +164,8 @@ namespace PROG7312_Part1
             for (int i = 0; i < 7; i++)
             {
                 randomlyChosencallNumberDescriptions.Add(items[i].Key, items[i].Value);
+                randomlyChosenDescriptionsCallNumbers.Add(items[i].Value, items[i].Key);
             }
-
-            
         }
 
         //-------------------------------------------------------------------------------------------//
@@ -255,22 +251,23 @@ namespace PROG7312_Part1
             if (selectedPanel.Tag is Panel prevTopShelf)
             {
                 string prevTopShelfName = prevTopShelf.Name;
-                rightShelfOccupancyStatus[prevTopShelfName] = false;
+                topShelfOccupancyStatus[prevTopShelfName] = false;
             }
 
             int newX = closestRightShelf.Left + (closestRightShelf.Width - selectedPanel.Width) / 2;
             int newY = closestRightShelf.Top + (closestRightShelf.Height - selectedPanel.Height) / 2;
             selectedPanel.Location = new Point(newX, newY);
 
-            rightShelfOccupancyStatus[topShelfName] = true;
+            topShelfOccupancyStatus[topShelfName] = true;
 
             selectedPanel.Tag = closestRightShelf;
 
-            descriptionShelfLabelToRightShelfMap[closestRightShelf.Name] = selectedPanel.Name;
+            bottomShelfToTopShelfMap[closestRightShelf.Name] = selectedPanel.Name;
 
             if (AllRightShelfOccupied())
             {
                 CheckScoreAndShowMessageBox();
+                score = 0;
                 
             }
             else 
@@ -305,9 +302,9 @@ namespace PROG7312_Part1
             }
 
             string prevTopShelfName = prevTopShelf.Name;
-            rightShelfOccupancyStatus[prevTopShelfName] = false;
+            topShelfOccupancyStatus[prevTopShelfName] = false;
 
-            descriptionShelfLabelToRightShelfMap.Remove(prevTopShelfName);
+            bottomShelfToTopShelfMap.Remove(prevTopShelfName);
 
             selectedPanel.Tag = null;
         }
@@ -323,7 +320,7 @@ namespace PROG7312_Part1
         /// <returns></returns>
         private bool IsTopShelfOccupied(string topShelfName)
         {
-            return rightShelfOccupancyStatus.ContainsKey(topShelfName) && rightShelfOccupancyStatus[topShelfName];
+            return topShelfOccupancyStatus.ContainsKey(topShelfName) && topShelfOccupancyStatus[topShelfName];
         }
 
         //-------------------------------------------------------------------------------------------//
@@ -377,7 +374,7 @@ namespace PROG7312_Part1
                 string rightShelfName = rightShelfPanel.Name;
                 int index = GetTopShelfIndex(rightShelfPanel);
 
-                if (rightShelfOccupancyStatus.ContainsKey(rightShelfName) && rightShelfOccupancyStatus[rightShelfName])
+                if (topShelfOccupancyStatus.ContainsKey(rightShelfName) && topShelfOccupancyStatus[rightShelfName])
                     continue;
 
                 Point topCenter = Class1.CalculateCenter(rightShelfPanel);
@@ -409,7 +406,7 @@ namespace PROG7312_Part1
                 string leftShelfName = leftShelfPanel.Name;
                 int index = GetTopShelfIndex(leftShelfPanel);
 
-                if (rightShelfOccupancyStatus.ContainsKey(leftShelfName) && rightShelfOccupancyStatus[leftShelfName])
+                if (topShelfOccupancyStatus.ContainsKey(leftShelfName) && topShelfOccupancyStatus[leftShelfName])
                     continue;
 
                 Point topCenter = Class1.CalculateCenter(leftShelfPanel);
@@ -469,17 +466,34 @@ namespace PROG7312_Part1
         private bool AllRightShelfOccupied()
         {
             // Check if all boolean values in the dictionary are true
-            return rightShelfOccupancyStatus.Values.All(value => value);
+            return topShelfOccupancyStatus.Values.All(value => value);
         }
+
+        //-------------------------------------------------------------------------------------------//
 
         private void CheckScoreAndShowMessageBox()
         {
+            identifyAreas_timer.Stop();
+            btnReset.Enabled = true;
+            btnStart.Enabled = false;
+            btnPause.Enabled = false;
+            btnResume.Enabled = false;
+
+            if (randomNumber == 0)
+            {
+                RemoveDescriptionPanelControls();
+            }
+            else
+            {
+                RemoveCallingNumberPanelControls();
+            }
+
             foreach (var kvp in ExpectedOrder)
             {
-                if (descriptionShelfLabelToRightShelfMap.TryGetValue(kvp.Key, out string descriptionPanelName) &&
+                if (bottomShelfToTopShelfMap.TryGetValue(kvp.Key, out string descriptionPanelName) &&
                     ExpectedOrder.TryGetValue(kvp.Key, out string expectedDescription))
                 {
-                    if (descriptionShelfLabelToRightShelfMap.TryGetValue(kvp.Key, out string descriptionText))
+                    if (bottomShelfToTopShelfMap.TryGetValue(kvp.Key, out string descriptionText))
                     {
                         if (descriptionText == expectedDescription)
                         {
@@ -488,12 +502,35 @@ namespace PROG7312_Part1
                     }
                 }
             }
-
-
-
             // Display a message box with the score
-            MessageBox.Show($"Congratulations! Your score is {score} out of 4.", "Score", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
+            MessageBox.Show($"Your Score! Your score is {score} out of 4.", "Score", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        private void RemoveDescriptionPanelControls() 
+        {
+            foreach (Panel bottomShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("descriptionShelf")))
+            {
+                ControlExtension.Draggable(bottomShelfPanel, false);
+
+                bottomShelfPanel.MouseDown -= IdentifyAreasControl_MouseDown;
+                bottomShelfPanel.MouseUp -= IdentifyAreasControl_MouseUp;
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        private void RemoveCallingNumberPanelControls()
+        {
+            foreach (Panel bottomShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("callingShelf")))
+            {
+
+                ControlExtension.Draggable(bottomShelfPanel, false);
+
+                bottomShelfPanel.MouseDown -= IdentifyAreasControl_MouseDown;
+                bottomShelfPanel.MouseUp -= IdentifyAreasControl_MouseUp;
+            }
         }
 
         //-------------------------------------------------------------------------------------------//
@@ -512,6 +549,8 @@ namespace PROG7312_Part1
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            btnStart.Enabled = false;
+
             if (randomNumber == 0)
             {
                 DescriptionGeneration();
@@ -526,14 +565,7 @@ namespace PROG7312_Part1
 
         private void DescriptionGeneration() 
         {
-            btnStart.Enabled = false;
-            btnRestart.Enabled = false;
-
-            foreach (Panel descriptionShelf in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("descriptionShelf")))
-            {
-                descriptionShelf.MouseDown -= IdentifyAreasControl_MouseDown;
-                descriptionShelf.MouseUp -= IdentifyAreasControl_MouseUp;
-            }
+            RemoveDescriptionPanelControls();
 
             for (int i = 1; i <= books.Count; i++)
             {
@@ -556,14 +588,7 @@ namespace PROG7312_Part1
 
         private void CallNumbersGeneration()
         {
-            btnStart.Enabled = false;
-            btnRestart.Enabled = false;
-
-            foreach (Panel callingShelf in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("callingShelf")))
-            {
-                callingShelf.MouseDown -= IdentifyAreasControl_MouseDown;
-                callingShelf.MouseUp -= IdentifyAreasControl_MouseUp;
-            }
+            RemoveCallingNumberPanelControls();
 
             for (int i = 1; i <= books.Count; i++)
             {
@@ -586,6 +611,18 @@ namespace PROG7312_Part1
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            btnReset.Enabled = false;
+            btnStart.Enabled = true;
+            btnPause.Enabled = true;
+
+            if (isTimerRunning)
+            {
+                seconds = 0;
+                identifyAreas_timer.Stop();
+                isTimerRunning = false;
+                lblTimer.Text = "Timer: 0 seconds";
+            }
+
             if (randomNumber == 0)
             {
                 DescriptionGenerationReset();
@@ -600,13 +637,6 @@ namespace PROG7312_Part1
 
         private void DescriptionGenerationReset() 
         {
-            btnReset.Enabled = false;
-            btnStart.Enabled = true;
-
-            seconds = 0;
-
-            lblTimer.Text = "Timer: 0 seconds";
-
             foreach (Panel bottomShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("descriptionShelf")))
             {
 
@@ -629,9 +659,9 @@ namespace PROG7312_Part1
                 {
                     string prevTopShelfName = prevTopShelf.Name;
 
-                    rightShelfOccupancyStatus[prevTopShelfName] = false;
+                    topShelfOccupancyStatus[prevTopShelfName] = false;
 
-                    descriptionShelfLabelToRightShelfMap.Remove(prevTopShelfName);
+                    bottomShelfToTopShelfMap.Remove(prevTopShelfName);
                 }
 
                 bottomShelfPanel.Tag = null;
@@ -642,13 +672,6 @@ namespace PROG7312_Part1
 
         private void CallingNumbersGenerationReset() 
         {
-            btnReset.Enabled = false;
-            btnStart.Enabled = true;
-
-            seconds = 0;
-
-            lblTimer.Text = "Timer: 0 seconds";
-
             foreach (Panel callingNumberShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("callingShelf")))
             {
 
@@ -671,61 +694,14 @@ namespace PROG7312_Part1
                 {
                     string prevTopShelfName = prevTopShelf.Name;
 
-                    rightShelfOccupancyStatus[prevTopShelfName] = false;
+                    topShelfOccupancyStatus[prevTopShelfName] = false;
 
-                    descriptionShelfLabelToRightShelfMap.Remove(prevTopShelfName);
+                    bottomShelfToTopShelfMap.Remove(prevTopShelfName);
                 }
 
                 callingNumberShelfPanel.Tag = null;
             }
         }
-        //-------------------------------------------------------------------------------------------//
-
-        private void btnRestart_Click(object sender, EventArgs e)
-        {
-            // Display the user's score
-            DialogResult myResult = MessageBox.Show("Are you sure you would like to Restart?\n" +
-                "Restarting will change the labels and where the books need to be placed.\n" +
-                "Click Yes to Confirm or No to Cancel."
-              , "Restart", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (myResult == DialogResult.Yes)
-            {
-                btnReset.Enabled = false;
-                btnStart.Enabled = true;
-
-                seconds = 0;
-
-                lblTimer.Text = "Timer: 0 seconds";
-                identifyAreas_timer.Stop();
-
-                foreach (Panel bottomShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("descriptionShelf")))
-                {
-                    ControlExtension.Draggable(bottomShelfPanel, false);
-                    bottomShelfPanel.MouseDown -= IdentifyAreasControl_MouseDown;
-                    bottomShelfPanel.MouseUp -= IdentifyAreasControl_MouseUp;
-                    bottomShelfPanel.Controls.Clear();
-
-                    originalBottomShelfLocations.TryGetValue(bottomShelfPanel, out Point originalLocation);
-                    bottomShelfPanel.Location = originalLocation;
-                    int index = GetBottomShelfIndex(bottomShelfPanel);
-                    bottomShelfOccupancyStatus[index] = true;
-
-                    rightShelfOccupancyStatus[bottomShelfPanel.Name] = false;
-
-                    descriptionShelfLabelToRightShelfMap.Remove(bottomShelfPanel.Name);
-                }
-
-                //originalGeneratedOrder.Clear();
-                books.Clear();
-
-                //GenerateRandomListings();
-
-                btnReset.Enabled = false;
-                btnRestart.Enabled = false;
-            }
-        }
-
         //-------------------------------------------------------------------------------------------//
 
         private void btnResults_Click(object sender, EventArgs e)
@@ -770,44 +746,69 @@ namespace PROG7312_Part1
 
         private void btnPause_Click(object sender, EventArgs e)
         {
+            btnStart.Enabled = false;
+            btnResume.Enabled = true;
+            btnPause.Enabled = false;
+            if (isTimerRunning)
+            {
+                identifyAreas_timer.Stop();
+                isTimerRunning = false;
+            }
+            if (randomNumber == 0)
+            {
+                RemoveDescriptionPanelControls();
+            }
+            else
+            {
+                RemoveCallingNumberPanelControls();
+            }
+        }
 
+        //-------------------------------------------------------------------------------------------//
+        private void btnResume_Click(object sender, EventArgs e)
+        {
+            btnStart.Enabled = false;
+            btnPause.Enabled = true;
+            if (!isTimerRunning)
+            {
+                identifyAreas_timer.Start();
+                seconds = seconds++ -1;
+                isTimerRunning = true;
+            }
+
+            if (randomNumber == 0) 
+            {
+                CreateDescriptionPanelControls();
+            }
+            else
+            {
+                CreateCallingNumberPanelControls();
+            }
         }
 
         //-------------------------------------------------------------------------------------------//
 
-        private void btnLayoutReset_Click(object sender, EventArgs e)
+        private void CreateDescriptionPanelControls()
         {
-            controls = this.Parent.Controls;
-            DialogResult myResult = MessageBox.Show("Are you sure you would like to change the layout?\n" +
-            "Changing the layout will alter the game and the movable fields.\nClick Yes to Confirm or No to Cancel."
-            , "Change Layout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (myResult == DialogResult.Yes)
+            foreach (Panel bottomShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("descriptionShelf")))
             {
-                // User clicked "Yes," toggle the value of randomNumber (0 to 1, or 1 to 0)
-                randomNumber = (randomNumber == 0) ? 1 : 0;
+                ControlExtension.Draggable(bottomShelfPanel, false);
 
-                // Depending on the updated randomNumber, change the layout
-                if (randomNumber == 0)
-                {
-                    lblDescription.Visible = false;
-                    RandomlySelectItems();
-                    helper.CreateLabelsForRightShelf(controls);
-                    helper.CreateLabelsForCallingNumberShelf(controls);
-                    helper.StoreLeftShelfProperties(controls);
-                }
-                else
-                {
-                    lblCallingNumbers.Visible = false;
-                    RandomlySelectItems();
-                    helper.CreateLabelsForLeftShelf(controls);
-                    helper.CreateLabelsForDescriptionShelf(controls);
-                    helper.StoreRightShelfProperties(controls);
-                }
+                bottomShelfPanel.MouseDown += IdentifyAreasControl_MouseDown;
+                bottomShelfPanel.MouseUp += IdentifyAreasControl_MouseUp;
             }
-            else
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        private void CreateCallingNumberPanelControls()
+        {
+            foreach (Panel bottomShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("callingShelf")))
             {
-                // User clicked "No," do nothing or handle it accordingly
+                ControlExtension.Draggable(bottomShelfPanel, false);
+
+                bottomShelfPanel.MouseDown += IdentifyAreasControl_MouseDown;
+                bottomShelfPanel.MouseUp += IdentifyAreasControl_MouseUp;
             }
         }
 

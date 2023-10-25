@@ -32,7 +32,6 @@
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnMainMenu = new System.Windows.Forms.Button();
             this.btnResults = new System.Windows.Forms.Button();
-            this.btnRestart = new System.Windows.Forms.Button();
             this.lblTimer = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
             this.lblDescription = new System.Windows.Forms.Label();
@@ -62,16 +61,16 @@
             this.callingShelf7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnLayoutReset = new PROG7312_Part1.CustomButton();
             this.btnPause = new PROG7312_Part1.CustomButton();
             this.btnStart = new PROG7312_Part1.CustomButton();
+            this.btnResume = new PROG7312_Part1.CustomButton();
             this.SuspendLayout();
             // 
             // btnHelp
             // 
             this.btnHelp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHelp.Location = new System.Drawing.Point(830, 73);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(2);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(138, 38);
             this.btnHelp.TabIndex = 38;
@@ -94,25 +93,13 @@
             // btnResults
             // 
             this.btnResults.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnResults.Location = new System.Drawing.Point(15, 260);
+            this.btnResults.Location = new System.Drawing.Point(15, 254);
             this.btnResults.Name = "btnResults";
             this.btnResults.Size = new System.Drawing.Size(138, 38);
             this.btnResults.TabIndex = 36;
             this.btnResults.Text = "View Results";
             this.btnResults.UseVisualStyleBackColor = true;
             this.btnResults.Click += new System.EventHandler(this.btnResults_Click);
-            // 
-            // btnRestart
-            // 
-            this.btnRestart.BackColor = System.Drawing.Color.Transparent;
-            this.btnRestart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestart.Location = new System.Drawing.Point(15, 200);
-            this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(138, 38);
-            this.btnRestart.TabIndex = 35;
-            this.btnRestart.Text = "Restart?";
-            this.btnRestart.UseVisualStyleBackColor = false;
-            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // lblTimer
             // 
@@ -129,7 +116,7 @@
             // btnReset
             // 
             this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReset.Location = new System.Drawing.Point(15, 137);
+            this.btnReset.Location = new System.Drawing.Point(15, 195);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(138, 38);
             this.btnReset.TabIndex = 32;
@@ -391,26 +378,6 @@
             this.label2.Text = "Descriptions";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnLayoutReset
-            // 
-            this.btnLayoutReset.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnLayoutReset.BackgroundColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnLayoutReset.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnLayoutReset.BorderRadius = 40;
-            this.btnLayoutReset.BorderSize = 0;
-            this.btnLayoutReset.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLayoutReset.FlatAppearance.BorderSize = 0;
-            this.btnLayoutReset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLayoutReset.ForeColor = System.Drawing.Color.Black;
-            this.btnLayoutReset.Location = new System.Drawing.Point(830, 135);
-            this.btnLayoutReset.Name = "btnLayoutReset";
-            this.btnLayoutReset.Size = new System.Drawing.Size(138, 40);
-            this.btnLayoutReset.TabIndex = 65;
-            this.btnLayoutReset.Text = "Reset Layout?";
-            this.btnLayoutReset.TextColor = System.Drawing.Color.Black;
-            this.btnLayoutReset.UseVisualStyleBackColor = false;
-            this.btnLayoutReset.Click += new System.EventHandler(this.btnLayoutReset_Click);
-            // 
             // btnPause
             // 
             this.btnPause.BackColor = System.Drawing.Color.IndianRed;
@@ -455,13 +422,34 @@
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
+            // btnResume
+            // 
+            this.btnResume.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnResume.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnResume.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnResume.BorderRadius = 40;
+            this.btnResume.BorderSize = 0;
+            this.btnResume.FlatAppearance.BorderSize = 0;
+            this.btnResume.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
+            this.btnResume.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
+            this.btnResume.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnResume.ForeColor = System.Drawing.Color.White;
+            this.btnResume.Location = new System.Drawing.Point(15, 135);
+            this.btnResume.Name = "btnResume";
+            this.btnResume.Size = new System.Drawing.Size(138, 40);
+            this.btnResume.TabIndex = 66;
+            this.btnResume.Text = "Resume?";
+            this.btnResume.TextColor = System.Drawing.Color.White;
+            this.btnResume.UseVisualStyleBackColor = false;
+            this.btnResume.Click += new System.EventHandler(this.btnResume_Click);
+            // 
             // IdentifyAreasUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PROG7312_Part1.Properties.Resources.part2background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.btnLayoutReset);
+            this.Controls.Add(this.btnResume);
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.label2);
@@ -493,7 +481,6 @@
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnResults);
-            this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.btnReset);
             this.DoubleBuffered = true;
@@ -509,7 +496,6 @@
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Button btnMainMenu;
         private System.Windows.Forms.Button btnResults;
-        private System.Windows.Forms.Button btnRestart;
         private System.Windows.Forms.Label lblTimer;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label lblDescription;
@@ -541,6 +527,6 @@
         private System.Windows.Forms.Label label2;
         private CustomButton btnStart;
         private CustomButton btnPause;
-        private CustomButton btnLayoutReset;
+        private CustomButton btnResume;
     }
 }

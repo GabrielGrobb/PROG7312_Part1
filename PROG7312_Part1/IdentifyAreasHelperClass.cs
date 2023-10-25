@@ -11,41 +11,44 @@ namespace PROG7312_Part1
     public class IdentifyAreasHelperClass
     {
         private Dictionary<string, string> randomlyChosencallNumberDescriptions;
+        private Dictionary<string, string> randomlyChosenDescriptionsCallNumbers;
 
         //-------------------------------------------------------------------------------------------//
 
-        private Dictionary<string, string> leftShelfGeneratedOrder;
-        private Dictionary<string, string> descriptionShelfGeneratedOrder;
+        private Dictionary<string, string> topShelfGeneratedOrder;
+        private Dictionary<string, string> bottomShelfGeneratedOrder;
 
-        private Dictionary<Panel, Point> originalDescriptionShelfLocations;
-        private Dictionary<string, Point> originalRightShelfLocations;
+        private Dictionary<Panel, Point> originalbottomShelfLocations;
+        private Dictionary<string, Point> originalTopShelfLocations;
 
-        private Dictionary<string, bool> rightShelfOccupancyStatus;
+        private Dictionary<string, bool> topShelfOccupancyStatus;
         private List<string> books;
 
         //-------------------------------------------------------------------------------------------//
 
         public IdentifyAreasHelperClass(
             Dictionary<string, string> randomlyChosencallNumberDescriptions,
-            Dictionary<string, string> leftShelfGeneratedOrder,
-            Dictionary<string, string> descriptionShelfGeneratedOrder,
-            Dictionary<Panel, Point> originalDescriptionShelfLocations,
-            Dictionary<string, Point> originalRightShelfLocations,
-            Dictionary<string, bool> rightShelfOccupancyStatus,
+            Dictionary<string, string> randomlyChosenDescriptionsCallNumbers,
+            Dictionary<string, string> topShelfGeneratedOrder,
+            Dictionary<string, string> bottomShelfGeneratedOrder,
+            Dictionary<Panel, Point> originalbottomShelfLocations,
+            Dictionary<string, Point> originalTopShelfLocations,
+            Dictionary<string, bool> topShelfOccupancyStatus,
             List<string> books)
         {
             this.randomlyChosencallNumberDescriptions = randomlyChosencallNumberDescriptions;
-            this.leftShelfGeneratedOrder = leftShelfGeneratedOrder;
-            this.descriptionShelfGeneratedOrder = descriptionShelfGeneratedOrder;
-            this.originalDescriptionShelfLocations = originalDescriptionShelfLocations;
-            this.originalRightShelfLocations = originalRightShelfLocations;
-            this.rightShelfOccupancyStatus = rightShelfOccupancyStatus;
+            this.randomlyChosenDescriptionsCallNumbers = randomlyChosenDescriptionsCallNumbers;
+            this.topShelfGeneratedOrder = topShelfGeneratedOrder;
+            this.bottomShelfGeneratedOrder = bottomShelfGeneratedOrder;
+            this.originalbottomShelfLocations = originalbottomShelfLocations;
+            this.originalTopShelfLocations = originalTopShelfLocations;
+            this.topShelfOccupancyStatus = topShelfOccupancyStatus;
             this.books = books;
         }
 
         //-------------------------------------------------------------------------------------------//
 
-        public void CreateLabelsForLeftShelf(Control.ControlCollection controls)
+        public void CreateLabelsForTopLeftShelf(Control.ControlCollection controls)
         {
             List<string> callNumbers = randomlyChosencallNumberDescriptions.Keys.ToList();
             Random random = new Random();
@@ -74,7 +77,7 @@ namespace PROG7312_Part1
 
                     leftShelf.Controls.Add(leftShelfLabel);
 
-                    leftShelfGeneratedOrder.Add(leftShelf.Name, leftShelfLabel.Text);
+                    topShelfGeneratedOrder.Add(leftShelf.Name, leftShelfLabel.Text);
                 }
             }
         }
@@ -101,7 +104,7 @@ namespace PROG7312_Part1
 
                 if (descriptionShelf != null)
                 {
-                    originalDescriptionShelfLocations[descriptionShelf] = descriptionShelf.Location;
+                    originalbottomShelfLocations[descriptionShelf] = descriptionShelf.Location;
 
                     descriptionShelf.BackColor = Color.Silver;
 
@@ -120,7 +123,7 @@ namespace PROG7312_Part1
 
                     descriptionShelf.Controls.Add(descriptionShelfLabel);
 
-                    descriptionShelfGeneratedOrder.Add(descriptionShelf.Name, descriptionShelfLabel.Text);
+                    bottomShelfGeneratedOrder.Add(descriptionShelf.Name, descriptionShelfLabel.Text);
                 }
             }
         }
@@ -135,7 +138,7 @@ namespace PROG7312_Part1
         /// The properties are added to the corresponding 
         /// dictionaries.
         /// </summary>
-        public void StoreRightShelfProperties(Control.ControlCollection controls)
+        public void StoreTopRightShelfProperties(Control.ControlCollection controls)
         {
             for (int i = 1; i <= 4; i++)
             {
@@ -143,9 +146,9 @@ namespace PROG7312_Part1
 
                 if (rightShelfPanel != null)
                 {
-                    originalRightShelfLocations[$"rightShelf{i}"] = rightShelfPanel.Location;
+                    originalTopShelfLocations[$"rightShelf{i}"] = rightShelfPanel.Location;
 
-                    rightShelfOccupancyStatus[$"rightShelf{i}"] = false;
+                    topShelfOccupancyStatus[$"rightShelf{i}"] = false;
                 }
             }
         }
@@ -154,8 +157,17 @@ namespace PROG7312_Part1
 
         public void CreateLabelsForRightShelf(Control.ControlCollection controls)
         {
-            List<string> descriptionTexts = randomlyChosencallNumberDescriptions.Values.ToList();
+            List<string> descriptionTexts = randomlyChosenDescriptionsCallNumbers.Keys.ToList();
             Random random = new Random();
+
+            // Shuffle the descriptionTexts list randomly
+            for (int i = 0; i < descriptionTexts.Count - 1; i++)
+            {
+                int j = random.Next(i, descriptionTexts.Count);
+                string temp = descriptionTexts[i];
+                descriptionTexts[i] = descriptionTexts[j];
+                descriptionTexts[j] = temp;
+            }
 
             for (int i = 1; i < 5; i++)
             {
@@ -163,64 +175,64 @@ namespace PROG7312_Part1
                 string callNumber = descriptionTexts[randomIndex];
                 descriptionTexts.RemoveAt(randomIndex);
 
-                Panel leftShelf = controls.Find($"rightShelf{i}", true).FirstOrDefault() as Panel;
+                Panel rightShelf = controls.Find($"rightShelf{i}", true).FirstOrDefault() as Panel;
 
-                if (leftShelf != null)
+                if (rightShelf != null)
                 {
-                    leftShelf.BackColor = Color.Silver;
+                    rightShelf.BackColor = Color.Silver;
 
-                    Label leftShelfLabel = new Label();
-                    leftShelfLabel.Text = callNumber;
-                    leftShelfLabel.TextAlign = ContentAlignment.MiddleCenter;
-                    leftShelfLabel.Size = new Size(60, 40);
+                    Label rightShelfLabel = new Label();
+                    rightShelfLabel.Text = callNumber;
+                    rightShelfLabel.TextAlign = ContentAlignment.MiddleCenter;
+                    rightShelfLabel.Size = new Size(200, 40);
 
-                    leftShelfLabel.Dock = DockStyle.Bottom;
-                    leftShelfLabel.BorderStyle = BorderStyle.FixedSingle;
-                    leftShelfLabel.BackColor = Color.Orange;
-                    leftShelfLabel.AutoSize = false;
+                    rightShelfLabel.Dock = DockStyle.Bottom;
+                    rightShelfLabel.BorderStyle = BorderStyle.FixedSingle;
+                    rightShelfLabel.BackColor = Color.Orange;
+                    rightShelfLabel.AutoSize = false;
 
-                    leftShelf.Controls.Add(leftShelfLabel);
+                    rightShelf.Controls.Add(rightShelfLabel);
 
-                    leftShelfGeneratedOrder.Add(leftShelf.Name, leftShelfLabel.Text);
+                    topShelfGeneratedOrder.Add(rightShelf.Name, rightShelfLabel.Text);
                 }
             }
         }
 
         public void CreateLabelsForCallingNumberShelf(Control.ControlCollection controls)
         {
-            List<string> callNumbers = randomlyChosencallNumberDescriptions.Keys.ToList();
+            List<string> callNumbers = randomlyChosenDescriptionsCallNumbers.Values.ToList();
             Random random = new Random();
 
             for (int i = 1; i <= 7; i++)
             {
                 int randomIndex = random.Next(callNumbers.Count);
-                string descriptionText = callNumbers[randomIndex];
+                string callNumbersText = callNumbers[randomIndex];
                 callNumbers.RemoveAt(randomIndex);
 
-                Panel descriptionShelf = controls.Find($"callingShelf{i}", true).FirstOrDefault() as Panel;
+                Panel callingShelf = controls.Find($"callingShelf{i}", true).FirstOrDefault() as Panel;
 
-                if (descriptionShelf != null)
+                if (callingShelf != null)
                 {
-                    originalDescriptionShelfLocations[descriptionShelf] = descriptionShelf.Location;
+                    originalbottomShelfLocations[callingShelf] = callingShelf.Location;
 
-                    descriptionShelf.BackColor = Color.Silver;
+                    callingShelf.BackColor = Color.Silver;
 
-                    Label descriptionShelfLabel = new Label();
-                    descriptionShelfLabel.Text = descriptionText;
-                    descriptionShelfLabel.TextAlign = ContentAlignment.MiddleCenter;
-                    descriptionShelfLabel.Size = new Size(60, 40);
+                    Label callingShelfLabel = new Label();
+                    callingShelfLabel.Text = callNumbersText;
+                    callingShelfLabel.TextAlign = ContentAlignment.MiddleCenter;
+                    callingShelfLabel.Size = new Size(60, 40);
 
-                    descriptionShelfLabel.Dock = DockStyle.Bottom;
-                    descriptionShelfLabel.BorderStyle = BorderStyle.FixedSingle;
-                    descriptionShelfLabel.BackColor = Color.Orange;
-                    descriptionShelfLabel.AutoSize = false;
-                    descriptionShelfLabel.Enabled = false;
+                    callingShelfLabel.Dock = DockStyle.Bottom;
+                    callingShelfLabel.BorderStyle = BorderStyle.FixedSingle;
+                    callingShelfLabel.BackColor = Color.Orange;
+                    callingShelfLabel.AutoSize = false;
+                    callingShelfLabel.Enabled = false;
 
-                    books.Add(descriptionShelfLabel.Text);
+                    books.Add(callingShelfLabel.Text);
 
-                    descriptionShelf.Controls.Add(descriptionShelfLabel);
+                    callingShelf.Controls.Add(callingShelfLabel);
 
-                    descriptionShelfGeneratedOrder.Add(descriptionShelf.Name, descriptionShelfLabel.Text);
+                    bottomShelfGeneratedOrder.Add(callingShelf.Name, callingShelfLabel.Text);
                 }
             }
         }
@@ -229,15 +241,26 @@ namespace PROG7312_Part1
         {
             for (int i = 1; i <= 4; i++)
             {
-                Panel rightShelfPanel = controls.Find($"leftShelf{i}", true).FirstOrDefault() as Panel;
+                Panel leftShelfPanel = controls.Find($"leftShelf{i}", true).FirstOrDefault() as Panel;
 
-                if (rightShelfPanel != null)
+                if (leftShelfPanel != null)
                 {
-                    originalRightShelfLocations[$"leftShelf{i}"] = rightShelfPanel.Location;
+                    originalTopShelfLocations[$"leftShelf{i}"] = leftShelfPanel.Location;
 
-                    rightShelfOccupancyStatus[$"leftShelf{i}"] = false;
+                    topShelfOccupancyStatus[$"leftShelf{i}"] = false;
                 }
             }
+        }
+
+        private void ClearAllDictionaries()
+        {
+            books.Clear();
+            topShelfGeneratedOrder.Clear();
+            bottomShelfGeneratedOrder.Clear();
+            randomlyChosencallNumberDescriptions.Clear();
+            randomlyChosenDescriptionsCallNumbers.Clear();
+            originalTopShelfLocations.Clear();
+            topShelfOccupancyStatus.Clear();
         }
     }
 }
