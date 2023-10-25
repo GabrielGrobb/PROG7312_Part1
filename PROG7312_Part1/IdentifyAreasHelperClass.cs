@@ -86,12 +86,17 @@ namespace PROG7312_Part1
             List<string> descriptionTexts = randomlyChosencallNumberDescriptions.Values.ToList();
             Random random = new Random();
 
+            // Shuffle the descriptionTexts list randomly
+            for (int i = 0; i < descriptionTexts.Count - 1; i++)
+            {
+                int j = random.Next(i, descriptionTexts.Count);
+                string temp = descriptionTexts[i];
+                descriptionTexts[i] = descriptionTexts[j];
+                descriptionTexts[j] = temp;
+            }
+
             for (int i = 1; i <= 7; i++)
             {
-                int randomIndex = random.Next(descriptionTexts.Count);
-                string descriptionText = descriptionTexts[randomIndex];
-                descriptionTexts.RemoveAt(randomIndex);
-
                 Panel descriptionShelf = controls.Find($"descriptionShelf{i}", true).FirstOrDefault() as Panel;
 
                 if (descriptionShelf != null)
@@ -101,7 +106,7 @@ namespace PROG7312_Part1
                     descriptionShelf.BackColor = Color.Silver;
 
                     Label descriptionShelfLabel = new Label();
-                    descriptionShelfLabel.Text = descriptionText;
+                    descriptionShelfLabel.Text = descriptionTexts[i - 1];
                     descriptionShelfLabel.TextAlign = ContentAlignment.MiddleCenter;
                     descriptionShelfLabel.Size = new Size(60, 40);
 
@@ -119,6 +124,7 @@ namespace PROG7312_Part1
                 }
             }
         }
+
 
         //-------------------------------------------------------------------------------------------//
 
