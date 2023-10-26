@@ -38,7 +38,7 @@
             // btnBack
             // 
             this.btnBack.Location = new System.Drawing.Point(269, 467);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(100, 48);
             this.btnBack.TabIndex = 0;
@@ -49,7 +49,7 @@
             // btnNext
             // 
             this.btnNext.Location = new System.Drawing.Point(420, 467);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(2);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(100, 48);
             this.btnNext.TabIndex = 1;
@@ -74,7 +74,7 @@
             this.pBoxHelp.ErrorImage = null;
             this.pBoxHelp.InitialImage = null;
             this.pBoxHelp.Location = new System.Drawing.Point(92, 89);
-            this.pBoxHelp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pBoxHelp.Margin = new System.Windows.Forms.Padding(2);
             this.pBoxHelp.Name = "pBoxHelp";
             this.pBoxHelp.Size = new System.Drawing.Size(622, 364);
             this.pBoxHelp.TabIndex = 2;
@@ -89,10 +89,14 @@
             this.Controls.Add(this.pBoxHelp);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnBack);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(843, 584);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(843, 584);
             this.Name = "HelpForm";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HelpForm";
             ((System.ComponentModel.ISupportInitialize)(this.pBoxHelp)).EndInit();
             this.ResumeLayout(false);

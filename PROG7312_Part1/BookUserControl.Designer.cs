@@ -350,7 +350,7 @@
             // 
             this.btnHelp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHelp.Location = new System.Drawing.Point(868, 511);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(2);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(88, 38);
             this.btnHelp.TabIndex = 30;

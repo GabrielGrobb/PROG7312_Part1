@@ -21,6 +21,7 @@ namespace PROG7312_Part1
         private int seconds = 0; // Variable to store the timer value
         private bool isTimerRunning = false; // Flag to track whether the timer is running
         private Panel selectedBottomShelfPanel;
+        private string bookGame = "Book Shelf Game";
         private Random random = new Random();
 
         /// <summary>
@@ -58,6 +59,11 @@ namespace PROG7312_Part1
         private Dictionary<string, bool> topShelfOccupancyStatus = new Dictionary<string, bool>();
         private Dictionary<string, string> bottomShelfLabelToTopShelfMap = new Dictionary<string, string>();
 
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Initializing component
+        /// </summary>
         public BookUserControl()
         {
             InitializeComponent();
@@ -221,42 +227,6 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// Used ChatGPT.
-        /// An alternative sorting algorithm to sort the books inascending order.
-        /// Using bubble sort.
-        /// This is not utilized.
-        /// </summary>
-        /// <param name="inputDictionary"></param>
-        /// <returns></returns>
-        private Dictionary<string, KeyValuePair<string, string>> BubbleSortDictionaryByNumericValue(Dictionary<string, KeyValuePair<string, string>> inputDictionary)
-        {
-            List<KeyValuePair<string, KeyValuePair<string, string>>> dictionaryList = inputDictionary.ToList();
-            int n = dictionaryList.Count;
-
-            for (int i = 0; i < n - 1; i++)
-            {
-                for (int j = 0; j < n - i - 1; j++)
-                {
-                    double value1 = double.Parse(dictionaryList[j].Value.Key.Split(' ')[0]);
-                    double value2 = double.Parse(dictionaryList[j + 1].Value.Key.Split(' ')[0]);
-
-                    if (value1 > value2)
-                    {
-                        KeyValuePair<string, KeyValuePair<string, string>> temp = dictionaryList[j];
-                        dictionaryList[j] = dictionaryList[j + 1];
-                        dictionaryList[j + 1] = temp;
-                    }
-                }
-            }
-
-            Dictionary<string, KeyValuePair<string, string>> sortedDictionary = dictionaryList
-                .ToDictionary(item => item.Key, item => item.Value);
-
-            return sortedDictionary;
-        }
-        //-------------------------------------------------------------------------------------------//
-
-        /// <summary>
         /// This event executes when the mouse button is clicked
         /// and not relased. It handles when either the left or 
         /// right button is clicked. 
@@ -392,6 +362,7 @@ namespace PROG7312_Part1
         {
             int correctBooks = CalculateScore();
             TimeSpan timeTaken = GetTimeTaken();
+            string gameName = bookGame;
 
             int attempt = results.Count + 1;
 
@@ -399,7 +370,9 @@ namespace PROG7312_Part1
             {
                 Attempt = attempt,
                 CorrectBooks = correctBooks,
-                TimeTaken = timeTaken
+                TimeTaken = timeTaken,
+                gameName = gameName,
+               
             });
         }
         //-------------------------------------------------------------------------------------------//

@@ -55,11 +55,15 @@
     <Compile Include="BookForm.Designer.cs">
       <DependentUpon>BookForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BookHelper.cs" />
     <Compile Include="BookUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="BookUserControl.Designer.cs">
       <DependentUpon>BookUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomButton.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -85,6 +89,7 @@
     <Compile Include="IdentifyAreasForm.Designer.cs">
       <DependentUpon>IdentifyAreasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdentifyAreasHelperClass.cs" />
     <Compile Include="IdentifyAreasUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -156,6 +161,7 @@
   <ItemGroup>
     <Content Include="bin\Debug\audio\Jigsaw.mp3" />
     <Content Include="bin\Debug\Control.Draggable.dll" />
+    <None Include="Resources\IDHelp1.bmp" />
     <None Include="Resources\helpImage1.bmp" />
     <None Include="bin\Debug\images\Prog.png" />
     <None Include="bin\Debug\images\Book.png" />
@@ -170,6 +176,12 @@
     <None Include="bin\Debug\images\helpImage7.png" />
     <None Include="bin\Debug\images\helpImage8.png" />
     <None Include="bin\Debug\images\part2background.png" />
+    <Content Include="bin\Debug\images\IDHelp1.png" />
+    <Content Include="bin\Debug\images\IDHelp2.png" />
+    <Content Include="bin\Debug\images\IDHelp3.png" />
+    <Content Include="bin\Debug\images\IDHelp4.png" />
+    <Content Include="bin\Debug\images\IDHelp5.png" />
+    <Content Include="bin\Debug\images\IDHelp6.png" />
     <Content Include="bin\Debug\PROG7312_Part1.exe" />
     <Content Include="bin\Debug\PROG7312_Part1.pdb" />
   </ItemGroup>

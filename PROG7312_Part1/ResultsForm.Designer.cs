@@ -38,6 +38,8 @@
             this.lblBooks = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblResultsTitle = new System.Windows.Forms.Label();
+            this.lblGame = new System.Windows.Forms.Label();
+            this.lblGameName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,12 +97,24 @@
             this.lblResultsTitle.ForeColor = System.Drawing.Color.MediumAquamarine;
             this.lblResultsTitle.Name = "lblResultsTitle";
             // 
+            // lblGame
+            // 
+            resources.ApplyResources(this.lblGame, "lblGame");
+            this.lblGame.Name = "lblGame";
+            // 
+            // lblGameName
+            // 
+            resources.ApplyResources(this.lblGameName, "lblGameName");
+            this.lblGameName.Name = "lblGameName";
+            // 
             // ResultsForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::PROG7312_Part1.Properties.Resources.ProgStats;
+            this.Controls.Add(this.lblGameName);
+            this.Controls.Add(this.lblGame);
             this.Controls.Add(this.lblResultsTitle);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblBooks);
@@ -114,6 +128,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ResultsForm";
+            this.ShowIcon = false;
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
             this.ResumeLayout(false);
 
@@ -130,5 +145,7 @@
         private System.Windows.Forms.Label lblBooks;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblResultsTitle;
+        private System.Windows.Forms.Label lblGame;
+        private System.Windows.Forms.Label lblGameName;
     }
 }

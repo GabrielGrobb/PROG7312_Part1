@@ -30,6 +30,7 @@ namespace PROG7312_Part1
             dgvResults.Columns["Attempt"].HeaderText = "Attempt";
             dgvResults.Columns["CorrectBooks"].HeaderText = "Books Correctly Placed";
             dgvResults.Columns["TimeTaken"].HeaderText = "Time Taken";
+            dgvResults.Columns["gameName"].HeaderText = "Game Played";
 
             dgvResults.Columns["TimeTaken"].DefaultCellStyle.Format = "hh\\:mm\\:ss";
 
@@ -52,6 +53,7 @@ namespace PROG7312_Part1
                 lblBestAttempt.Text = $"{bestAttempt.Attempt}";
                 lblCorrectBooks.Text = $"{bestAttempt.CorrectBooks}";
                 lblTimeTaken.Text = $"{bestAttempt.TimeTaken.TotalSeconds} seconds";
+                lblGameName.Text = $" {bestAttempt.gameName} ";
             }
             else
             {

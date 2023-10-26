@@ -106,6 +106,7 @@
             this.pgDataLoad.Size = new System.Drawing.Size(553, 23);
             this.pgDataLoad.TabIndex = 5;
             this.pgDataLoad.Value = 1;
+            this.pgDataLoad.Visible = false;
             // 
             // progressTimer
             // 
@@ -144,6 +145,8 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1078, 631);
             this.Name = "Form1";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MXP)).EndInit();
