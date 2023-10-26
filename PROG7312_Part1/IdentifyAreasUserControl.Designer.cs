@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnHelp = new System.Windows.Forms.Button();
-            this.btnMainMenu = new System.Windows.Forms.Button();
-            this.btnResults = new System.Windows.Forms.Button();
             this.lblTimer = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.identifyAreas_timer = new System.Windows.Forms.Timer(this.components);
@@ -60,46 +57,14 @@
             this.callingShelf7 = new System.Windows.Forms.Panel();
             this.lblCallingNumberHeading = new System.Windows.Forms.Label();
             this.lblDescriptionHeading = new System.Windows.Forms.Label();
+            this.btnMainMenu = new PROG7312_Part1.CustomButton();
+            this.btnHelp = new PROG7312_Part1.CustomButton();
+            this.btnResults = new PROG7312_Part1.CustomButton();
+            this.btnReset = new PROG7312_Part1.CustomButton();
             this.btnResume = new PROG7312_Part1.CustomButton();
             this.btnPause = new PROG7312_Part1.CustomButton();
             this.btnStart = new PROG7312_Part1.CustomButton();
-            this.btnReset = new PROG7312_Part1.CustomButton();
             this.SuspendLayout();
-            // 
-            // btnHelp
-            // 
-            this.btnHelp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHelp.Location = new System.Drawing.Point(830, 73);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(2);
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(138, 38);
-            this.btnHelp.TabIndex = 38;
-            this.btnHelp.Text = "Help?";
-            this.btnHelp.UseVisualStyleBackColor = true;
-            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
-            // 
-            // btnMainMenu
-            // 
-            this.btnMainMenu.BackColor = System.Drawing.Color.Transparent;
-            this.btnMainMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMainMenu.Location = new System.Drawing.Point(830, 14);
-            this.btnMainMenu.Name = "btnMainMenu";
-            this.btnMainMenu.Size = new System.Drawing.Size(138, 38);
-            this.btnMainMenu.TabIndex = 37;
-            this.btnMainMenu.Text = "Main Menu";
-            this.btnMainMenu.UseVisualStyleBackColor = false;
-            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
-            // 
-            // btnResults
-            // 
-            this.btnResults.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnResults.Location = new System.Drawing.Point(15, 254);
-            this.btnResults.Name = "btnResults";
-            this.btnResults.Size = new System.Drawing.Size(138, 38);
-            this.btnResults.TabIndex = 36;
-            this.btnResults.Text = "View Results";
-            this.btnResults.UseVisualStyleBackColor = true;
-            this.btnResults.Click += new System.EventHandler(this.btnResults_Click);
             // 
             // lblTimer
             // 
@@ -367,6 +332,92 @@
             this.lblDescriptionHeading.Text = "Descriptions";
             this.lblDescriptionHeading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnMainMenu
+            // 
+            this.btnMainMenu.BackColor = System.Drawing.Color.Crimson;
+            this.btnMainMenu.BackgroundColor = System.Drawing.Color.Crimson;
+            this.btnMainMenu.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnMainMenu.BorderRadius = 40;
+            this.btnMainMenu.BorderSize = 0;
+            this.btnMainMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMainMenu.FlatAppearance.BorderSize = 0;
+            this.btnMainMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMainMenu.ForeColor = System.Drawing.Color.Black;
+            this.btnMainMenu.Location = new System.Drawing.Point(830, 13);
+            this.btnMainMenu.Name = "btnMainMenu";
+            this.btnMainMenu.Size = new System.Drawing.Size(138, 40);
+            this.btnMainMenu.TabIndex = 70;
+            this.btnMainMenu.Text = "Main Menu";
+            this.btnMainMenu.TextColor = System.Drawing.Color.Black;
+            this.btnMainMenu.UseVisualStyleBackColor = false;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.BackColor = System.Drawing.Color.Gold;
+            this.btnHelp.BackgroundColor = System.Drawing.Color.Gold;
+            this.btnHelp.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnHelp.BorderRadius = 40;
+            this.btnHelp.BorderSize = 0;
+            this.btnHelp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHelp.FlatAppearance.BorderSize = 0;
+            this.btnHelp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Goldenrod;
+            this.btnHelp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Khaki;
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnHelp.ForeColor = System.Drawing.Color.Black;
+            this.btnHelp.Location = new System.Drawing.Point(830, 78);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(138, 40);
+            this.btnHelp.TabIndex = 69;
+            this.btnHelp.Text = "Help?";
+            this.btnHelp.TextColor = System.Drawing.Color.Black;
+            this.btnHelp.UseVisualStyleBackColor = false;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
+            // btnResults
+            // 
+            this.btnResults.BackColor = System.Drawing.Color.HotPink;
+            this.btnResults.BackgroundColor = System.Drawing.Color.HotPink;
+            this.btnResults.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnResults.BorderRadius = 40;
+            this.btnResults.BorderSize = 0;
+            this.btnResults.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResults.FlatAppearance.BorderSize = 0;
+            this.btnResults.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orchid;
+            this.btnResults.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Pink;
+            this.btnResults.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnResults.ForeColor = System.Drawing.Color.White;
+            this.btnResults.Location = new System.Drawing.Point(15, 263);
+            this.btnResults.Name = "btnResults";
+            this.btnResults.Size = new System.Drawing.Size(138, 40);
+            this.btnResults.TabIndex = 68;
+            this.btnResults.Text = "View Results";
+            this.btnResults.TextColor = System.Drawing.Color.White;
+            this.btnResults.UseVisualStyleBackColor = false;
+            this.btnResults.Click += new System.EventHandler(this.btnResults_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.Cyan;
+            this.btnReset.BackgroundColor = System.Drawing.Color.Cyan;
+            this.btnReset.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnReset.BorderRadius = 40;
+            this.btnReset.BorderSize = 0;
+            this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReset.FlatAppearance.BorderSize = 0;
+            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReset.ForeColor = System.Drawing.Color.Black;
+            this.btnReset.Location = new System.Drawing.Point(15, 200);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(138, 40);
+            this.btnReset.TabIndex = 67;
+            this.btnReset.Text = "Reset Round";
+            this.btnReset.TextColor = System.Drawing.Color.Black;
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // btnResume
             // 
             this.btnResume.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -433,34 +484,15 @@
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // btnReset
-            // 
-            this.btnReset.BackColor = System.Drawing.Color.Cyan;
-            this.btnReset.BackgroundColor = System.Drawing.Color.Cyan;
-            this.btnReset.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnReset.BorderRadius = 40;
-            this.btnReset.BorderSize = 0;
-            this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReset.FlatAppearance.BorderSize = 0;
-            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnReset.ForeColor = System.Drawing.Color.Black;
-            this.btnReset.Location = new System.Drawing.Point(15, 195);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(138, 40);
-            this.btnReset.TabIndex = 67;
-            this.btnReset.Text = "Reset Round";
-            this.btnReset.TextColor = System.Drawing.Color.Black;
-            this.btnReset.UseVisualStyleBackColor = false;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
             // IdentifyAreasUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PROG7312_Part1.Properties.Resources.part2background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.btnMainMenu);
+            this.Controls.Add(this.btnHelp);
+            this.Controls.Add(this.btnResults);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnResume);
             this.Controls.Add(this.btnPause);
@@ -491,11 +523,10 @@
             this.Controls.Add(this.leftShelf2);
             this.Controls.Add(this.leftShelf1);
             this.Controls.Add(this.lblDescription);
-            this.Controls.Add(this.btnHelp);
-            this.Controls.Add(this.btnMainMenu);
-            this.Controls.Add(this.btnResults);
             this.Controls.Add(this.lblTimer);
             this.DoubleBuffered = true;
+            this.MaximumSize = new System.Drawing.Size(1000, 686);
+            this.MinimumSize = new System.Drawing.Size(1000, 686);
             this.Name = "IdentifyAreasUserControl";
             this.Size = new System.Drawing.Size(1000, 686);
             this.Load += new System.EventHandler(this.IdentifyAreasUserControl_Load);
@@ -504,10 +535,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnHelp;
-        private System.Windows.Forms.Button btnMainMenu;
-        private System.Windows.Forms.Button btnResults;
         private System.Windows.Forms.Label lblTimer;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Timer identifyAreas_timer;
@@ -540,5 +567,8 @@
         private CustomButton btnPause;
         private CustomButton btnResume;
         private CustomButton btnReset;
+        private CustomButton btnResults;
+        private CustomButton btnHelp;
+        private CustomButton btnMainMenu;
     }
 }

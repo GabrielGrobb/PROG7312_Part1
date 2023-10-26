@@ -10,6 +10,8 @@ namespace PROG7312_Part1
 {
     public class IdentifyAreasHelperClass
     {
+        //-------------------------------------------------------------------------------------------//
+
         private Dictionary<string, string> randomlyChosencallNumberDescriptions;
         private Dictionary<string, string> randomlyChosenDescriptionsCallNumbers;
 
@@ -198,6 +200,8 @@ namespace PROG7312_Part1
             }
         }
 
+        //-------------------------------------------------------------------------------------------//
+
         public void CreateLabelsForCallingNumberShelf(Control.ControlCollection controls)
         {
             List<string> callNumbers = randomlyChosenDescriptionsCallNumbers.Values.ToList();
@@ -237,6 +241,8 @@ namespace PROG7312_Part1
             }
         }
 
+        //-------------------------------------------------------------------------------------------//
+
         public void StoreLeftShelfProperties(Control.ControlCollection controls)
         {
             for (int i = 1; i <= 4; i++)
@@ -251,6 +257,8 @@ namespace PROG7312_Part1
                 }
             }
         }
+
+        //-------------------------------------------------------------------------------------------//
     }
 }
 //---------------------------------------------EndOfFile---------------------------------------------//

@@ -18,6 +18,11 @@ namespace PROG7312_Part1
         /// Gets and sets the amount of time taken by the user to complete the task.
         /// </summary>
         public TimeSpan TimeTaken { get; set; }
+
+        /// <summary>
+        /// Gets and sets the game name.
+        /// </summary>
+        public string gameName { get; set; }
     }
 }
 //------------------------------------------EndOfFile-----------------------------------------------//

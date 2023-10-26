@@ -13,12 +13,16 @@ namespace PROG7312_Part1
 {
     public class CustomButton : Button
     {
+        //------------------------------------------------------------------------------------------//
         // Global Variables
         private int borderSize = 0;
         private int borderRadius = 40;
         private Color borderColor = Color.PaleVioletRed;
 
-        // Properties
+        //------------------------------------------------------------------------------------------//
+        /// <summary>
+        /// Button border size properties
+        /// </summary>
         [Category("Custom Button")]
         public int BorderSize
         {
@@ -26,6 +30,10 @@ namespace PROG7312_Part1
             set { borderSize = value; this.Invalidate(); }
         }
 
+        //------------------------------------------------------------------------------------------//
+        /// <summary>
+        /// Button border radius properties
+        /// </summary>
         [Category("Custom Button")]
         public int BorderRadius
         {
@@ -33,6 +41,10 @@ namespace PROG7312_Part1
             set { borderRadius = value; this.Invalidate(); }
         }
 
+        //------------------------------------------------------------------------------------------//
+        /// <summary>
+        /// Button border color properties
+        /// </summary>
         [Category("Custom Button")]
         public Color BorderColor
         {
@@ -40,6 +52,10 @@ namespace PROG7312_Part1
             set { borderColor = value; this.Invalidate(); }
         }
 
+        //------------------------------------------------------------------------------------------//
+        /// <summary>
+        /// Button background color properties
+        /// </summary>
         [Category("Custom Button")]
         public Color BackgroundColor
         {
@@ -47,6 +63,10 @@ namespace PROG7312_Part1
             set { this.BackColor = value; }
         }
 
+        //------------------------------------------------------------------------------------------//
+        /// <summary>
+        /// Button text color properties
+        /// </summary>
         [Category("Custom Button")]
         public Color TextColor
         {
@@ -54,6 +74,7 @@ namespace PROG7312_Part1
             set { this.ForeColor = value; }
         }
 
+        //------------------------------------------------------------------------------------------//
         // Constructor
         public CustomButton() 
         {
@@ -63,6 +84,14 @@ namespace PROG7312_Part1
             this.BackColor = Color.MediumSlateBlue;
             this.ForeColor = Color.White;
         }
+
+        //------------------------------------------------------------------------------------------//
+        /// <summary>
+        /// Alters the buttons visable properties.
+        /// </summary>
+        /// <param name="rect"></param>
+        /// <param name="radius"></param>
+        /// <returns></returns>
 
         private GraphicsPath GetFigurePath(RectangleF rect, float radius) 
         {
@@ -77,6 +106,11 @@ namespace PROG7312_Part1
             return path;
         }
 
+        //------------------------------------------------------------------------------------------//
+        /// <summary>
+        /// An override method for the buttons paint.
+        /// </summary>
+        /// <param name="pevent"></param>
         protected override void OnPaint(PaintEventArgs pevent) 
         {
             base.OnPaint(pevent);
@@ -124,18 +158,41 @@ namespace PROG7312_Part1
                 }
             }
         }
-
+        //------------------------------------------------------------------------------------------//
+        /// <summary>
+        /// An override method to handle the changed button color.
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
             this.Parent.BackColorChanged += new EventHandler(Container_BackColorChanged);
         }
 
+        //------------------------------------------------------------------------------------------//
+        /// <summary>
+        /// An override method to handle the changed button color.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Container_BackColorChanged(object sender, EventArgs e) 
         {
             if(this.DesignMode)
                 this.Invalidate();
         }
 
+        //------------------------------------------------------------------------------------------//
+
     }
 }
+//------------------------------------------EndOfFile-----------------------------------------------//
+#region /// REFERENCES - CODE ATTRIBUTION:
+/* 
+ * 
+Aurthor:  RJ Code Advance EN
+Webisite: StackOverFlow, 2021/05/08. Custom Button - Rounded, Pill or Square Shape - WinForm C#. [Online]
+Accessed on: 2023/10/25
+URL:https://www.youtube.com/watch?v=u8SL5g9QGcI
+
+ */
+#endregion

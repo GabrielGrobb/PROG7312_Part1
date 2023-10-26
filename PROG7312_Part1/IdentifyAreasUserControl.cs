@@ -30,10 +30,12 @@ namespace PROG7312_Part1
         private int seconds = 0;
         private bool isTimerRunning = false;
         private Panel selectedPanel;
-        private int score = 0;
         private IdentifyAreasHelperClass helper;
         private Control.ControlCollection controls;
         private int randomNumber;
+        private string matchColumnGame = "Match Column Game";
+
+        private List<UserResults> results = new List<UserResults>();
         private List<string> books = new List<string>();
 
         //-------------------------------------------------------------------------------------------//
@@ -341,7 +343,6 @@ namespace PROG7312_Part1
             if (AllRightShelfOccupied())
             {
                 CheckScoreAndShowMessageBox();
-                score = 0;
                 
             }
             else 
@@ -568,6 +569,10 @@ namespace PROG7312_Part1
         /// </summary>
         private void CheckScoreAndShowMessageBox()
         {
+            int score = CalculateScore();
+
+            CalculateResults();
+
             identifyAreas_timer.Stop();
             btnReset.Enabled = true;
             btnReset.Visible = true;
@@ -587,6 +592,71 @@ namespace PROG7312_Part1
                 RemoveCallingNumberPanelControls();
             }
 
+            // Display a message box with the score
+            MessageBox.Show($"Your Score! Your score is {score} out of 4.", "Score", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Used ChatGPT here and (Ahmed, 2018)
+        /// Finding the best attempt for sorting the books.
+        /// A LINQ query to sort the list of type UserResults
+        /// in descending order then the duration.
+        /// </summary>
+        /// <param name="results">The best attempt</param>
+        /// <returns></returns>
+        private UserResults FindBestAttempt(List<UserResults> results)
+        {
+            if (results.Count == 0)
+            {
+                return null;
+            }
+
+            var bestAttempt = results
+                .OrderByDescending(result => result.CorrectBooks)
+                .ThenBy(result => result.TimeTaken)
+                .First();
+
+            return bestAttempt;
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        ///  Used ChatGPT here.
+        ///  Retrieving the resukts from the user attempts.
+        ///  Storing attempt number, correctly placed books,
+        ///  and the time span (duration) in seconds.
+        /// </summary>
+        private void CalculateResults()
+        {
+            int correctBooks = CalculateScore();
+            TimeSpan timeTaken = GetTimeTaken();
+            string gameName = matchColumnGame;
+
+            int attempt = results.Count + 1;
+
+            results.Add(new UserResults
+            {
+                Attempt = attempt,
+                CorrectBooks = correctBooks,
+                TimeTaken = timeTaken,
+                gameName = gameName,
+
+            });
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Method of type int to calculate the score.
+        /// </summary>
+        /// <returns>returns the users score.</returns>
+        private int CalculateScore()
+        {
+            int score = 0;
+
             foreach (var kvp in ExpectedOrder)
             {
                 if (bottomShelfToTopShelfMap.TryGetValue(kvp.Key, out string descriptionPanelName) &&
@@ -601,8 +671,8 @@ namespace PROG7312_Part1
                     }
                 }
             }
-            // Display a message box with the score
-            MessageBox.Show($"Your Score! Your score is {score} out of 4.", "Score", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            return score;
         }
 
         //-------------------------------------------------------------------------------------------//
@@ -893,9 +963,19 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Opens a new instance of the results form.
+        /// The form will be populated with the results
+        /// list of data.The the form will open in a dialog
+        /// format.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnResults_Click(object sender, EventArgs e)
         {
-            
+            ResultsForm resultsForm = new ResultsForm(results);
+            resultsForm.UpdateDisplay(FindBestAttempt(results));
+            resultsForm.ShowDialog();
         }
 
         //-------------------------------------------------------------------------------------------//
@@ -922,6 +1002,11 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Opens the help form in a dialog format.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnHelp_Click(object sender, EventArgs e)
         {
             /// <summary>

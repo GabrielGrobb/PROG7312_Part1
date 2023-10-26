@@ -67,6 +67,7 @@
             this.btnNext.TabIndex = 5;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnBack
             // 
@@ -77,6 +78,7 @@
             this.btnBack.TabIndex = 4;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // IDAreasHelpForm
             // 
@@ -87,9 +89,13 @@
             this.Controls.Add(this.pBoxHelp);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnBack);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(843, 584);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(843, 584);
             this.Name = "IDAreasHelpForm";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IDAreasHelpForm";
             ((System.ComponentModel.ISupportInitialize)(this.pBoxHelp)).EndInit();
             this.ResumeLayout(false);

@@ -148,13 +148,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dgvResults.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="lblBestAttempt.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft YaHei, 13.8pt</value>
   </data>
   <data name="lblBestAttempt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>186, 168</value>
+    <value>184, 121</value>
   </data>
   <data name="lblBestAttempt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -181,13 +181,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblBestAttempt.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="lblCorrectBooks.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft YaHei, 13.8pt</value>
   </data>
   <data name="lblCorrectBooks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>186, 252</value>
+    <value>184, 205</value>
   </data>
   <data name="lblCorrectBooks.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -214,13 +214,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblCorrectBooks.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="lblTimeTaken.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft YaHei, 13.8pt</value>
   </data>
   <data name="lblTimeTaken.Location" type="System.Drawing.Point, System.Drawing">
-    <value>186, 344</value>
+    <value>184, 297</value>
   </data>
   <data name="lblTimeTaken.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -247,13 +247,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblTimeTaken.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="lblBestAttemptHeading.Font" type="System.Drawing.Font, System.Drawing">
     <value>Impact, 19.8pt, style=Bold, Underline</value>
   </data>
   <data name="lblBestAttemptHeading.Location" type="System.Drawing.Point, System.Drawing">
-    <value>68, 65</value>
+    <value>66, 18</value>
   </data>
   <data name="lblBestAttemptHeading.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -280,13 +280,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblBestAttemptHeading.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="lblAttempt.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft YaHei, 13.8pt</value>
   </data>
   <data name="lblAttempt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 168</value>
+    <value>20, 121</value>
   </data>
   <data name="lblAttempt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -313,13 +313,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblAttempt.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="lblBooks.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft YaHei, 13.8pt</value>
   </data>
   <data name="lblBooks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 252</value>
+    <value>18, 205</value>
   </data>
   <data name="lblBooks.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -346,13 +346,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblBooks.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="lblTime.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft YaHei, 13.8pt</value>
   </data>
   <data name="lblTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 344</value>
+    <value>16, 297</value>
   </data>
   <data name="lblTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -379,7 +379,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblTime.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="lblResultsTitle.Font" type="System.Drawing.Font, System.Drawing">
     <value>Impact, 25.8000011pt, style=Bold, Underline</value>
@@ -412,6 +412,78 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblResultsTitle.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblGame.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft YaHei, 13.8pt</value>
+  </data>
+  <data name="lblGame.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblGame.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 385</value>
+  </data>
+  <data name="lblGame.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="lblGame.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 71</value>
+  </data>
+  <data name="lblGame.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="lblGame.Text" xml:space="preserve">
+    <value>Game Name:</value>
+  </data>
+  <data name="lblGame.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblGame.Name" xml:space="preserve">
+    <value>lblGame</value>
+  </data>
+  <data name="&gt;&gt;lblGame.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblGame.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblGame.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblGameName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft YaHei, 8.25pt</value>
+  </data>
+  <data name="lblGameName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblGameName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>184, 385</value>
+  </data>
+  <data name="lblGameName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="lblGameName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 71</value>
+  </data>
+  <data name="lblGameName.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="lblGameName.Text" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="lblGameName.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lblGameName.Name" xml:space="preserve">
+    <value>lblGameName</value>
+  </data>
+  <data name="&gt;&gt;lblGameName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblGameName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblGameName.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -434,6 +506,9 @@
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>911, 528</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>ResultsForm</value>

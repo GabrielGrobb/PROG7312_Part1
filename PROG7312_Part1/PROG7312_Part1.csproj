@@ -160,6 +160,7 @@
   <ItemGroup>
     <Content Include="bin\Debug\audio\Jigsaw.mp3" />
     <Content Include="bin\Debug\Control.Draggable.dll" />
+    <None Include="Resources\IDHelp1.bmp" />
     <None Include="Resources\helpImage1.bmp" />
     <None Include="bin\Debug\images\Prog.png" />
     <None Include="bin\Debug\images\Book.png" />
@@ -174,6 +175,12 @@
     <None Include="bin\Debug\images\helpImage7.png" />
     <None Include="bin\Debug\images\helpImage8.png" />
     <None Include="bin\Debug\images\part2background.png" />
+    <Content Include="bin\Debug\images\IDHelp1.png" />
+    <Content Include="bin\Debug\images\IDHelp2.png" />
+    <Content Include="bin\Debug\images\IDHelp3.png" />
+    <Content Include="bin\Debug\images\IDHelp4.png" />
+    <Content Include="bin\Debug\images\IDHelp5.png" />
+    <Content Include="bin\Debug\images\IDHelp6.png" />
     <Content Include="bin\Debug\PROG7312_Part1.exe" />
     <Content Include="bin\Debug\PROG7312_Part1.pdb" />
   </ItemGroup>

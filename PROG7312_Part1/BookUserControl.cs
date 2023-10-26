@@ -21,6 +21,7 @@ namespace PROG7312_Part1
         private int seconds = 0; // Variable to store the timer value
         private bool isTimerRunning = false; // Flag to track whether the timer is running
         private Panel selectedBottomShelfPanel;
+        private string bookGame = "Book Shelf Game";
         private Random random = new Random();
 
         /// <summary>
@@ -397,6 +398,7 @@ namespace PROG7312_Part1
         {
             int correctBooks = CalculateScore();
             TimeSpan timeTaken = GetTimeTaken();
+            string gameName = bookGame;
 
             int attempt = results.Count + 1;
 
@@ -404,7 +406,9 @@ namespace PROG7312_Part1
             {
                 Attempt = attempt,
                 CorrectBooks = correctBooks,
-                TimeTaken = timeTaken
+                TimeTaken = timeTaken,
+                gameName = gameName,
+               
             });
         }
         //-------------------------------------------------------------------------------------------//

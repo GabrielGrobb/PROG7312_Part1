@@ -38,7 +38,7 @@
             this.bookUserControl1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bookUserControl1.BackgroundImage")));
             this.bookUserControl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bookUserControl1.Location = new System.Drawing.Point(0, -1);
-            this.bookUserControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bookUserControl1.Margin = new System.Windows.Forms.Padding(4);
             this.bookUserControl1.MaximumSize = new System.Drawing.Size(1042, 600);
             this.bookUserControl1.MinimumSize = new System.Drawing.Size(1042, 600);
             this.bookUserControl1.Name = "bookUserControl1";
@@ -57,6 +57,8 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1060, 637);
             this.Name = "BookForm";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BookForm";
             this.ResumeLayout(false);
 
