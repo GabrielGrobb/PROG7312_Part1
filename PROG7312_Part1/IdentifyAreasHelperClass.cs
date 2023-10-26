@@ -251,17 +251,6 @@ namespace PROG7312_Part1
                 }
             }
         }
-
-        private void ClearAllDictionaries()
-        {
-            books.Clear();
-            topShelfGeneratedOrder.Clear();
-            bottomShelfGeneratedOrder.Clear();
-            randomlyChosencallNumberDescriptions.Clear();
-            randomlyChosenDescriptionsCallNumbers.Clear();
-            originalTopShelfLocations.Clear();
-            topShelfOccupancyStatus.Clear();
-        }
     }
 }
 //---------------------------------------------EndOfFile---------------------------------------------//

@@ -16,22 +16,27 @@ namespace PROG7312_Part1
 {
     public partial class IdentifyAreasUserControl : UserControl
     {
-        private int score = 0;
-        private IdentifyAreasHelperClass helper;
-        private Control.ControlCollection controls;
-        private int randomNumber;
         //-------------------------------------------------------------------------------------------//
         /// <summary>
-        ///  Variables:
-        ///  seconds is for the timer.
-        ///  isTimerRunning checks if the timer is still counting
-        ///  selectedBottomShelfPanel is the selected book.
-        ///  random is to generate random integers and characters.
+        ///  Global Variables:
+        ///  - seconds is for the timer.
+        ///  - isTimerRunning checks if the timer is still counting
+        ///  - selectedPanel is the selected bottom shelf panel.
+        ///  - score is the end value for the user.
+        ///  - creating an instance of the helper class.
+        ///  - controls is a type of Control 
+        ///  - random number holds either 1 or 0.
         /// </summary>
         private int seconds = 0;
         private bool isTimerRunning = false;
         private Panel selectedPanel;
+        private int score = 0;
+        private IdentifyAreasHelperClass helper;
+        private Control.ControlCollection controls;
+        private int randomNumber;
         private List<string> books = new List<string>();
+
+        //-------------------------------------------------------------------------------------------//
 
         /// <summary>
         /// A boolean array to check if the top shelf is occupied.
@@ -39,6 +44,9 @@ namespace PROG7312_Part1
         private bool[] bottomShelfOccupancyStatus = new bool[7]; // Assuming you have 7 top shelf panels
         //-------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// A dictionary holding all 10 indexes for the application to select from.
+        /// </summary>
         Dictionary<string, string> callNumberDescriptions = new Dictionary<string, string>
         {
             { "000", "Generalities" }, { "100", "Philosophy" }, { "200", "Religion" },
@@ -49,6 +57,18 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Dictionaries responsible for:
+        /// - The correct placement order.
+        /// - The name of the top panels and their label contents.
+        /// - The name of the bottom panels and their label contents.
+        /// - The randomly chosen calling numbers to descriptions.
+        /// - The randomly chosen descriptions to calling numbers.
+        /// - The original top shelf panel locations.
+        /// - The original bottom shelf panel locations.
+        /// - The occupany status of the top shelf.
+        /// - The placements of where the bottom shelf panel was placed on the top shelf panel.
+        /// </summary>
         private Dictionary<string, string> ExpectedOrder = new Dictionary<string, string>();
         private Dictionary<string, string> topShelfGeneratedOrder = new Dictionary<string, string>(); // Store the original order
         private Dictionary<string, string> bottomShelfGeneratedOrder = new Dictionary<string, string>(); // Store the original order
@@ -63,6 +83,9 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Initializing component
+        /// </summary>
         public IdentifyAreasUserControl()
         {
             InitializeComponent();
@@ -70,16 +93,33 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// On load the books are generated.
+        /// Specific buttons are disabled.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void IdentifyAreasUserControl_Load(object sender, EventArgs e)
         {
             GenerateRandomListings(Controls);
 
             btnReset.Enabled = false;
+            btnReset.Visible = false;
+            btnPause.Enabled = false;
+            btnPause.Visible = false;
+            btnResume.Enabled = false;
+            btnResume.Visible = false;
             lblTimer.Text = "Timer: 0 seconds";
         }
 
         //-------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Method is used to generate a random order for panels to be matched.
+        /// Method is responsible for generating either the description or
+        /// calling numbers matches. It is chosen randomly. 
+        /// </summary>
+        /// <param name="controls"></param>
         private void GenerateRandomListings(Control.ControlCollection controls)
         {
             var helper = new IdentifyAreasHelperClass(randomlyChosencallNumberDescriptions, randomlyChosenDescriptionsCallNumbers,
@@ -92,46 +132,77 @@ namespace PROG7312_Part1
             if (randomNumber == 0)
             {
                 lblCallingNumbers.Visible = false;
+                lblDescriptionHeading.Visible = false;
                 RandomlySelectItems();
                 helper.CreateLabelsForTopLeftShelf(controls);
                 helper.CreateLabelsForDescriptionShelf(controls);
                 helper.StoreTopRightShelfProperties(controls);
 
-                foreach (var kvp in topShelfGeneratedOrder)
-                {
-                    if (randomlyChosencallNumberDescriptions.TryGetValue(kvp.Value, out string description))
-                    {
-                        // Replace 'description' with the description panel name
-                        string bottomPanelName = GetMatchingDescriptionPanelName(description);
-                        ExpectedOrder[$"rightShelf{kvp.Key.Substring(9)}"] = bottomPanelName;
-                    }
-                }
-
+                GenerateCorrectDescriptionResults();
             }
             else
             {
                 lblDescription.Visible = false;
+                lblCallingNumberHeading.Visible = false;
                 RandomlySelectItems();
                 helper.CreateLabelsForRightShelf(controls);
                 helper.CreateLabelsForCallingNumberShelf(controls);
                 helper.StoreLeftShelfProperties(controls);
 
-                foreach (var kvp in topShelfGeneratedOrder)
+                GenerateCorrectCallingNumberResults();
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Method is responsible for generating the correct order when
+        /// descriptions have to be matched to the calling numbers
+        /// fields to attain 100% for the placements.
+        /// </summary>
+        private void GenerateCorrectDescriptionResults() 
+        {
+            foreach (var kvp in topShelfGeneratedOrder)
+            {
+                if (randomlyChosencallNumberDescriptions.TryGetValue(kvp.Value, out string description))
                 {
-                    if (randomlyChosenDescriptionsCallNumbers.TryGetValue(kvp.Value, out string callingNumber))
-                    {
-                        // Replace 'description' with the description panel name
-                        string bottomPanelName = GetMatchingDescriptionPanelName(callingNumber);
-                        ExpectedOrder[$"leftShelf{kvp.Key.Substring(10)}"] = bottomPanelName;
-                    }
+                    // Replace 'description' with the description panel name
+                    string bottomPanelName = GetMatchingBottomPanelName(description);
+                    ExpectedOrder[$"rightShelf{kvp.Key.Substring(9)}"] = bottomPanelName;
                 }
             }
         }
 
         //-------------------------------------------------------------------------------------------//
 
-        // Add this method to get the matching description panel number
-        private string GetMatchingDescriptionPanelName(string description)
+        /// <summary>
+        /// Method is responsible for generating the correct order when 
+        /// calling numbers have to be matched to the description/category
+        /// fields to attain 100% for the placements.
+        /// </summary>
+        private void GenerateCorrectCallingNumberResults()
+        {
+            foreach (var kvp in topShelfGeneratedOrder)
+            {
+                if (randomlyChosenDescriptionsCallNumbers.TryGetValue(kvp.Value, out string callingNumber))
+                {
+                    // Replace 'description' with the description panel name
+                    string bottomPanelName = GetMatchingBottomPanelName(callingNumber);
+                    ExpectedOrder[$"leftShelf{kvp.Key.Substring(10)}"] = bottomPanelName;
+                }
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Method resturns the bottom panels name
+        /// in a string format.
+        /// Handle the case where no matching description panel is found
+        /// </summary>
+        /// <param name="description"></param>
+        /// <returns></returns>
+        private string GetMatchingBottomPanelName(string description)
         {
             foreach (var kvp in bottomShelfGeneratedOrder)
             {
@@ -140,18 +211,22 @@ namespace PROG7312_Part1
                     return kvp.Key;
                 }
             }
-            return null; // Handle the case where no matching description panel is found
+            return null;
         }
 
         //-------------------------------------------------------------------------------------------//
 
-        // Method to randomly select 7 key-value pairs
+        /// <summary>
+        /// Method to randomly select 7 key-value pairs.
+        /// Shuffles the items to get a random order.
+        /// Select the first 7 items and add them to the randomlyChosencallNumberDescriptions and
+        /// randomlyChosenDescriptionsCallNumbers dictionaries.
+        /// </summary>
         private void RandomlySelectItems()
         {
             Random random = new Random();
             List<KeyValuePair<string, string>> items = callNumberDescriptions.ToList();
 
-            // Shuffle the items to get a random order
             for (int i = 0; i < items.Count - 1; i++)
             {
                 int j = random.Next(i, items.Count);
@@ -160,7 +235,6 @@ namespace PROG7312_Part1
                 items[j] = temp;
             }
 
-            // Select the first 7 items and add them to the randomlyChosencallNumberDescriptions dictionary
             for (int i = 0; i < 7; i++)
             {
                 randomlyChosencallNumberDescriptions.Add(items[i].Key, items[i].Value);
@@ -354,13 +428,13 @@ namespace PROG7312_Part1
 
         /// <summary>
         /// Used ChatGPT here.
-        /// Iterates through all the top shelf panels.
+        /// Iterates through all the top shelf panels (right).
         /// Finds the closest and unoccupied panel.
         /// checks if the distance is more than the closest distance
         /// between the top and bottom panels.
         /// </summary>
         /// <param name="bottomCenter"></param>
-        /// <returns></returns>
+        /// <returns>The closest unoccupies top panel.</returns>
         private Panel FindClosestUnoccupiedRightShelf(Point bottomCenter)
         {
             Panel closestTopShelf = null;
@@ -393,6 +467,15 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Used ChatGPT here.
+        /// Iterates through all the top shelf panels (left).
+        /// Finds the closest and unoccupied panel.
+        /// checks if the distance is more than the closest distance
+        /// between the top and bottom panels.
+        /// </summary>
+        /// <param name="bottomCenter"></param>
+        /// <returns>The closest unoccupies top panel.</returns>
         private Panel FindClosestUnoccupiedLeftShelf(Point bottomCenter)
         {
             Panel closestTopShelf = null;
@@ -426,10 +509,10 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// Finds and returns the index of the top shelf panel
+        /// Finds and returns the index of the top shelf panel.
         /// </summary>
         /// <param name="topShelfPanel"></param>
-        /// <returns></returns>
+        /// <returns>The index of the top shelf panel</returns>
         private int GetTopShelfIndex(Panel topShelfPanel)
         {
             int index = int.Parse(Regex.Match(topShelfPanel.Name, @"\d+").Value) - 1;
@@ -438,10 +521,10 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// Finds and returns the index of the bottom shelf panel
+        /// Finds and returns the index of the bottom shelf panel.
         /// </summary>
         /// <param name="bottomShelfPanel"></param>
-        /// <returns></returns>
+        /// <returns>The index of the bottom shelf panel</returns>
         private int GetBottomShelfIndex(Panel bottomShelfPanel)
         {
             int index = int.Parse(Regex.Match(bottomShelfPanel.Name, @"\d+").Value) - 1;
@@ -463,6 +546,11 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Method to check if all the top shelf panels 
+        /// are occupied by a bottom shelf panel.
+        /// </summary>
+        /// <returns>Returns all the values as true</returns>
         private bool AllRightShelfOccupied()
         {
             // Check if all boolean values in the dictionary are true
@@ -471,13 +559,24 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// When the last panel is placed, timer will pause,
+        /// Enable, disable, hide and display specific buttons.
+        /// Checks what the random number variable is holding. 
+        /// Foreach will itterate through the dictionaries to 
+        /// check for all the matches and produce a score out of 4.
+        /// </summary>
         private void CheckScoreAndShowMessageBox()
         {
             identifyAreas_timer.Stop();
             btnReset.Enabled = true;
+            btnReset.Visible = true;
             btnStart.Enabled = false;
+            btnStart.Visible = false;
             btnPause.Enabled = false;
+            btnPause.Visible = false;
             btnResume.Enabled = false;
+            btnResume.Visible = false;
 
             if (randomNumber == 0)
             {
@@ -508,6 +607,10 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Method to remove the mouse up and down events for the
+        /// description shelf panels.
+        /// </summary>
         private void RemoveDescriptionPanelControls() 
         {
             foreach (Panel bottomShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("descriptionShelf")))
@@ -521,6 +624,10 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Method to remove the mouse up and down events for the
+        /// calling number shelf panels.
+        /// </summary>
         private void RemoveCallingNumberPanelControls()
         {
             foreach (Panel bottomShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("callingShelf")))
@@ -530,6 +637,40 @@ namespace PROG7312_Part1
 
                 bottomShelfPanel.MouseDown -= IdentifyAreasControl_MouseDown;
                 bottomShelfPanel.MouseUp -= IdentifyAreasControl_MouseUp;
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Method to create the mouse up and down events for the
+        /// description shelf panels.
+        /// </summary>
+        private void CreateDescriptionPanelControls()
+        {
+            foreach (Panel bottomShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("descriptionShelf")))
+            {
+                ControlExtension.Draggable(bottomShelfPanel, false);
+
+                bottomShelfPanel.MouseDown += IdentifyAreasControl_MouseDown;
+                bottomShelfPanel.MouseUp += IdentifyAreasControl_MouseUp;
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Method to create the mouse up and down events for the
+        /// calling number shelf panels.
+        /// </summary>
+        private void CreateCallingNumberPanelControls()
+        {
+            foreach (Panel bottomShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("callingShelf")))
+            {
+                ControlExtension.Draggable(bottomShelfPanel, false);
+
+                bottomShelfPanel.MouseDown += IdentifyAreasControl_MouseDown;
+                bottomShelfPanel.MouseUp += IdentifyAreasControl_MouseUp;
             }
         }
 
@@ -547,9 +688,19 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Deactivates the start button.
+        /// Activates the pause button.
+        /// Checks if random number is 0 or 1.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnStart_Click(object sender, EventArgs e)
         {
             btnStart.Enabled = false;
+            btnStart.Visible = false;
+            btnPause.Visible = true;
+            btnPause.Enabled = true;
 
             if (randomNumber == 0)
             {
@@ -563,6 +714,14 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Method removes any mouse up or down events for the panels.
+        /// Itterates through the description shelf panels and adds
+        /// the mouse up and down events.
+        /// Allows the panels to be draggable.
+        /// Brings the panels to front.
+        /// Checks if the timer is not counting.
+        /// </summary>
         private void DescriptionGeneration() 
         {
             RemoveDescriptionPanelControls();
@@ -586,6 +745,14 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Method removes any mouse up or down events for the panels.
+        /// Itterates through the calling shelf panels and adds
+        /// the mouse up and down events.
+        /// Allows the panels to be draggable.
+        /// Brings the panels to front.
+        /// Checks if the timer is not counting.
+        /// </summary>
         private void CallNumbersGeneration()
         {
             RemoveCallingNumberPanelControls();
@@ -609,33 +776,13 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            btnReset.Enabled = false;
-            btnStart.Enabled = true;
-            btnPause.Enabled = true;
-
-            if (isTimerRunning)
-            {
-                seconds = 0;
-                identifyAreas_timer.Stop();
-                isTimerRunning = false;
-                lblTimer.Text = "Timer: 0 seconds";
-            }
-
-            if (randomNumber == 0)
-            {
-                DescriptionGenerationReset();
-            }
-            else
-            {
-                CallingNumbersGenerationReset();
-            }
-        }
-
-        //-------------------------------------------------------------------------------------------//
-
-        private void DescriptionGenerationReset() 
+        /// <summary>
+        /// When the description shelf is the moveable panels;
+        /// Firstly removes exsisting controls.
+        /// Finds the panels orignal locations when generated.
+        /// Places the panels in their orignal locations.
+        /// </summary>
+        private void DescriptionGenerationReset()
         {
             foreach (Panel bottomShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("descriptionShelf")))
             {
@@ -670,7 +817,11 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
-        private void CallingNumbersGenerationReset() 
+        /// When the calling number shelf is the moveable panels;
+        /// Firstly removes exsisting controls.
+        /// Finds the panels orignal locations when generated.
+        /// Places the panels in their orignal locations.
+        private void CallingNumbersGenerationReset()
         {
             foreach (Panel callingNumberShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("callingShelf")))
             {
@@ -702,6 +853,44 @@ namespace PROG7312_Part1
                 callingNumberShelfPanel.Tag = null;
             }
         }
+
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Reset columns button will disable pause and reset button.
+        /// Enable, disable, hide and display specific buttons.
+        /// Checks if the timner is counting
+        /// Checks if random number is 0 or 1.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            btnReset.Enabled = false;
+            btnReset.Visible = false;
+            btnStart.Enabled = true;
+            btnStart.Visible = true;
+            btnPause.Enabled = false;
+            btnPause.Visible = false;
+
+            if (isTimerRunning)
+            {
+                seconds = 0;
+                identifyAreas_timer.Stop();
+                isTimerRunning = false;
+                lblTimer.Text = "Timer: 0 seconds";
+            }
+
+            if (randomNumber == 0)
+            {
+                DescriptionGenerationReset();
+            }
+            else
+            {
+                CallingNumbersGenerationReset();
+            }
+        }
+
         //-------------------------------------------------------------------------------------------//
 
         private void btnResults_Click(object sender, EventArgs e)
@@ -711,6 +900,12 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Opens a new main menu instance when yes is clicked 
+        /// on the cofirmation message.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
             // Display the user's score
@@ -744,11 +939,23 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Allows the user to pause the game.
+        /// Enable, disable, hide and display specific buttons.
+        /// Checks if the timer is running and if the 
+        /// random number is 0 or 1.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPause_Click(object sender, EventArgs e)
         {
             btnStart.Enabled = false;
+            btnStart.Visible = false;
             btnResume.Enabled = true;
+            btnResume.Visible = true;
             btnPause.Enabled = false;
+            btnPause.Visible = false;
+
             if (isTimerRunning)
             {
                 identifyAreas_timer.Stop();
@@ -756,19 +963,40 @@ namespace PROG7312_Part1
             }
             if (randomNumber == 0)
             {
+                lblDescription.Visible = false;
+                lblCallingNumberHeading.Visible = false;
+                HideDescriptionPanels();
                 RemoveDescriptionPanelControls();
             }
             else
             {
+                lblCallingNumbers.Visible = false;
+                lblDescriptionHeading.Visible = false;
+                HideCallingNumberPanels();
                 RemoveCallingNumberPanelControls();
             }
         }
 
         //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Allows the user to resume the game after the pause button is clicked.
+        /// Enable, disable, hide and display specific buttons.
+        /// Checks if the timer is not running.
+        /// Checks if the timer is running and if the 
+        /// random number is 0 or 1.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnResume_Click(object sender, EventArgs e)
         {
+            btnResume.Enabled = false;
+            btnResume.Visible = false;
             btnStart.Enabled = false;
+            btnStart.Visible = false;
             btnPause.Enabled = true;
+            btnPause.Visible = true;
+
             if (!isTimerRunning)
             {
                 identifyAreas_timer.Start();
@@ -778,41 +1006,98 @@ namespace PROG7312_Part1
 
             if (randomNumber == 0) 
             {
+                lblDescription.Visible = true;
+                lblCallingNumberHeading.Visible = true;
+                DisplayDescriptionPanels();
                 CreateDescriptionPanelControls();
             }
             else
             {
+                lblCallingNumbers.Visible = true;
+                lblDescriptionHeading.Visible = true;
+                DisplayCallingNumberPanels();
                 CreateCallingNumberPanelControls();
             }
         }
 
         //-------------------------------------------------------------------------------------------//
 
-        private void CreateDescriptionPanelControls()
+        /// <summary>
+        /// Hides the Description panels and Headings.
+        /// </summary>
+        private void HideDescriptionPanels() 
         {
             foreach (Panel bottomShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("descriptionShelf")))
             {
-                ControlExtension.Draggable(bottomShelfPanel, false);
+               ControlExtension.Draggable(bottomShelfPanel, false);
+               bottomShelfPanel.Visible = false;
+            }
 
-                bottomShelfPanel.MouseDown += IdentifyAreasControl_MouseDown;
-                bottomShelfPanel.MouseUp += IdentifyAreasControl_MouseUp;
+            foreach (Panel topShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("leftShelf")))
+            {
+                topShelfPanel.Visible = false;
             }
         }
 
         //-------------------------------------------------------------------------------------------//
 
-        private void CreateCallingNumberPanelControls()
+        /// <summary>
+        /// Hides the related panels and Headings.
+        /// </summary>
+        private void HideCallingNumberPanels()
         {
+            foreach (Panel topShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("rightShelf")))
+            {
+                topShelfPanel.Visible = false;
+            }
+
             foreach (Panel bottomShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("callingShelf")))
             {
                 ControlExtension.Draggable(bottomShelfPanel, false);
-
-                bottomShelfPanel.MouseDown += IdentifyAreasControl_MouseDown;
-                bottomShelfPanel.MouseUp += IdentifyAreasControl_MouseUp;
+                bottomShelfPanel.Visible = false;
             }
         }
 
         //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Display the Description panels and related Headings description panels.
+        /// </summary>
+        private void DisplayDescriptionPanels()
+        {
+            foreach (Panel topShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("leftShelf")))
+            {
+                topShelfPanel.Visible = true;
+            }
+
+            foreach (Panel bottomShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("descriptionShelf")))
+            {
+                ControlExtension.Draggable(bottomShelfPanel, true);
+                bottomShelfPanel.Visible = true;
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Hides the related panels and Headings for calling numbers.
+        /// </summary>
+        private void DisplayCallingNumberPanels()
+        {
+            foreach (Panel topShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("rightShelf")))
+            {
+                topShelfPanel.Visible = true;
+            }
+
+            foreach (Panel bottomShelfPanel in Controls.OfType<Panel>().Where(panel => panel.Name.StartsWith("callingShelf")))
+            {
+                ControlExtension.Draggable(bottomShelfPanel, true);
+                bottomShelfPanel.Visible = true;
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------//
+
     }
 }
 //---------------------------------------------EndOfFile---------------------------------------------//

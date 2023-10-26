@@ -58,6 +58,11 @@ namespace PROG7312_Part1
         private Dictionary<string, bool> topShelfOccupancyStatus = new Dictionary<string, bool>();
         private Dictionary<string, string> bottomShelfLabelToTopShelfMap = new Dictionary<string, string>();
 
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Initializing component
+        /// </summary>
         public BookUserControl()
         {
             InitializeComponent();

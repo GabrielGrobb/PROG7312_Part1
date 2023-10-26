@@ -33,7 +33,6 @@
             this.btnMainMenu = new System.Windows.Forms.Button();
             this.btnResults = new System.Windows.Forms.Button();
             this.lblTimer = new System.Windows.Forms.Label();
-            this.btnReset = new System.Windows.Forms.Button();
             this.lblDescription = new System.Windows.Forms.Label();
             this.identifyAreas_timer = new System.Windows.Forms.Timer(this.components);
             this.leftShelf1 = new System.Windows.Forms.Panel();
@@ -59,11 +58,12 @@
             this.callingShelf6 = new System.Windows.Forms.Panel();
             this.callingShelf4 = new System.Windows.Forms.Panel();
             this.callingShelf7 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblCallingNumberHeading = new System.Windows.Forms.Label();
+            this.lblDescriptionHeading = new System.Windows.Forms.Label();
+            this.btnResume = new PROG7312_Part1.CustomButton();
             this.btnPause = new PROG7312_Part1.CustomButton();
             this.btnStart = new PROG7312_Part1.CustomButton();
-            this.btnResume = new PROG7312_Part1.CustomButton();
+            this.btnReset = new PROG7312_Part1.CustomButton();
             this.SuspendLayout();
             // 
             // btnHelp
@@ -113,20 +113,9 @@
             this.lblTimer.Text = "label1";
             this.lblTimer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnReset
-            // 
-            this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReset.Location = new System.Drawing.Point(15, 195);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(138, 38);
-            this.btnReset.TabIndex = 32;
-            this.btnReset.Text = "Reset Columns";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
             // lblDescription
             // 
-            this.lblDescription.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblDescription.BackColor = System.Drawing.Color.Plum;
             this.lblDescription.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescription.ForeColor = System.Drawing.Color.Blue;
@@ -354,29 +343,51 @@
             this.callingShelf7.Size = new System.Drawing.Size(60, 40);
             this.callingShelf7.TabIndex = 47;
             // 
-            // label1
+            // lblCallingNumberHeading
             // 
-            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(292, 76);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 38);
-            this.label1.TabIndex = 61;
-            this.label1.Text = "Calling Numbers";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCallingNumberHeading.BackColor = System.Drawing.Color.LightCoral;
+            this.lblCallingNumberHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCallingNumberHeading.ForeColor = System.Drawing.Color.Yellow;
+            this.lblCallingNumberHeading.Location = new System.Drawing.Point(292, 76);
+            this.lblCallingNumberHeading.Name = "lblCallingNumberHeading";
+            this.lblCallingNumberHeading.Size = new System.Drawing.Size(174, 38);
+            this.lblCallingNumberHeading.TabIndex = 61;
+            this.lblCallingNumberHeading.Text = "Calling Numbers";
+            this.lblCallingNumberHeading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblDescriptionHeading
             // 
-            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(476, 76);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(204, 38);
-            this.label2.TabIndex = 62;
-            this.label2.Text = "Descriptions";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDescriptionHeading.BackColor = System.Drawing.Color.Plum;
+            this.lblDescriptionHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescriptionHeading.ForeColor = System.Drawing.Color.Blue;
+            this.lblDescriptionHeading.Location = new System.Drawing.Point(480, 76);
+            this.lblDescriptionHeading.Name = "lblDescriptionHeading";
+            this.lblDescriptionHeading.Size = new System.Drawing.Size(200, 38);
+            this.lblDescriptionHeading.TabIndex = 62;
+            this.lblDescriptionHeading.Text = "Descriptions";
+            this.lblDescriptionHeading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnResume
+            // 
+            this.btnResume.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnResume.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnResume.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnResume.BorderRadius = 40;
+            this.btnResume.BorderSize = 0;
+            this.btnResume.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResume.FlatAppearance.BorderSize = 0;
+            this.btnResume.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
+            this.btnResume.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
+            this.btnResume.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnResume.ForeColor = System.Drawing.Color.White;
+            this.btnResume.Location = new System.Drawing.Point(15, 135);
+            this.btnResume.Name = "btnResume";
+            this.btnResume.Size = new System.Drawing.Size(138, 40);
+            this.btnResume.TabIndex = 66;
+            this.btnResume.Text = "Resume?";
+            this.btnResume.TextColor = System.Drawing.Color.White;
+            this.btnResume.UseVisualStyleBackColor = false;
+            this.btnResume.Click += new System.EventHandler(this.btnResume_Click);
             // 
             // btnPause
             // 
@@ -390,13 +401,13 @@
             this.btnPause.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Firebrick;
             this.btnPause.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnPause.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPause.ForeColor = System.Drawing.Color.Black;
+            this.btnPause.ForeColor = System.Drawing.Color.White;
             this.btnPause.Location = new System.Drawing.Point(15, 72);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(138, 40);
             this.btnPause.TabIndex = 64;
             this.btnPause.Text = "Pause";
-            this.btnPause.TextColor = System.Drawing.Color.Black;
+            this.btnPause.TextColor = System.Drawing.Color.White;
             this.btnPause.UseVisualStyleBackColor = false;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
@@ -422,26 +433,27 @@
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // btnResume
+            // btnReset
             // 
-            this.btnResume.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnResume.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnResume.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnResume.BorderRadius = 40;
-            this.btnResume.BorderSize = 0;
-            this.btnResume.FlatAppearance.BorderSize = 0;
-            this.btnResume.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
-            this.btnResume.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
-            this.btnResume.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnResume.ForeColor = System.Drawing.Color.White;
-            this.btnResume.Location = new System.Drawing.Point(15, 135);
-            this.btnResume.Name = "btnResume";
-            this.btnResume.Size = new System.Drawing.Size(138, 40);
-            this.btnResume.TabIndex = 66;
-            this.btnResume.Text = "Resume?";
-            this.btnResume.TextColor = System.Drawing.Color.White;
-            this.btnResume.UseVisualStyleBackColor = false;
-            this.btnResume.Click += new System.EventHandler(this.btnResume_Click);
+            this.btnReset.BackColor = System.Drawing.Color.Cyan;
+            this.btnReset.BackgroundColor = System.Drawing.Color.Cyan;
+            this.btnReset.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnReset.BorderRadius = 40;
+            this.btnReset.BorderSize = 0;
+            this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReset.FlatAppearance.BorderSize = 0;
+            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReset.ForeColor = System.Drawing.Color.Black;
+            this.btnReset.Location = new System.Drawing.Point(15, 195);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(138, 40);
+            this.btnReset.TabIndex = 67;
+            this.btnReset.Text = "Reset Round";
+            this.btnReset.TextColor = System.Drawing.Color.Black;
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // IdentifyAreasUserControl
             // 
@@ -449,11 +461,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PROG7312_Part1.Properties.Resources.part2background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnResume);
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.btnStart);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblDescriptionHeading);
+            this.Controls.Add(this.lblCallingNumberHeading);
             this.Controls.Add(this.callingShelf7);
             this.Controls.Add(this.callingShelf4);
             this.Controls.Add(this.callingShelf6);
@@ -482,7 +495,6 @@
             this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnResults);
             this.Controls.Add(this.lblTimer);
-            this.Controls.Add(this.btnReset);
             this.DoubleBuffered = true;
             this.Name = "IdentifyAreasUserControl";
             this.Size = new System.Drawing.Size(1000, 686);
@@ -497,7 +509,6 @@
         private System.Windows.Forms.Button btnMainMenu;
         private System.Windows.Forms.Button btnResults;
         private System.Windows.Forms.Label lblTimer;
-        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Timer identifyAreas_timer;
         private System.Windows.Forms.Panel leftShelf1;
@@ -523,10 +534,11 @@
         private System.Windows.Forms.Panel callingShelf6;
         private System.Windows.Forms.Panel callingShelf4;
         private System.Windows.Forms.Panel callingShelf7;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblCallingNumberHeading;
+        private System.Windows.Forms.Label lblDescriptionHeading;
         private CustomButton btnStart;
         private CustomButton btnPause;
         private CustomButton btnResume;
+        private CustomButton btnReset;
     }
 }
