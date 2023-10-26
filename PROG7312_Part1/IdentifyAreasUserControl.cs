@@ -1,15 +1,10 @@
 ﻿using BooksClassLibrary;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PROG7312_Part1
@@ -23,15 +18,11 @@ namespace PROG7312_Part1
         ///  - isTimerRunning checks if the timer is still counting
         ///  - selectedPanel is the selected bottom shelf panel.
         ///  - score is the end value for the user.
-        ///  - creating an instance of the helper class.
-        ///  - controls is a type of Control 
         ///  - random number holds either 1 or 0.
         /// </summary>
         private int seconds = 0;
         private bool isTimerRunning = false;
         private Panel selectedPanel;
-        private IdentifyAreasHelperClass helper;
-        private Control.ControlCollection controls;
         private int randomNumber;
         private string matchColumnGame = "Match Column Game";
 

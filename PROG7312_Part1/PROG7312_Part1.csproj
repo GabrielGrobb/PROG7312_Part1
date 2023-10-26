@@ -55,6 +55,7 @@
     <Compile Include="BookForm.Designer.cs">
       <DependentUpon>BookForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BookHelper.cs" />
     <Compile Include="BookUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
