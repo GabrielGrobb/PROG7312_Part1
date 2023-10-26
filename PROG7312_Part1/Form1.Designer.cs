@@ -106,6 +106,7 @@
             this.pgDataLoad.Size = new System.Drawing.Size(553, 23);
             this.pgDataLoad.TabIndex = 5;
             this.pgDataLoad.Value = 1;
+            this.pgDataLoad.Visible = false;
             // 
             // progressTimer
             // 
