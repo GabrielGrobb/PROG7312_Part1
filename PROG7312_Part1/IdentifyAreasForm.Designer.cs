@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IdentifyAreasForm));
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.identifyAreasUserControl1 = new PROG7312_Part1.IdentifyAreasUserControl();
             this.SuspendLayout();
             // 
@@ -36,7 +37,8 @@
             // 
             this.identifyAreasUserControl1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("identifyAreasUserControl1.BackgroundImage")));
             this.identifyAreasUserControl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.identifyAreasUserControl1.Location = new System.Drawing.Point(0, -1);
+            this.identifyAreasUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.identifyAreasUserControl1.Location = new System.Drawing.Point(0, 0);
             this.identifyAreasUserControl1.MaximumSize = new System.Drawing.Size(1000, 686);
             this.identifyAreasUserControl1.MinimumSize = new System.Drawing.Size(1000, 686);
             this.identifyAreasUserControl1.Name = "identifyAreasUserControl1";
@@ -63,7 +65,7 @@
         }
 
         #endregion
-
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private IdentifyAreasUserControl identifyAreasUserControl1;
     }
 }

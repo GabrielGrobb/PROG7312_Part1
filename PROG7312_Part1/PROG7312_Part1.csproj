@@ -62,6 +62,19 @@
     <Compile Include="BookUserControl.Designer.cs">
       <DependentUpon>BookUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="CallingNumbersUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CallingNumbersUserControl.Designer.cs">
+      <DependentUpon>CallingNumbersUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CallNumbersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CallNumbersForm.Designer.cs">
+      <DependentUpon>CallNumbersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CSVModel.cs" />
     <Compile Include="CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -104,6 +117,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RedBlackTree.cs" />
     <Compile Include="ResultsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +130,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BookUserControl.resx">
       <DependentUpon>BookUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CallingNumbersUserControl.resx">
+      <DependentUpon>CallingNumbersUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CallNumbersForm.resx">
+      <DependentUpon>CallNumbersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -140,6 +160,7 @@
     <EmbeddedResource Include="ResultsForm.resx">
       <DependentUpon>ResultsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bin\Debug\dewey.csv" />
     <None Include="bin\Debug\PROG7312_Part1.exe.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
