@@ -77,7 +77,7 @@ namespace PROG7312_Part1
 
         //------------------------------------------------------------------------------------------//
         // Constructor
-        public CustomButton() 
+        public CustomButton()
         {
             this.FlatStyle = FlatStyle.Flat;
             this.FlatAppearance.BorderSize = 0;
@@ -94,7 +94,7 @@ namespace PROG7312_Part1
         /// <param name="radius"></param>
         /// <returns></returns>
 
-        private GraphicsPath GetFigurePath(RectangleF rect, float radius) 
+        private GraphicsPath GetFigurePath(RectangleF rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
             path.StartFigure();
@@ -112,7 +112,7 @@ namespace PROG7312_Part1
         /// An override method for the buttons paint.
         /// </summary>
         /// <param name="pevent"></param>
-        protected override void OnPaint(PaintEventArgs pevent) 
+        protected override void OnPaint(PaintEventArgs pevent)
         {
             base.OnPaint(pevent);
             pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
@@ -143,14 +143,14 @@ namespace PROG7312_Part1
                 }
             }
             // Normal Button
-            else 
+            else
             {
                 // Button Surface
                 this.Region = new Region(rectSurface);
                 // Button Border
                 if (borderSize >= 1)
                 {
-                    using (Pen penBorder = new Pen(borderColor, borderSize)) 
+                    using (Pen penBorder = new Pen(borderColor, borderSize))
                     {
 
                         penBorder.Alignment = PenAlignment.Inset;
@@ -176,9 +176,9 @@ namespace PROG7312_Part1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Container_BackColorChanged(object sender, EventArgs e) 
+        private void Container_BackColorChanged(object sender, EventArgs e)
         {
-            if(this.DesignMode)
+            if (this.DesignMode)
                 this.Invalidate();
         }
 
