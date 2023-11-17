@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblDescription = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
-            this.btnStart = new PROG7312_Part1.CustomButton();
             this.rdoOption1 = new System.Windows.Forms.RadioButton();
             this.rdoOption2 = new System.Windows.Forms.RadioButton();
             this.rdoOption3 = new System.Windows.Forms.RadioButton();
@@ -40,6 +40,8 @@
             this.captionPanel2 = new System.Windows.Forms.Panel();
             this.captionPanel3 = new System.Windows.Forms.Panel();
             this.captionPanel4 = new System.Windows.Forms.Panel();
+            this.callingNumbersTimer = new System.Windows.Forms.Timer(this.components);
+            this.btnStart = new PROG7312_Part1.CustomButton();
             this.SuspendLayout();
             // 
             // lblDescription
@@ -58,30 +60,8 @@
             this.txtDescription.Location = new System.Drawing.Point(509, 86);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(186, 34);
+            this.txtDescription.Size = new System.Drawing.Size(343, 34);
             this.txtDescription.TabIndex = 1;
-            // 
-            // btnStart
-            // 
-            this.btnStart.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnStart.BackgroundColor = System.Drawing.Color.PaleGreen;
-            this.btnStart.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnStart.BorderRadius = 40;
-            this.btnStart.BorderSize = 0;
-            this.btnStart.FlatAppearance.BorderSize = 0;
-            this.btnStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.ForestGreen;
-            this.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.ForeColor = System.Drawing.Color.Black;
-            this.btnStart.Location = new System.Drawing.Point(353, 18);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(150, 40);
-            this.btnStart.TabIndex = 2;
-            this.btnStart.Text = "START";
-            this.btnStart.TextColor = System.Drawing.Color.Black;
-            this.btnStart.UseVisualStyleBackColor = false;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // rdoOption1
             // 
@@ -92,6 +72,7 @@
             this.rdoOption1.TabIndex = 3;
             this.rdoOption1.TabStop = true;
             this.rdoOption1.UseVisualStyleBackColor = true;
+            this.rdoOption1.Click += new System.EventHandler(this.rdoOption1_Click);
             // 
             // rdoOption2
             // 
@@ -102,6 +83,7 @@
             this.rdoOption2.TabIndex = 4;
             this.rdoOption2.TabStop = true;
             this.rdoOption2.UseVisualStyleBackColor = true;
+            this.rdoOption2.Click += new System.EventHandler(this.rdoOption2_Click);
             // 
             // rdoOption3
             // 
@@ -112,6 +94,7 @@
             this.rdoOption3.TabIndex = 5;
             this.rdoOption3.TabStop = true;
             this.rdoOption3.UseVisualStyleBackColor = true;
+            this.rdoOption3.Click += new System.EventHandler(this.rdoOption3_Click);
             // 
             // rdoOption4
             // 
@@ -122,6 +105,7 @@
             this.rdoOption4.TabIndex = 6;
             this.rdoOption4.TabStop = true;
             this.rdoOption4.UseVisualStyleBackColor = true;
+            this.rdoOption4.Click += new System.EventHandler(this.rdoOption4_Click);
             // 
             // lblTimer
             // 
@@ -171,6 +155,33 @@
             this.captionPanel4.Size = new System.Drawing.Size(80, 150);
             this.captionPanel4.TabIndex = 11;
             // 
+            // callingNumbersTimer
+            // 
+            this.callingNumbersTimer.Interval = 1000;
+            this.callingNumbersTimer.Tick += new System.EventHandler(this.callingNumbersTimer_Tick);
+            // 
+            // btnStart
+            // 
+            this.btnStart.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnStart.BackgroundColor = System.Drawing.Color.PaleGreen;
+            this.btnStart.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnStart.BorderRadius = 40;
+            this.btnStart.BorderSize = 0;
+            this.btnStart.FlatAppearance.BorderSize = 0;
+            this.btnStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.ForestGreen;
+            this.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.ForeColor = System.Drawing.Color.Black;
+            this.btnStart.Location = new System.Drawing.Point(353, 18);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(150, 40);
+            this.btnStart.TabIndex = 2;
+            this.btnStart.Text = "START";
+            this.btnStart.TextColor = System.Drawing.Color.Black;
+            this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
             // CallingNumbersUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -189,6 +200,7 @@
             this.Controls.Add(this.lblDescription);
             this.Name = "CallingNumbersUserControl";
             this.Size = new System.Drawing.Size(1071, 617);
+            this.Load += new System.EventHandler(this.CallingNumbersUserControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,5 +220,6 @@
         private System.Windows.Forms.Panel captionPanel2;
         private System.Windows.Forms.Panel captionPanel3;
         private System.Windows.Forms.Panel captionPanel4;
+        private System.Windows.Forms.Timer callingNumbersTimer;
     }
 }
