@@ -152,6 +152,15 @@
     <EmbeddedResource Include="IdentifyAreasUserControl.resx">
       <DependentUpon>IdentifyAreasUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\PROG7312_Part1.BookForm.resources" />
+    <EmbeddedResource Include="obj\Debug\PROG7312_Part1.BookUserControl.resources" />
+    <EmbeddedResource Include="obj\Debug\PROG7312_Part1.Form1.resources" />
+    <EmbeddedResource Include="obj\Debug\PROG7312_Part1.HelpForm.resources" />
+    <EmbeddedResource Include="obj\Debug\PROG7312_Part1.IDAreasHelpForm.resources" />
+    <EmbeddedResource Include="obj\Debug\PROG7312_Part1.IdentifyAreasForm.resources" />
+    <EmbeddedResource Include="obj\Debug\PROG7312_Part1.IdentifyAreasUserControl.resources" />
+    <EmbeddedResource Include="obj\Debug\PROG7312_Part1.Properties.Resources.resources" />
+    <EmbeddedResource Include="obj\Debug\PROG7312_Part1.ResultsForm.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -162,6 +171,13 @@
     </EmbeddedResource>
     <None Include="bin\Debug\dewey.csv" />
     <None Include="bin\Debug\PROG7312_Part1.exe.config" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\PROG7312_Part1.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\PROG7312_Part1.csproj.CopyComplete" />
+    <None Include="obj\Debug\PROG7312_Part1.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\PROG7312_Part1.csproj.GenerateResource.cache" />
+    <None Include="obj\Debug\PROG7312_Part1.csproj.ResolveComReference.cache" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -181,7 +197,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\audio\Jigsaw.mp3" />
+    <Content Include="bin\Debug\AxInterop.WMPLib.dll" />
+    <Content Include="bin\Debug\BooksClassLibrary.dll" />
+    <Content Include="bin\Debug\BooksClassLibrary.pdb" />
     <Content Include="bin\Debug\Control.Draggable.dll" />
+    <Content Include="bin\Debug\Interop.WMPLib.dll" />
+    <Content Include="obj\Debug\AxInterop.WMPLib.dll" />
+    <Content Include="obj\Debug\Interop.WMPLib.dll" />
+    <Content Include="obj\Debug\PROG7312_Part1.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\PROG7312_Part1.exe" />
+    <Content Include="obj\Debug\PROG7312_Part1.pdb" />
+    <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
     <None Include="Resources\IDHelp1.bmp" />
     <None Include="Resources\helpImage1.bmp" />
     <None Include="bin\Debug\images\Prog.png" />
