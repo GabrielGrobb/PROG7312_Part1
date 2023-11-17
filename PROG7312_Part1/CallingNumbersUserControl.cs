@@ -23,6 +23,7 @@ namespace PROG7312_Part1
             Integers
             // Add more sets as needed
         }
+        private static CallingNumbersHelper Helper = new CallingNumbersHelper();
 
         private QuizSet currentQuizSet;
         private Random random = new Random();
@@ -34,8 +35,6 @@ namespace PROG7312_Part1
         private RedBlackTree globalRedBlackTree;
 
 
-        private List<int> options = new List<int>();
-
         private Dictionary<string, KeyValuePair<string, string>> hundredsCaptionPanelGeneratedOrder = new Dictionary<string, KeyValuePair<string, string>>();
         private Dictionary<string, KeyValuePair<string, string>> tensCaptionPanelGeneratedOrder = new Dictionary<string, KeyValuePair<string, string>>();
         private Dictionary<string, KeyValuePair<string, string>> integerCaptionPanelGeneratedOrder = new Dictionary<string, KeyValuePair<string, string>>();
@@ -43,144 +42,6 @@ namespace PROG7312_Part1
         public CallingNumbersUserControl()
         {
             InitializeComponent();
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------------//
-
-        private int FindFirstLevelElement()
-        {
-            int randomNumber = random.Next(1, 10);
-
-            // Multiply the random number by 100
-            int result = randomNumber * 100;
-
-            return result;
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------------//
-
-        int FindSecondLevelElement(int firstLevelElement)
-        {
-            int randomNumber = random.Next(1, 10);
-
-            // Multiply the random number by 10 and add it to the first level element
-            int result = firstLevelElement + (randomNumber * 10);
-
-            return result;
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------------//
-
-
-        private int FindThirdLevelElement(int secondLevelElement)
-        {
-            int randomNumber = random.Next(1, 10);
-
-            // Add the random number to the first level element
-            int result = secondLevelElement + randomNumber;
-
-            return result;
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------------//
-
-        private List<int> GenerateHundredOptions(int correctAnswer)
-        {
-            options = new List<int>();
-
-            // Extract the hundreds digit from the correct answer
-            int hundredsDigit = (correctAnswer / 100) % 10;
-
-            // Generate one correct option with the same hundreds digit and two zeros
-            int correctOption = hundredsDigit * 100;
-            options.Add(correctOption);
-
-            // Generate three incorrect options with different hundreds digits and two zeros
-            for (int i = 0; i < 3; i++)
-            {
-                int option = GenerateRandomNumber(1, 9) * 100;
-                while (options.Contains(option) || option / 100 == hundredsDigit || option == correctAnswer)
-                {
-                    option = GenerateRandomNumber(1, 9) * 100;
-
-                }
-                options.Add(option);
-
-            }
-
-            // Shuffle the options
-            options = Shuffle(options);
-
-            return options;
-
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------------//
-
-
-        private List<int> GenerateTensOptions(int correctAnswer)
-        {
-            List<int> options = new List<int>();
-
-            int hundredsDigit = (correctAnswer / 100) % 10;
-            hundredsDigit *= 100;
-            // Extract the tens digit from the correct answer
-            int tensDigit = (correctAnswer / 10) % 10;
-
-            // Generate one correct option with the same tens digit
-            int correctOption = hundredsDigit + (tensDigit * 10);
-            options.Add(correctOption);
-
-            // Generate three incorrect options with different tens digits
-            for (int i = 0; i < 3; i++)
-            {
-                int option = GenerateRandomNumber(1, 9) * 10;
-                while (options.Contains(option) || option / 10 == tensDigit || option == correctAnswer)
-                {
-                    option = GenerateRandomNumber(1, 9) * 10;
-                }
-                options.Add(hundredsDigit + option);
-            }
-
-            // Shuffle the options
-            options = Shuffle(options);
-
-            return options;
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------------//
-
-        private List<int> GenerateIntegerOptions(int correctAnswer)
-        {
-            List<int> options = new List<int>();
-
-            int hundredsDigit = (correctAnswer / 100) % 10;
-            hundredsDigit *= 100;
-            // Extract the tens digit from the correct answer
-            int tensDigit = (correctAnswer / 10) % 10;
-
-            // Extract the ones digit from the correct answer
-            int onesDigit = correctAnswer % 10;
-
-            // Generate one correct option with the same ones digit
-            int correctOption = hundredsDigit + (tensDigit * 10) + onesDigit;
-            options.Add(correctOption);
-
-            // Generate three incorrect options with different ones digits
-            for (int i = 0; i < 3; i++)
-            {
-                int option = GenerateRandomNumber(1, 9);
-                while (options.Contains(option) || option == correctAnswer)
-                {
-                    option = GenerateRandomNumber(1, 9);
-                }
-                options.Add(hundredsDigit + (tensDigit * 10) + option);
-            }
-
-            // Shuffle the options
-            options = Shuffle(options);
-
-            return options;
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
@@ -195,19 +56,21 @@ namespace PROG7312_Part1
                     validationMessage = ValidateHundredsSet(clickedRadioButton.Name, correctHundredAnswer, globalRedBlackTree);
 
                     // Check if the validation was correct before moving to the next set
-                    if (validationMessage.Contains("Correct"))
+                    if (validationMessage.StartsWith("Correct"))
                     {
                         RemoveLabelsFromPanels();
+                        
                         // Set state to Tens set
                         currentQuizSet = QuizSet.Tens;
 
                         // Generate options and labels for the Tens set
-                        List<int> tensOptions = GenerateTensOptions(correctAnswer);
+                        List<int> tensOptions = Helper.GenerateTensOptions(correctAnswer);
                         CreateLabelsForTensSet(tensOptions);
 
                         // Show a message or perform other actions for transitioning to the Tens set
                         MessageBox.Show("Congratulations! Moving to the Tens set.");
 
+                        ResetRadioButtons();
                         // Exit the method to avoid showing the message box for the Hundreds set
                         return;
                     }
@@ -216,18 +79,20 @@ namespace PROG7312_Part1
                 case QuizSet.Tens:
                     validationMessage = ValidateTensSet(clickedRadioButton.Name, correctTensAnswer, globalRedBlackTree);
                     // Check if the validation was correct before moving to the next set
-                    if (validationMessage.Contains("Correct"))
+                    if (validationMessage.StartsWith("Correct"))
                     {
                         RemoveLabelsFromPanels();
                         // Set state to Integer set
                         currentQuizSet = QuizSet.Integers;
 
                         // Generate options and labels for the Integer set
-                        List<int> integerOptions = GenerateIntegerOptions(correctAnswer);
+                        List<int> integerOptions = Helper.GenerateIntegerOptions(correctAnswer);
                         CreateLabelsForIntegerSet(integerOptions);
 
                         // Show a message or perform other actions for transitioning to the Integer set
                         MessageBox.Show("Congratulations! Moving to the Integer set.");
+
+                        ResetRadioButtons();
 
                         // Exit the method to avoid showing the message box for the Tens set
                         return;
@@ -258,7 +123,7 @@ namespace PROG7312_Part1
 
                 Node hundreds = redBlackTree.FindElementByCallingNumber((correctHundredsDigit * 100).ToString());
 
-                return userHundredsDigit == correctHundredsDigit * 100
+                return userHundredsDigit == correctAnswer
                     ? "Correct!"
                     : $"Incorrect! Correct answer: {correctHundredsDigit * 100} - {hundreds.DeweyData.Caption}";
             }
@@ -309,6 +174,12 @@ namespace PROG7312_Part1
                 int userOnesDigit = int.Parse(panelInfo.Value);
 
                 Node integer = redBlackTree.FindElementByCallingNumber((hundredsDigit + (tensDigit * 10) + correctOnesDigit).ToString());
+
+                if (isTimerRunning)
+                {
+                    callingNumbersTimer.Stop();
+                    isTimerRunning = false;
+                }
 
                 return userOnesDigit == correctAnswer
                     ? "Correct!"
@@ -399,6 +270,7 @@ namespace PROG7312_Part1
                 Panel captionPanel = Controls.Find($"captionPanel{i}", true).FirstOrDefault() as Panel;
                 RadioButton radioButton = Controls.Find($"rdoOption{i}", true).FirstOrDefault() as RadioButton;
                 Node foundNode = globalRedBlackTree.FindElementByCallingNumber(callNumber.ToString());
+
                 if (captionPanel != null)
                 {
                     captionPanel.BackColor = Color.Silver;
@@ -417,44 +289,6 @@ namespace PROG7312_Part1
 
                     integerCaptionPanelGeneratedOrder.Add(radioButton.Name, new KeyValuePair<string, string>(captionPanel.Name, callNumber.ToString()));
                 }
-            }
-        }
-
-        private int GenerateRandomNumber(int minValue, int maxValue)
-        {
-            return random.Next(minValue, maxValue + 1);
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------------//
-
-        private List<T> Shuffle<T>(List<T> list)
-        {
-            int n = list.Count;
-            while (n > 1)
-            {
-                n--;
-                int k = GenerateRandomNumber(0, n);
-                T value = list[k];
-                list[k] = list[n];
-                list[n] = value;
-            }
-            return list;
-        }
-
-        //-------------------------------------------------------------------------------------------------------------------------------------//
-
-        private void DisplayThirdLevel(RedBlackTree redBlackTree)
-        {
-            int firstLevelElement = FindFirstLevelElement();
-            int secondLevelElement = FindSecondLevelElement(firstLevelElement);
-            int thirdLevelElement = FindThirdLevelElement(secondLevelElement);
-
-            // Find the node based on the thirdLevelElement and display information
-            Node foundNode = redBlackTree.FindElementByCallingNumber(thirdLevelElement.ToString());
-            if (foundNode != null)
-            {
-                // Assuming you have properties like Class, Caption, and Summary in your Node class
-                txtDescription.AppendText($"{foundNode.DeweyData.Class}, {foundNode.DeweyData.Caption}");
             }
         }
 
@@ -486,7 +320,11 @@ namespace PROG7312_Part1
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="redBlackTree"></param>
+        /// <param name="filePath"></param>
         private void ReadCsvFile(RedBlackTree redBlackTree, string filePath)
         {
             try
@@ -528,7 +366,7 @@ namespace PROG7312_Part1
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message);
+                
             }
         }
 
@@ -536,12 +374,62 @@ namespace PROG7312_Part1
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            btnStart.Enabled = false;
+            btnStart.Visible = false;
+            btnPause.Visible = true;
+            btnPause.Enabled = true;
 
+            rdoOption1.Enabled = true;
+            rdoOption2.Enabled = true;
+            rdoOption3.Enabled = true;
+            rdoOption4.Enabled = true;
+
+            CreateQuizGame();
+            if (!isTimerRunning)
+            {
+                callingNumbersTimer.Start();
+                isTimerRunning = true;
+            }
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         private void CallingNumbersUserControl_Load(object sender, EventArgs e)
+        {
+            btnPause.Enabled = false;
+            btnPause.Visible = false;
+            btnResume.Enabled = false;
+            btnResume.Visible = false;
+
+            rdoOption1.Enabled = false;
+            rdoOption2.Enabled = false;
+            rdoOption3.Enabled = false;
+            rdoOption4.Enabled = false;
+
+            lblTimer.Text = "Timer: 0 seconds";
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        private void CreateQuizGame()
+        {
+            ConfigureRedBlackTree();
+            int firstLevelElement = Helper.FindFirstLevelElement();
+            int secondLevelElement = Helper.FindSecondLevelElement(firstLevelElement);
+            int thirdLevelElement = Helper.FindThirdLevelElement(secondLevelElement);
+
+            SetCorrectLevelAnswers(firstLevelElement, secondLevelElement, thirdLevelElement);
+            DisplayNodeInformation(thirdLevelElement);
+
+            currentQuizSet = QuizSet.Hundreds;
+
+            List<int> hundredsOptions = Helper.GenerateHundredOptions(thirdLevelElement);
+            CreateLabelsForHundredsSet(hundredsOptions);
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        private void ConfigureRedBlackTree()
         {
             string fileName = "dewey.csv";
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
@@ -549,28 +437,104 @@ namespace PROG7312_Part1
             RedBlackTree redBlackTree = new RedBlackTree();
             globalRedBlackTree = redBlackTree;
             ReadCsvFile(redBlackTree, filePath);
+        }
 
-            int firstLevelElement = FindFirstLevelElement();
-            int secondLevelElement = FindSecondLevelElement(firstLevelElement);
-            int thirdLevelElement = FindThirdLevelElement(secondLevelElement);
+        //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        private void SetCorrectLevelAnswers(int firstLevelElement, int secondLevelElement, int thirdLevelElement)
+        {
             correctHundredAnswer = firstLevelElement;
             correctTensAnswer = secondLevelElement;
-            correctAnswer= thirdLevelElement;
+            correctAnswer = thirdLevelElement;
+        }
 
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        private void DisplayNodeInformation(int thirdLevelElement)
+        {
             // Find the node based on the thirdLevelElement and display information
-            Node foundNode = redBlackTree.FindElementByCallingNumber(thirdLevelElement.ToString());
+            Node foundNode = globalRedBlackTree.FindElementByCallingNumber(thirdLevelElement.ToString());
             if (foundNode != null)
             {
                 // Assuming you have properties like Class, Caption, and Summary in your Node class
-                txtDescription.AppendText($"{foundNode.DeweyData.Class}, {foundNode.DeweyData.Caption}");
+                lblCaption.Text = $"{foundNode.DeweyData.Class}, {foundNode.DeweyData.Caption}";
             }
-
-            currentQuizSet = QuizSet.Hundreds;
-
-            List<int> hundredsOptions = GenerateHundredOptions(thirdLevelElement);
-            CreateLabelsForHundredsSet(hundredsOptions);
         }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        private void ResetRadioButtons()
+        {
+            rdoOption1.Checked = false;
+            rdoOption2.Checked = false;
+            rdoOption3.Checked = false;
+            rdoOption4.Checked = false;
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        private void EnableRadioButtons() 
+        {
+            rdoOption1.Enabled = true;
+            rdoOption2.Enabled = true;
+            rdoOption3.Enabled = true;
+            rdoOption4.Enabled = true;
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        private void DisableRadioButtons() 
+        {
+            rdoOption1.Enabled = false;
+            rdoOption2.Enabled = false;
+            rdoOption3.Enabled = false;
+            rdoOption4.Enabled = false;
+
+
+            
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        private void HidePanelsAndButtons()
+        {
+            rdoOption1.Visible = false;
+            rdoOption2.Visible = false;
+            rdoOption3.Visible = false;
+            rdoOption4.Visible = false;
+
+            for (int i = 1; i < 5; i++)
+            {
+                Panel captionPanel = Controls.Find($"captionPanel{i}", true).FirstOrDefault() as Panel;
+
+                if (captionPanel != null)
+                {
+                    captionPanel.Visible = false;
+                }
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        private void ShowPanelsAndButtons()
+        {
+            rdoOption1.Visible = true;
+            rdoOption2.Visible = true;
+            rdoOption3.Visible = true;
+            rdoOption4.Visible = true;
+
+            for (int i = 1; i < 5; i++)
+            {
+                Panel captionPanel = Controls.Find($"captionPanel{i}", true).FirstOrDefault() as Panel;
+
+                if (captionPanel != null)
+                {
+                    captionPanel.Visible = true;
+                }
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------//
 
         private void callingNumbersTimer_Tick(object sender, EventArgs e)
         {
@@ -578,20 +542,28 @@ namespace PROG7312_Part1
             lblTimer.Text = $"Timer: {seconds} seconds";
         }
 
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
         private void rdoOption1_Click(object sender, EventArgs e)
         {
             HandleRadioButtonClick((RadioButton)sender);
         }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------//
 
         private void rdoOption2_Click(object sender, EventArgs e)
         {
             HandleRadioButtonClick((RadioButton)sender);
         }
 
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
         private void rdoOption3_Click(object sender, EventArgs e)
         {
             HandleRadioButtonClick((RadioButton)sender);
         }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------//
 
         private void rdoOption4_Click(object sender, EventArgs e)
         {
@@ -600,6 +572,48 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            btnStart.Enabled = false;
+            btnStart.Visible = false;
+            btnResume.Enabled = true;
+            btnResume.Visible = true;
+            btnPause.Enabled = false;
+            btnPause.Visible = false;
 
+            DisableRadioButtons();
+            HidePanelsAndButtons();
+
+            if (isTimerRunning)
+            {
+                callingNumbersTimer.Stop();
+                isTimerRunning = false;
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        private void btnResume_Click(object sender, EventArgs e)
+        {
+            btnResume.Enabled = false;
+            btnResume.Visible = false;
+            btnStart.Enabled = false;
+            btnStart.Visible = false;
+            btnPause.Enabled = true;
+            btnPause.Visible = true;
+
+            EnableRadioButtons();
+            ShowPanelsAndButtons();
+
+            if (!isTimerRunning)
+            {
+                callingNumbersTimer.Start();
+                seconds = seconds++ - 1;
+                isTimerRunning = true;
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------//
     }
 }
+//----------------------------------------------------------------EndOfFile--------------------------------------------------------------------//

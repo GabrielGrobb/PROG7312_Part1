@@ -83,6 +83,16 @@ namespace PROG7312_Part1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CallingNumbers {
+            get {
+                object obj = ResourceManager.GetObject("CallingNumbers", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap helpImage1 {
             get {
                 object obj = ResourceManager.GetObject("helpImage1", resourceCulture);

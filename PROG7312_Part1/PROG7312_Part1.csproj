@@ -63,6 +63,7 @@
     <Compile Include="BookUserControl.Designer.cs">
       <DependentUpon>BookUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="CallingNumbersHelper.cs" />
     <Compile Include="CallingNumbersUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -205,6 +206,7 @@
     <Content Include="bin\Debug\BooksClassLibrary.dll" />
     <Content Include="bin\Debug\BooksClassLibrary.pdb" />
     <Content Include="bin\Debug\Control.Draggable.dll" />
+    <Content Include="bin\Debug\images\CallingNumbers.png" />
     <Content Include="bin\Debug\Interop.WMPLib.dll" />
     <Content Include="obj\Debug\AxInterop.WMPLib.dll" />
     <Content Include="obj\Debug\Interop.WMPLib.dll" />
