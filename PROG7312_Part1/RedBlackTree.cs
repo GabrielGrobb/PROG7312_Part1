@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 
 namespace PROG7312_Part1
@@ -6,11 +7,11 @@ namespace PROG7312_Part1
     /// <summary>
     /// Enumeration Defining Colors
     /// </summary>
-    enum Color
+    /*enum Color
     {
         Red,
-        Black
-    }
+        Black,
+    }*/
     internal class RedBlackTree
     {
         //--------------------------------------------------------------------------------------------------//

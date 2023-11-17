@@ -758,19 +758,7 @@ namespace PROG7312_Part1
         /// <param name="e"></param>
         private void btnStart_Click(object sender, EventArgs e)
         {
-            btnStart.Enabled = false;
-            btnStart.Visible = false;
-            btnPause.Visible = true;
-            btnPause.Enabled = true;
 
-            if (randomNumber == 0)
-            {
-                DescriptionGeneration();
-            }
-            else 
-            {
-                CallNumbersGeneration();
-            }
         }
 
         //-------------------------------------------------------------------------------------------//
@@ -927,29 +915,7 @@ namespace PROG7312_Part1
         /// <param name="e"></param>
         private void btnReset_Click(object sender, EventArgs e)
         {
-            btnReset.Enabled = false;
-            btnReset.Visible = false;
-            btnStart.Enabled = true;
-            btnStart.Visible = true;
-            btnPause.Enabled = false;
-            btnPause.Visible = false;
 
-            if (isTimerRunning)
-            {
-                seconds = 0;
-                identifyAreas_timer.Stop();
-                isTimerRunning = false;
-                lblTimer.Text = "Timer: 0 seconds";
-            }
-
-            if (randomNumber == 0)
-            {
-                DescriptionGenerationReset();
-            }
-            else
-            {
-                CallingNumbersGenerationReset();
-            }
         }
 
         //-------------------------------------------------------------------------------------------//
@@ -979,39 +945,10 @@ namespace PROG7312_Part1
         /// <param name="e"></param>
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
-            // Display the user's score
-            DialogResult myResult = MessageBox.Show("Are you sure you would like to return to the Main Menu?\n" +
-                "Leaving will result in loss of progress.\nClick Yes to Confirm or No to Cancel."
-                            , "Exiting", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (myResult == DialogResult.Yes)
-            {
-                this.ParentForm.Close();
-                Form1 mainForm = new Form1();
-                mainForm.Show();
-            }
+
         }
 
         //-------------------------------------------------------------------------------------------//
-
-        /// <summary>
-        /// Opens the help form in a dialog format.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnHelp_Click(object sender, EventArgs e)
-        {
-            /// <summary>
-            /// Opens the help form in a dialog format.
-            /// </summary>
-            /// <param name="sender"></param>
-            /// <param name="e"></param>
-            
-            using (IDAreasHelpForm helpForm = new IDAreasHelpForm())
-            {
-                helpForm.ShowDialog();
-            }
-            
-        }
 
         //-------------------------------------------------------------------------------------------//
 
@@ -1025,32 +962,7 @@ namespace PROG7312_Part1
         /// <param name="e"></param>
         private void btnPause_Click(object sender, EventArgs e)
         {
-            btnStart.Enabled = false;
-            btnStart.Visible = false;
-            btnResume.Enabled = true;
-            btnResume.Visible = true;
-            btnPause.Enabled = false;
-            btnPause.Visible = false;
 
-            if (isTimerRunning)
-            {
-                identifyAreas_timer.Stop();
-                isTimerRunning = false;
-            }
-            if (randomNumber == 0)
-            {
-                lblDescription.Visible = false;
-                lblCallingNumberHeading.Visible = false;
-                HideDescriptionPanels();
-                RemoveDescriptionPanelControls();
-            }
-            else
-            {
-                lblCallingNumbers.Visible = false;
-                lblDescriptionHeading.Visible = false;
-                HideCallingNumberPanels();
-                RemoveCallingNumberPanelControls();
-            }
         }
 
         //-------------------------------------------------------------------------------------------//
@@ -1170,6 +1082,11 @@ namespace PROG7312_Part1
                 ControlExtension.Draggable(bottomShelfPanel, true);
                 bottomShelfPanel.Visible = true;
             }
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+
         }
 
         //-------------------------------------------------------------------------------------------//
