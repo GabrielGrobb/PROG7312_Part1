@@ -36,6 +36,7 @@
     <Reference Include="Control.Draggable, Version=1.0.5049.269, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Control.Draggable.1.0.5049.269\lib\net35-Client\Control.Draggable.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -62,6 +63,7 @@
     <Compile Include="BookUserControl.Designer.cs">
       <DependentUpon>BookUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="CallingNumbersHelper.cs" />
     <Compile Include="CallingNumbersUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -155,6 +157,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\PROG7312_Part1.BookForm.resources" />
     <EmbeddedResource Include="obj\Debug\PROG7312_Part1.BookUserControl.resources" />
+    <EmbeddedResource Include="obj\Debug\PROG7312_Part1.CallingNumbersUserControl.resources" />
+    <EmbeddedResource Include="obj\Debug\PROG7312_Part1.CallNumbersForm.resources" />
     <EmbeddedResource Include="obj\Debug\PROG7312_Part1.Form1.resources" />
     <EmbeddedResource Include="obj\Debug\PROG7312_Part1.HelpForm.resources" />
     <EmbeddedResource Include="obj\Debug\PROG7312_Part1.IDAreasHelpForm.resources" />
@@ -202,6 +206,7 @@
     <Content Include="bin\Debug\BooksClassLibrary.dll" />
     <Content Include="bin\Debug\BooksClassLibrary.pdb" />
     <Content Include="bin\Debug\Control.Draggable.dll" />
+    <Content Include="bin\Debug\images\CallingNumbers.png" />
     <Content Include="bin\Debug\Interop.WMPLib.dll" />
     <Content Include="obj\Debug\AxInterop.WMPLib.dll" />
     <Content Include="obj\Debug\Interop.WMPLib.dll" />

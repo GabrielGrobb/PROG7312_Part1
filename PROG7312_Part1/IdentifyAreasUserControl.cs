@@ -767,7 +767,7 @@ namespace PROG7312_Part1
             {
                 DescriptionGeneration();
             }
-            else 
+            else
             {
                 CallNumbersGeneration();
             }
@@ -1000,17 +1000,10 @@ namespace PROG7312_Part1
         /// <param name="e"></param>
         private void btnHelp_Click(object sender, EventArgs e)
         {
-            /// <summary>
-            /// Opens the help form in a dialog format.
-            /// </summary>
-            /// <param name="sender"></param>
-            /// <param name="e"></param>
-            
             using (IDAreasHelpForm helpForm = new IDAreasHelpForm())
             {
                 helpForm.ShowDialog();
             }
-            
         }
 
         //-------------------------------------------------------------------------------------------//
@@ -1171,6 +1164,7 @@ namespace PROG7312_Part1
                 bottomShelfPanel.Visible = true;
             }
         }
+
 
         //-------------------------------------------------------------------------------------------//
 
