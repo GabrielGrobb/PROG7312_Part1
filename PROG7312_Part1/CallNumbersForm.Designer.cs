@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CallNumbersForm));
             this.callingNumbersUserControl1 = new PROG7312_Part1.CallingNumbersUserControl();
             this.SuspendLayout();
             // 
             // callingNumbersUserControl1
             // 
+            this.callingNumbersUserControl1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("callingNumbersUserControl1.BackgroundImage")));
+            this.callingNumbersUserControl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.callingNumbersUserControl1.Location = new System.Drawing.Point(0, 0);
             this.callingNumbersUserControl1.Name = "callingNumbersUserControl1";
             this.callingNumbersUserControl1.Size = new System.Drawing.Size(1071, 617);
@@ -45,6 +48,7 @@
             this.ClientSize = new System.Drawing.Size(1072, 616);
             this.Controls.Add(this.callingNumbersUserControl1);
             this.Name = "CallNumbersForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CallNumbersForm";
             this.ResumeLayout(false);
 

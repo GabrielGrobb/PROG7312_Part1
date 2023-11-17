@@ -1,15 +1,11 @@
 ﻿using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using WECPOFLogic;
 using static PROG7312_Part1.RedBlackTree;
 
 namespace PROG7312_Part1
@@ -49,7 +45,6 @@ namespace PROG7312_Part1
         private void HandleRadioButtonClick(RadioButton clickedRadioButton)
         {
             string validationMessage = "";
-
             switch (currentQuizSet)
             {
                 case QuizSet.Hundreds:
@@ -59,7 +54,6 @@ namespace PROG7312_Part1
                     if (validationMessage.StartsWith("Correct"))
                     {
                         RemoveLabelsFromPanels();
-                        
                         // Set state to Tens set
                         currentQuizSet = QuizSet.Tens;
 
@@ -68,9 +62,16 @@ namespace PROG7312_Part1
                         CreateLabelsForTensSet(tensOptions);
 
                         // Show a message or perform other actions for transitioning to the Tens set
-                        MessageBox.Show("Congratulations! Moving to the Tens set.");
+                        ShowCustomMessageBox("Well Done!. Get ready for the next challenge!", "Next Challenge Awaits", MessageBoxIcon.Information);
 
                         ResetRadioButtons();
+                        // Exit the method to avoid showing the message box for the Hundreds set
+                        return;
+                    }
+                    else if (validationMessage.StartsWith("Try Again"))
+                    {
+                        ResetRadioButtons();
+                        MessageBox.Show(validationMessage);
                         // Exit the method to avoid showing the message box for the Hundreds set
                         return;
                     }
@@ -90,26 +91,48 @@ namespace PROG7312_Part1
                         CreateLabelsForIntegerSet(integerOptions);
 
                         // Show a message or perform other actions for transitioning to the Integer set
-                        MessageBox.Show("Congratulations! Moving to the Integer set.");
+                        ShowCustomMessageBox("Well Done!. Get ready for the next challenge!", "Next Challenge Awaits", MessageBoxIcon.Information);
 
                         ResetRadioButtons();
 
                         // Exit the method to avoid showing the message box for the Tens set
                         return;
                     }
+                    else if (validationMessage.StartsWith("Try Again"))
+                    {
+                        ResetRadioButtons();
+                        MessageBox.Show(validationMessage);
+                        // Exit the method to avoid showing the message box for the Hundreds set
+                        return;
+                    }
                     break;
 
                 case QuizSet.Integers:
                     validationMessage = ValidateIntegerSet(clickedRadioButton.Name, correctAnswer, globalRedBlackTree);
-                    // Handle Integer set validation as needed
+                    if (validationMessage.StartsWith("Correct"))
+                    {
+                        RemoveLabelsFromPanels();
+                        ResetRadioButtons();
+                        DisableRadioButtons();
+                        ShowCustomMessageBox("Thank you for playing!", "Game Completed", MessageBoxIcon.Information);
+                        btnPlayAgain.Visible = true;
+                        btnPlayAgain.Enabled = true;
+                    }
+                    else if (validationMessage.StartsWith("Try Again"))
+                    {
+                        ResetRadioButtons();
+                        MessageBox.Show(validationMessage);
+                        // Exit the method to avoid showing the message box for the Hundreds set
+                        return;
+                    }
                     break;
-
-
             }
 
             // Display or handle the validation message as needed
-            MessageBox.Show(validationMessage);
+            //MessageBox.Show(validationMessage);
         }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------//
 
         private string ValidateHundredsSet(string radioBtnName, int correctAnswer, RedBlackTree redBlackTree)
         {
@@ -125,7 +148,7 @@ namespace PROG7312_Part1
 
                 return userHundredsDigit == correctAnswer
                     ? "Correct!"
-                    : $"Incorrect! Correct answer: {correctHundredsDigit * 100} - {hundreds.DeweyData.Caption}";
+                    : $"Try Again! Correct answer is: {hundreds.DeweyData.Caption}";
             }
 
             // Handle the case where the radio button name is not found in the dictionary
@@ -135,9 +158,9 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
-        private string ValidateTensSet(string radioBtnName,int correctAnswer, RedBlackTree redBlackTree)
+        private string ValidateTensSet(string radioBtnName, int correctAnswer, RedBlackTree redBlackTree)
         {
-            if (tensCaptionPanelGeneratedOrder.TryGetValue(radioBtnName, out KeyValuePair<string, string> panelInfo)) 
+            if (tensCaptionPanelGeneratedOrder.TryGetValue(radioBtnName, out KeyValuePair<string, string> panelInfo))
             {
                 int hundredsDigit = (correctAnswer / 100) % 10;
                 hundredsDigit *= 100;
@@ -151,7 +174,7 @@ namespace PROG7312_Part1
 
                 return userTensDigit == correctAnswer
                      ? "Correct!"
-            : $"Incorrect! Correct answer: {hundredsDigit + (correctTensDigit * 10) }- {tens.DeweyData.Caption}";
+            : $"Try Again! Correct answer is: {tens.DeweyData.Caption}";
             }
             // Handle the case where the radio button name is not found in the dictionary
             return "Error: Radio button information not found.";
@@ -183,13 +206,26 @@ namespace PROG7312_Part1
 
                 return userOnesDigit == correctAnswer
                     ? "Correct!"
-                    : $"Incorrect! Correct answer: {hundredsDigit + (tensDigit * 10) + correctOnesDigit} - {integer.DeweyData.Caption}";
+                    : $"Try Again! Correct answer is: {integer.DeweyData.Caption}";
             }
             // Handle the case where the radio button name is not found in the dictionary
             return "Error: Radio button information not found.";
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        private void ShowCustomMessageBox(string message, string caption, MessageBoxIcon icon)
+        {
+            // Customize the appearance of the message box
+            MessageBoxManager.OK = "OK";
+            MessageBoxManager.Register();
+
+            // Show the message box with the specified parameters
+            MessageBox.Show(message, caption, MessageBoxButtons.OK, icon);
+
+            // Reset the message box appearance
+            MessageBoxManager.Unregister();
+        }
 
         public void CreateLabelsForHundredsSet(List<int> options)
         {
@@ -204,7 +240,7 @@ namespace PROG7312_Part1
                 Node foundNode = globalRedBlackTree.FindElementByCallingNumber(callNumber.ToString());
                 if (captionPanel != null)
                 {
-                    captionPanel.BackColor = Color.Silver;
+                    captionPanel.BackColor = Color.Transparent;
 
                     Label captionPanelLabel = new Label();
                     captionPanelLabel.Text = foundNode.DeweyData.Class;
@@ -213,7 +249,7 @@ namespace PROG7312_Part1
 
                     captionPanelLabel.Dock = DockStyle.Bottom;
                     captionPanelLabel.BorderStyle = BorderStyle.FixedSingle;
-                    captionPanelLabel.BackColor = Color.Orange;
+                    captionPanelLabel.BackColor = Color.Plum;
                     captionPanelLabel.AutoSize = false;
 
                     captionPanel.Controls.Add(captionPanelLabel);
@@ -238,7 +274,7 @@ namespace PROG7312_Part1
                 Node foundNode = globalRedBlackTree.FindElementByCallingNumber(callNumber.ToString());
                 if (captionPanel != null)
                 {
-                    captionPanel.BackColor = Color.Silver;
+                    captionPanel.BackColor = Color.Transparent;
 
                     Label captionPanelLabel = new Label();
                     captionPanelLabel.Text = foundNode.DeweyData.Class;
@@ -247,7 +283,7 @@ namespace PROG7312_Part1
 
                     captionPanelLabel.Dock = DockStyle.Bottom;
                     captionPanelLabel.BorderStyle = BorderStyle.FixedSingle;
-                    captionPanelLabel.BackColor = Color.Orange;
+                    captionPanelLabel.BackColor = Color.LightPink;
                     captionPanelLabel.AutoSize = false;
 
                     captionPanel.Controls.Add(captionPanelLabel);
@@ -273,7 +309,7 @@ namespace PROG7312_Part1
 
                 if (captionPanel != null)
                 {
-                    captionPanel.BackColor = Color.Silver;
+                    captionPanel.BackColor = Color.Transparent;
 
                     Label captionPanelLabel = new Label();
                     captionPanelLabel.Text = foundNode.DeweyData.Class;
@@ -282,7 +318,7 @@ namespace PROG7312_Part1
 
                     captionPanelLabel.Dock = DockStyle.Bottom;
                     captionPanelLabel.BorderStyle = BorderStyle.FixedSingle;
-                    captionPanelLabel.BackColor = Color.Orange;
+                    captionPanelLabel.BackColor = Color.DodgerBlue;
                     captionPanelLabel.AutoSize = false;
 
                     captionPanel.Controls.Add(captionPanelLabel);
@@ -366,7 +402,7 @@ namespace PROG7312_Part1
             }
             catch (Exception ex)
             {
-                
+
             }
         }
 
@@ -379,10 +415,7 @@ namespace PROG7312_Part1
             btnPause.Visible = true;
             btnPause.Enabled = true;
 
-            rdoOption1.Enabled = true;
-            rdoOption2.Enabled = true;
-            rdoOption3.Enabled = true;
-            rdoOption4.Enabled = true;
+            EnableRadioButtons();
 
             CreateQuizGame();
             if (!isTimerRunning)
@@ -400,13 +433,13 @@ namespace PROG7312_Part1
             btnPause.Visible = false;
             btnResume.Enabled = false;
             btnResume.Visible = false;
+            btnPlayAgain.Enabled = false;
+            btnPlayAgain.Visible = false;
 
-            rdoOption1.Enabled = false;
-            rdoOption2.Enabled = false;
-            rdoOption3.Enabled = false;
-            rdoOption4.Enabled = false;
+            DisableRadioButtons();
 
             lblTimer.Text = "Timer: 0 seconds";
+            lblCaption.Text = "";
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
@@ -473,7 +506,7 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
-        private void EnableRadioButtons() 
+        private void EnableRadioButtons()
         {
             rdoOption1.Enabled = true;
             rdoOption2.Enabled = true;
@@ -483,15 +516,12 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
-        private void DisableRadioButtons() 
+        private void DisableRadioButtons()
         {
             rdoOption1.Enabled = false;
             rdoOption2.Enabled = false;
             rdoOption3.Enabled = false;
             rdoOption4.Enabled = false;
-
-
-            
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
@@ -611,6 +641,28 @@ namespace PROG7312_Part1
                 seconds = seconds++ - 1;
                 isTimerRunning = true;
             }
+        }
+
+        private void btnPlayAgain_Click(object sender, EventArgs e)
+        {
+            btnPause.Enabled = false;
+            btnPause.Visible = false;
+            btnResume.Enabled = false;
+            btnResume.Visible = false;
+            btnPlayAgain.Enabled = false;
+            btnPlayAgain.Visible = false;
+            btnStart.Enabled = true;
+            btnStart.Visible = true;
+
+            DisableRadioButtons();
+
+            lblTimer.Text = "Timer: 0 seconds";
+            lblCaption.Text = "";
+            seconds = 0;
+            hundredsCaptionPanelGeneratedOrder.Clear();
+            tensCaptionPanelGeneratedOrder.Clear();
+            integerCaptionPanelGeneratedOrder.Clear();
+            
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------//

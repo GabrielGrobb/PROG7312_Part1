@@ -106,9 +106,9 @@ namespace PROG7312_Part1
             for (int i = 0; i < 3; i++)
             {
                 int option = GenerateRandomNumber(1, 9) * 10;
-                while (options.Contains(option) || option / 10 == tensDigit || option == correctAnswer)
+                while (options.Contains(option) || (option / 10) == tensDigit || option == correctAnswer)
                 {
-                    option = GenerateRandomNumber(1, 9) * 10;
+                   option = GenerateRandomNumber(1, 9) * 10;
                 }
                 options.Add(hundredsDigit + option);
             }
@@ -140,11 +140,12 @@ namespace PROG7312_Part1
             // Generate three incorrect options with different ones digits
             for (int i = 0; i < 3; i++)
             {
-                int option = GenerateRandomNumber(1, 9);
-                while (options.Contains(option) || option == correctAnswer)
+                int option;
+                do
                 {
-                    option = GenerateRandomNumber(1, 9);
-                }
+                    option = GenerateRandomNumber(1, 9); // Change to include 0
+                } while (option == onesDigit);
+
                 options.Add(hundredsDigit + (tensDigit * 10) + option);
             }
 

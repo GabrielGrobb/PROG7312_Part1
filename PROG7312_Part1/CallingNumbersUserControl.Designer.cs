@@ -41,7 +41,7 @@
             this.captionPanel4 = new System.Windows.Forms.Panel();
             this.callingNumbersTimer = new System.Windows.Forms.Timer(this.components);
             this.lblCaption = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnPlayAgain = new PROG7312_Part1.CustomButton();
             this.btnResume = new PROG7312_Part1.CustomButton();
             this.btnPause = new PROG7312_Part1.CustomButton();
             this.btnStart = new PROG7312_Part1.CustomButton();
@@ -49,23 +49,28 @@
             // 
             // lblDescription
             // 
-            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(260, 195);
+            this.lblDescription.BackColor = System.Drawing.Color.Transparent;
+            this.lblDescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.ForeColor = System.Drawing.Color.FloralWhite;
+            this.lblDescription.Location = new System.Drawing.Point(311, 160);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(132, 34);
+            this.lblDescription.Size = new System.Drawing.Size(440, 57);
             this.lblDescription.TabIndex = 0;
             this.lblDescription.Text = "Description:";
             this.lblDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // rdoOption1
             // 
-            this.rdoOption1.AutoSize = true;
             this.rdoOption1.BackColor = System.Drawing.Color.Transparent;
-            this.rdoOption1.Location = new System.Drawing.Point(307, 242);
+            this.rdoOption1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rdoOption1.Location = new System.Drawing.Point(177, 287);
             this.rdoOption1.Name = "rdoOption1";
-            this.rdoOption1.Size = new System.Drawing.Size(14, 13);
+            this.rdoOption1.Size = new System.Drawing.Size(15, 19);
             this.rdoOption1.TabIndex = 3;
             this.rdoOption1.TabStop = true;
+            this.rdoOption1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rdoOption1.UseVisualStyleBackColor = false;
             this.rdoOption1.Click += new System.EventHandler(this.rdoOption1_Click);
             // 
@@ -73,7 +78,8 @@
             // 
             this.rdoOption2.AutoSize = true;
             this.rdoOption2.BackColor = System.Drawing.Color.Transparent;
-            this.rdoOption2.Location = new System.Drawing.Point(471, 242);
+            this.rdoOption2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rdoOption2.Location = new System.Drawing.Point(411, 287);
             this.rdoOption2.Name = "rdoOption2";
             this.rdoOption2.Size = new System.Drawing.Size(14, 13);
             this.rdoOption2.TabIndex = 4;
@@ -85,7 +91,8 @@
             // 
             this.rdoOption3.AutoSize = true;
             this.rdoOption3.BackColor = System.Drawing.Color.Transparent;
-            this.rdoOption3.Location = new System.Drawing.Point(624, 242);
+            this.rdoOption3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rdoOption3.Location = new System.Drawing.Point(639, 287);
             this.rdoOption3.Name = "rdoOption3";
             this.rdoOption3.Size = new System.Drawing.Size(14, 13);
             this.rdoOption3.TabIndex = 5;
@@ -97,7 +104,8 @@
             // 
             this.rdoOption4.AutoSize = true;
             this.rdoOption4.BackColor = System.Drawing.Color.Transparent;
-            this.rdoOption4.Location = new System.Drawing.Point(764, 242);
+            this.rdoOption4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rdoOption4.Location = new System.Drawing.Point(860, 287);
             this.rdoOption4.Name = "rdoOption4";
             this.rdoOption4.Size = new System.Drawing.Size(14, 13);
             this.rdoOption4.TabIndex = 6;
@@ -111,7 +119,7 @@
             this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimer.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblTimer.Location = new System.Drawing.Point(420, 21);
+            this.lblTimer.Location = new System.Drawing.Point(520, 32);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(277, 40);
             this.lblTimer.TabIndex = 7;
@@ -120,37 +128,37 @@
             // captionPanel1
             // 
             this.captionPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.captionPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.captionPanel1.Location = new System.Drawing.Point(274, 273);
+            this.captionPanel1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.captionPanel1.Location = new System.Drawing.Point(88, 312);
             this.captionPanel1.Name = "captionPanel1";
-            this.captionPanel1.Size = new System.Drawing.Size(80, 150);
+            this.captionPanel1.Size = new System.Drawing.Size(208, 69);
             this.captionPanel1.TabIndex = 8;
             // 
             // captionPanel2
             // 
             this.captionPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.captionPanel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.captionPanel2.Location = new System.Drawing.Point(433, 273);
+            this.captionPanel2.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.captionPanel2.Location = new System.Drawing.Point(311, 312);
             this.captionPanel2.Name = "captionPanel2";
-            this.captionPanel2.Size = new System.Drawing.Size(80, 150);
+            this.captionPanel2.Size = new System.Drawing.Size(208, 69);
             this.captionPanel2.TabIndex = 9;
             // 
             // captionPanel3
             // 
             this.captionPanel3.BackColor = System.Drawing.Color.Transparent;
-            this.captionPanel3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.captionPanel3.Location = new System.Drawing.Point(591, 273);
+            this.captionPanel3.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.captionPanel3.Location = new System.Drawing.Point(543, 312);
             this.captionPanel3.Name = "captionPanel3";
-            this.captionPanel3.Size = new System.Drawing.Size(80, 150);
+            this.captionPanel3.Size = new System.Drawing.Size(208, 69);
             this.captionPanel3.TabIndex = 10;
             // 
             // captionPanel4
             // 
             this.captionPanel4.BackColor = System.Drawing.Color.Transparent;
-            this.captionPanel4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.captionPanel4.Location = new System.Drawing.Point(731, 273);
+            this.captionPanel4.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.captionPanel4.Location = new System.Drawing.Point(768, 312);
             this.captionPanel4.Name = "captionPanel4";
-            this.captionPanel4.Size = new System.Drawing.Size(80, 150);
+            this.captionPanel4.Size = new System.Drawing.Size(191, 69);
             this.captionPanel4.TabIndex = 11;
             // 
             // callingNumbersTimer
@@ -160,15 +168,37 @@
             // 
             // lblCaption
             // 
-            this.lblCaption.BackColor = System.Drawing.SystemColors.Window;
-            this.lblCaption.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCaption.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblCaption.Location = new System.Drawing.Point(418, 189);
+            this.lblCaption.BackColor = System.Drawing.Color.Transparent;
+            this.lblCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCaption.ForeColor = System.Drawing.Color.Yellow;
+            this.lblCaption.Location = new System.Drawing.Point(88, 227);
             this.lblCaption.Name = "lblCaption";
-            this.lblCaption.Size = new System.Drawing.Size(277, 40);
+            this.lblCaption.Size = new System.Drawing.Size(871, 40);
             this.lblCaption.TabIndex = 14;
-            this.lblCaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCaption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnPlayAgain
+            // 
+            this.btnPlayAgain.BackColor = System.Drawing.Color.Gold;
+            this.btnPlayAgain.BackgroundColor = System.Drawing.Color.Gold;
+            this.btnPlayAgain.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnPlayAgain.BorderRadius = 40;
+            this.btnPlayAgain.BorderSize = 0;
+            this.btnPlayAgain.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPlayAgain.FlatAppearance.BorderSize = 0;
+            this.btnPlayAgain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
+            this.btnPlayAgain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
+            this.btnPlayAgain.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPlayAgain.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlayAgain.ForeColor = System.Drawing.Color.Black;
+            this.btnPlayAgain.Location = new System.Drawing.Point(449, 429);
+            this.btnPlayAgain.Name = "btnPlayAgain";
+            this.btnPlayAgain.Size = new System.Drawing.Size(167, 47);
+            this.btnPlayAgain.TabIndex = 15;
+            this.btnPlayAgain.Text = "PLAY AGAIN?";
+            this.btnPlayAgain.TextColor = System.Drawing.Color.Black;
+            this.btnPlayAgain.UseVisualStyleBackColor = false;
+            this.btnPlayAgain.Click += new System.EventHandler(this.btnPlayAgain_Click);
             // 
             // btnResume
             // 
@@ -177,13 +207,14 @@
             this.btnResume.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnResume.BorderRadius = 40;
             this.btnResume.BorderSize = 0;
+            this.btnResume.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnResume.FlatAppearance.BorderSize = 0;
             this.btnResume.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
             this.btnResume.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
             this.btnResume.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnResume.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResume.ForeColor = System.Drawing.Color.Black;
-            this.btnResume.Location = new System.Drawing.Point(242, 113);
+            this.btnResume.Location = new System.Drawing.Point(543, 95);
             this.btnResume.Name = "btnResume";
             this.btnResume.Size = new System.Drawing.Size(150, 40);
             this.btnResume.TabIndex = 13;
@@ -199,13 +230,14 @@
             this.btnPause.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnPause.BorderRadius = 40;
             this.btnPause.BorderSize = 0;
+            this.btnPause.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPause.FlatAppearance.BorderSize = 0;
             this.btnPause.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Firebrick;
             this.btnPause.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnPause.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPause.ForeColor = System.Drawing.Color.Black;
-            this.btnPause.Location = new System.Drawing.Point(242, 67);
+            this.btnPause.Location = new System.Drawing.Point(352, 95);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(150, 40);
             this.btnPause.TabIndex = 12;
@@ -221,13 +253,14 @@
             this.btnStart.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnStart.BorderRadius = 40;
             this.btnStart.BorderSize = 0;
+            this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStart.FlatAppearance.BorderSize = 0;
             this.btnStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.ForestGreen;
             this.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.Black;
-            this.btnStart.Location = new System.Drawing.Point(242, 21);
+            this.btnStart.Location = new System.Drawing.Point(352, 32);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(150, 40);
             this.btnStart.TabIndex = 2;
@@ -242,6 +275,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PROG7312_Part1.Properties.Resources.CallingNumbers;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.btnPlayAgain);
             this.Controls.Add(this.lblCaption);
             this.Controls.Add(this.btnResume);
             this.Controls.Add(this.btnPause);
@@ -282,6 +316,6 @@
         private CustomButton btnPause;
         private CustomButton btnResume;
         private System.Windows.Forms.Label lblCaption;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private CustomButton btnPlayAgain;
     }
 }
