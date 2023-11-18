@@ -156,6 +156,7 @@
       <DependentUpon>ResultsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UserResults.cs" />
+    <Compile Include="UserResultsManager.cs" />
     <EmbeddedResource Include="BookForm.resx">
       <DependentUpon>BookForm.cs</DependentUpon>
     </EmbeddedResource>

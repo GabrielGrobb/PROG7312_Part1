@@ -144,7 +144,7 @@ namespace PROG7312_Part1
                         }
                         ResetRadioButtons();
                         MessageBox.Show(validationMessage);
-                        // Exit the method to avoid showing the message box for the Hundreds set
+
                         return;
                     }
                     break;
@@ -324,7 +324,7 @@ namespace PROG7312_Part1
                     captionPanel.BackColor = Color.Transparent;
 
                     Label captionPanelLabel = new Label();
-                    captionPanelLabel.Text = foundNode.DeweyData.Class;
+                    captionPanelLabel.Text = foundNode.DeweyData.Class + " - " + foundNode.DeweyData.Caption;
                     captionPanelLabel.TextAlign = ContentAlignment.MiddleCenter;
                     captionPanelLabel.Size = new Size(60, 40);
 
@@ -362,7 +362,7 @@ namespace PROG7312_Part1
                     captionPanel.BackColor = Color.Transparent;
 
                     Label captionPanelLabel = new Label();
-                    captionPanelLabel.Text = foundNode.DeweyData.Class;
+                    captionPanelLabel.Text = foundNode.DeweyData.Class + " - " + foundNode.DeweyData.Caption;
                     captionPanelLabel.TextAlign = ContentAlignment.MiddleCenter;
                     captionPanelLabel.Size = new Size(60, 40);
 
@@ -401,7 +401,7 @@ namespace PROG7312_Part1
                     captionPanel.BackColor = Color.Transparent;
 
                     Label captionPanelLabel = new Label();
-                    captionPanelLabel.Text = foundNode.DeweyData.Class;
+                    captionPanelLabel.Text = foundNode.DeweyData.Class + " - " + foundNode.DeweyData.Caption;
                     captionPanelLabel.TextAlign = ContentAlignment.MiddleCenter;
                     captionPanelLabel.Size = new Size(60, 40);
 
@@ -647,7 +647,7 @@ namespace PROG7312_Part1
 
             int attempt = results.Count + 1;
 
-            results.Add(new UserResults
+            results.Add(new UserResults(attempt, correctPanels, timeTaken, gameName)
             {
                 Attempt = attempt,
                 CorrectBooks = correctPanels,
@@ -655,6 +655,8 @@ namespace PROG7312_Part1
                 gameName = gameName,
 
             });
+
+            UserResultsManager.AddUserResults(new UserResults(attempt, correctPanels, timeTaken, gameName));
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
@@ -954,8 +956,9 @@ namespace PROG7312_Part1
         /// <param name="e"></param>
         private void btnResults_Click(object sender, EventArgs e)
         {
-            ResultsForm resultsForm = new ResultsForm(results);
-            resultsForm.UpdateDisplay(FindBestAttempt(results));
+            List<UserResults> allUserResults = UserResultsManager.UserResultsList;
+            ResultsForm resultsForm = new ResultsForm(allUserResults);
+            resultsForm.UpdateDisplay(FindBestAttempt(allUserResults));
             resultsForm.ShowDialog();
         }
 

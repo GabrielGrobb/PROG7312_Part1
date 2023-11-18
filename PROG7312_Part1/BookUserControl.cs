@@ -366,7 +366,7 @@ namespace PROG7312_Part1
 
             int attempt = results.Count + 1;
 
-            results.Add(new UserResults
+            results.Add(new UserResults(attempt, correctBooks, timeTaken, gameName)
             {
                 Attempt = attempt,
                 CorrectBooks = correctBooks,
@@ -374,6 +374,8 @@ namespace PROG7312_Part1
                 gameName = gameName,
                
             });
+
+            UserResultsManager.AddUserResults(new UserResults(attempt, correctBooks, timeTaken, gameName));
         }
         //-------------------------------------------------------------------------------------------//
 
@@ -758,8 +760,9 @@ namespace PROG7312_Part1
         /// <param name="e"></param>
         private void btnResults_Click(object sender, EventArgs e)
         {
-            ResultsForm resultsForm = new ResultsForm(results);
-            resultsForm.UpdateDisplay(FindBestAttempt(results));
+            List<UserResults> allUserResults = UserResultsManager.UserResultsList;
+            ResultsForm resultsForm = new ResultsForm(allUserResults);
+            resultsForm.UpdateDisplay(FindBestAttempt(allUserResults));
             resultsForm.ShowDialog();
         }
         //-------------------------------------------------------------------------------------------//

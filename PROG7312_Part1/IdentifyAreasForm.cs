@@ -16,5 +16,10 @@ namespace PROG7312_Part1
         {
             InitializeComponent();
         }
+
+        private void IdentifyAreasForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Environment.Exit(0);
+        }
     }
 }

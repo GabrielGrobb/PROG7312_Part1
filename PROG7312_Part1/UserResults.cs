@@ -23,6 +23,14 @@ namespace PROG7312_Part1
         /// Gets and sets the game name.
         /// </summary>
         public string gameName { get; set; }
+
+        public UserResults(int Attempt, int CorrectBool, TimeSpan TimeTaken, string gameName) 
+        {
+            this.Attempt = Attempt;
+            this.CorrectBooks = CorrectBool;
+            this.TimeTaken = TimeTaken;
+            this.gameName = gameName;
+        }
     }
 }
 //------------------------------------------EndOfFile-----------------------------------------------//

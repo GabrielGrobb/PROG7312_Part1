@@ -13,7 +13,7 @@ namespace PROG7312_Part1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CallNumbersForm());
+            Application.Run(new Form1());
         }
     }
 }
