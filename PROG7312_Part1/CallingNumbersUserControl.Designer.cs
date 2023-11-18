@@ -42,12 +42,13 @@
             this.captionPanel4 = new System.Windows.Forms.Panel();
             this.callingNumbersTimer = new System.Windows.Forms.Timer(this.components);
             this.lblCaption = new System.Windows.Forms.Label();
+            this.btnResults = new PROG7312_Part1.CustomButton();
+            this.btnHelp = new PROG7312_Part1.CustomButton();
             this.btnMainMenu = new PROG7312_Part1.CustomButton();
             this.btnPlayAgain = new PROG7312_Part1.CustomButton();
             this.btnResume = new PROG7312_Part1.CustomButton();
             this.btnPause = new PROG7312_Part1.CustomButton();
             this.btnStart = new PROG7312_Part1.CustomButton();
-            this.customButton1 = new PROG7312_Part1.CustomButton();
             this.SuspendLayout();
             // 
             // lblDescription
@@ -180,6 +181,53 @@
             this.lblCaption.TabIndex = 14;
             this.lblCaption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnResults
+            // 
+            this.btnResults.BackColor = System.Drawing.Color.Cyan;
+            this.btnResults.BackgroundColor = System.Drawing.Color.Cyan;
+            this.btnResults.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnResults.BorderRadius = 40;
+            this.btnResults.BorderSize = 0;
+            this.btnResults.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResults.FlatAppearance.BorderSize = 0;
+            this.btnResults.FlatAppearance.MouseDownBackColor = System.Drawing.Color.BlueViolet;
+            this.btnResults.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
+            this.btnResults.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResults.ForeColor = System.Drawing.Color.Black;
+            this.btnResults.Location = new System.Drawing.Point(892, 23);
+            this.btnResults.Name = "btnResults";
+            this.btnResults.Size = new System.Drawing.Size(167, 47);
+            this.btnResults.TabIndex = 18;
+            this.btnResults.Text = "RESULTS";
+            this.btnResults.TextColor = System.Drawing.Color.Black;
+            this.btnResults.UseVisualStyleBackColor = false;
+            this.btnResults.Click += new System.EventHandler(this.btnResults_Click);
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.BackColor = System.Drawing.Color.Transparent;
+            this.btnHelp.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnHelp.BackgroundImage = global::PROG7312_Part1.Properties.Resources.btnHelp;
+            this.btnHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHelp.BorderColor = System.Drawing.Color.Transparent;
+            this.btnHelp.BorderRadius = 0;
+            this.btnHelp.BorderSize = 0;
+            this.btnHelp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHelp.FlatAppearance.BorderSize = 0;
+            this.btnHelp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHelp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelp.ForeColor = System.Drawing.Color.Transparent;
+            this.btnHelp.Location = new System.Drawing.Point(113, 12);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(85, 79);
+            this.btnHelp.TabIndex = 17;
+            this.btnHelp.TextColor = System.Drawing.Color.Transparent;
+            this.btnHelp.UseVisualStyleBackColor = false;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
             // btnMainMenu
             // 
             this.btnMainMenu.BackColor = System.Drawing.Color.Transparent;
@@ -302,36 +350,14 @@
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // customButton1
-            // 
-            this.customButton1.BackColor = System.Drawing.Color.Transparent;
-            this.customButton1.BackgroundColor = System.Drawing.Color.Transparent;
-            this.customButton1.BackgroundImage = global::PROG7312_Part1.Properties.Resources.btnHelp;
-            this.customButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.customButton1.BorderColor = System.Drawing.Color.Transparent;
-            this.customButton1.BorderRadius = 0;
-            this.customButton1.BorderSize = 0;
-            this.customButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.customButton1.FlatAppearance.BorderSize = 0;
-            this.customButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.customButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customButton1.ForeColor = System.Drawing.Color.Transparent;
-            this.customButton1.Location = new System.Drawing.Point(113, 12);
-            this.customButton1.Name = "customButton1";
-            this.customButton1.Size = new System.Drawing.Size(85, 79);
-            this.customButton1.TabIndex = 17;
-            this.customButton1.TextColor = System.Drawing.Color.Transparent;
-            this.customButton1.UseVisualStyleBackColor = false;
-            // 
             // CallingNumbersUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PROG7312_Part1.Properties.Resources.CallingNumbers;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.customButton1);
+            this.Controls.Add(this.btnResults);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnPlayAgain);
             this.Controls.Add(this.lblCaption);
@@ -376,6 +402,7 @@
         private System.Windows.Forms.Label lblCaption;
         private CustomButton btnPlayAgain;
         private CustomButton btnMainMenu;
-        private CustomButton customButton1;
+        private CustomButton btnHelp;
+        private CustomButton btnResults;
     }
 }

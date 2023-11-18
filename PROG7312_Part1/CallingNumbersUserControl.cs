@@ -26,6 +26,8 @@ namespace PROG7312_Part1
         private int seconds = 0;
         private int score = 0;
 
+
+        private string callNumberGame = "Calling Numbers Game";
         private string validationMessage = "";
         private bool isTimerRunning = false;
         private int correctHundredAnswer;
@@ -33,6 +35,7 @@ namespace PROG7312_Part1
         private int correctAnswer;
         private RedBlackTree globalRedBlackTree;
 
+        private List<UserResults> results = new List<UserResults>();
 
         private Dictionary<string, KeyValuePair<string, string>> hundredsCaptionPanelGeneratedOrder = new Dictionary<string, KeyValuePair<string, string>>();
         private Dictionary<string, KeyValuePair<string, string>> tensCaptionPanelGeneratedOrder = new Dictionary<string, KeyValuePair<string, string>>();
@@ -75,6 +78,10 @@ namespace PROG7312_Part1
                     else if (validationMessage.StartsWith("Try Again"))
                     {
                         score--;
+                        if (score <= 0)
+                        {
+                            score = 0;
+                        }
                         ResetRadioButtons();
                         MessageBox.Show(validationMessage);
                         // Exit the method to avoid showing the message box for the Hundreds set
@@ -107,6 +114,10 @@ namespace PROG7312_Part1
                     else if (validationMessage.StartsWith("Try Again"))
                     {
                         score--;
+                        if (score <= 0)
+                        {
+                            score = 0;
+                        }
                         ResetRadioButtons();
                         MessageBox.Show(validationMessage);
                         // Exit the method to avoid showing the message box for the Hundreds set
@@ -138,7 +149,9 @@ namespace PROG7312_Part1
                         // Exit the method to avoid showing the message box for the Hundreds set
                         return;
                     }
+                    CalculateResults();
                     break;
+
             }
         }
 
@@ -484,6 +497,12 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="firstLevelElement"></param>
+        /// <param name="secondLevelElement"></param>
+        /// <param name="thirdLevelElement"></param>
         private void SetCorrectLevelAnswers(int firstLevelElement, int secondLevelElement, int thirdLevelElement)
         {
             correctHundredAnswer = firstLevelElement;
@@ -493,6 +512,10 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="thirdLevelElement"></param>
         private void DisplayNodeInformation(int thirdLevelElement)
         {
             // Find the node based on the thirdLevelElement and display information
@@ -506,6 +529,73 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Getting the time it took for the user
+        /// to complete the game.
+        /// </summary>
+        /// <returns></returns>
+        private TimeSpan GetTimeTaken()
+        {
+            return TimeSpan.FromSeconds(seconds);
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        ///  Used ChatGPT here.
+        ///  Retrieving the resukts from the user attempts.
+        ///  Storing attempt number, correctly placed books,
+        ///  and the time span (duration) in seconds.
+        /// </summary>
+        private void CalculateResults()
+        {
+            int correctPanels = score;
+            TimeSpan timeTaken = GetTimeTaken();
+            string gameName = callNumberGame;
+
+            int attempt = results.Count + 1;
+
+            results.Add(new UserResults
+            {
+                Attempt = attempt,
+                CorrectBooks = correctPanels,
+                TimeTaken = timeTaken,
+                gameName = gameName,
+
+            });
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Used ChatGPT here and (Ahmed, 2018)
+        /// Finding the best attempt for sorting the books.
+        /// A LINQ query to sort the list of type UserResults
+        /// in descending order then the duration.
+        /// </summary>
+        /// <param name="results">The best attempt</param>
+        /// <returns></returns>
+
+        private UserResults FindBestAttempt(List<UserResults> results)
+        {
+            if (results.Count == 0)
+            {
+                return null;
+            }
+
+            var bestAttempt = results
+                .OrderByDescending(result => result.CorrectBooks)
+                .ThenBy(result => result.TimeTaken)
+                .First();
+
+            return bestAttempt;
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// 
+        /// </summary>
         private void ResetRadioButtons()
         {
             rdoOption1.Checked = false;
@@ -516,6 +606,9 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void EnableRadioButtons()
         {
             rdoOption1.Enabled = true;
@@ -526,6 +619,9 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void DisableRadioButtons()
         {
             rdoOption1.Enabled = false;
@@ -536,6 +632,9 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void HidePanelsAndButtons()
         {
             rdoOption1.Visible = false;
@@ -556,6 +655,9 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void ShowPanelsAndButtons()
         {
             rdoOption1.Visible = true;
@@ -576,6 +678,11 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void callingNumbersTimer_Tick(object sender, EventArgs e)
         {
             seconds++;
@@ -584,6 +691,11 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rdoOption1_Click(object sender, EventArgs e)
         {
             HandleRadioButtonClick((RadioButton)sender);
@@ -591,6 +703,11 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rdoOption2_Click(object sender, EventArgs e)
         {
             HandleRadioButtonClick((RadioButton)sender);
@@ -598,6 +715,11 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rdoOption3_Click(object sender, EventArgs e)
         {
             HandleRadioButtonClick((RadioButton)sender);
@@ -605,6 +727,11 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rdoOption4_Click(object sender, EventArgs e)
         {
             HandleRadioButtonClick((RadioButton)sender);
@@ -612,6 +739,14 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Allows the user to pause the game.
+        /// Enable, disable, hide and display specific buttons.
+        /// Checks if the timer is running and if the 
+        /// random number is 0 or 1.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPause_Click(object sender, EventArgs e)
         {
             btnStart.Enabled = false;
@@ -633,6 +768,15 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Allows the user to resume the game after the pause button is clicked.
+        /// Enable, disable, hide and display specific buttons.
+        /// Checks if the timer is not running.
+        /// Checks if the timer is running and if the 
+        /// random number is 0 or 1.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnResume_Click(object sender, EventArgs e)
         {
             btnResume.Enabled = false;
@@ -653,6 +797,13 @@ namespace PROG7312_Part1
             }
         }
 
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPlayAgain_Click(object sender, EventArgs e)
         {
             btnPause.Enabled = false;
@@ -676,6 +827,14 @@ namespace PROG7312_Part1
             
         }
 
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Opens a new main menu instance when yes is clicked 
+        /// on the cofirmation message.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
             DialogResult myResult = MessageBox.Show("Are you sure you would like to return to the Main Menu?\n" +
@@ -686,6 +845,38 @@ namespace PROG7312_Part1
                 this.ParentForm.Close();
                 Form1 mainForm = new Form1();
                 mainForm.Show();
+            }
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        // <summary>
+        /// Opens a new instance of the results form.
+        /// The form will be populated with the results
+        /// list of data.The the form will open in a dialog
+        /// format.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnResults_Click(object sender, EventArgs e)
+        {
+            ResultsForm resultsForm = new ResultsForm(results);
+            resultsForm.UpdateDisplay(FindBestAttempt(results));
+            resultsForm.ShowDialog();
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Opens the help form in a dialog format.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            using (CNHelpForm helpForm = new CNHelpForm())
+            {
+                helpForm.ShowDialog();
             }
         }
 

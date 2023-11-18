@@ -146,3 +146,4 @@ C:\Users\User\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1\
 C:\Users\User\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1\PROG7312_Part1\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\User\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1\PROG7312_Part1\obj\Debug\PROG7312_Part1.csproj.SuggestedBindingRedirects.cache
 C:\Users\User\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1\PROG7312_Part1\obj\Debug\PROG7312_Part1.exe.config
+C:\Users\User\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1\PROG7312_Part1\obj\Debug\PROG7312_Part1.CNHelpForm.resources
