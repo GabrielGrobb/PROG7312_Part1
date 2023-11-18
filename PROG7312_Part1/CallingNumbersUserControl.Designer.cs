@@ -58,9 +58,9 @@
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescription.ForeColor = System.Drawing.Color.FloralWhite;
-            this.lblDescription.Location = new System.Drawing.Point(310, 197);
+            this.lblDescription.Location = new System.Drawing.Point(310, 213);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(440, 57);
+            this.lblDescription.Size = new System.Drawing.Size(440, 46);
             this.lblDescription.TabIndex = 0;
             this.lblDescription.Text = "Description:";
             this.lblDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -175,7 +175,7 @@
             this.lblCaption.BackColor = System.Drawing.Color.Transparent;
             this.lblCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCaption.ForeColor = System.Drawing.Color.Yellow;
-            this.lblCaption.Location = new System.Drawing.Point(94, 265);
+            this.lblCaption.Location = new System.Drawing.Point(94, 273);
             this.lblCaption.Name = "lblCaption";
             this.lblCaption.Size = new System.Drawing.Size(871, 40);
             this.lblCaption.TabIndex = 14;

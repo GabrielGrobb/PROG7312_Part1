@@ -12,35 +12,56 @@ namespace PROG7312_Part1
 {
     public partial class CallingNumbersUserControl : UserControl
     {
+        /// <summary>
+        /// 
+        /// </summary>
         private enum QuizSet
         {
             Hundreds,
             Tens,
             Integers
-            // Add more sets as needed
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
         private static CallingNumbersHelper Helper = new CallingNumbersHelper();
 
+        /// <summary>
+        /// 
+        /// </summary>
         private QuizSet currentQuizSet;
+        private RedBlackTree globalRedBlackTree;
         private Random random = new Random();
+
+        private int correctHundredAnswer;
+        private int correctTensAnswer;
+        private int correctAnswer;
         private int seconds = 0;
         private int score = 0;
-
 
         private string callNumberGame = "Calling Numbers Game";
         private string validationMessage = "";
         private bool isTimerRunning = false;
-        private int correctHundredAnswer;
-        private int correctTensAnswer;
-        private int correctAnswer;
-        private RedBlackTree globalRedBlackTree;
-
+        
+        
+        /// <summary>
+        /// 
+        /// </summary>
         private List<UserResults> results = new List<UserResults>();
 
+        /// <summary>
+        /// Diction
+        /// </summary>
         private Dictionary<string, KeyValuePair<string, string>> hundredsCaptionPanelGeneratedOrder = new Dictionary<string, KeyValuePair<string, string>>();
         private Dictionary<string, KeyValuePair<string, string>> tensCaptionPanelGeneratedOrder = new Dictionary<string, KeyValuePair<string, string>>();
         private Dictionary<string, KeyValuePair<string, string>> integerCaptionPanelGeneratedOrder = new Dictionary<string, KeyValuePair<string, string>>();
 
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// 
+        /// </summary>
         public CallingNumbersUserControl()
         {
             InitializeComponent();
@@ -48,9 +69,12 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="clickedRadioButton"></param>
         private void HandleRadioButtonClick(RadioButton clickedRadioButton)
         {
-            
             switch (currentQuizSet)
             {
                 case QuizSet.Hundreds:
@@ -157,6 +181,13 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="radioBtnName"></param>
+        /// <param name="correctAnswer"></param>
+        /// <param name="redBlackTree"></param>
+        /// <returns></returns>
         private string ValidateHundredsSet(string radioBtnName, int correctAnswer, RedBlackTree redBlackTree)
         {
             if (hundredsCaptionPanelGeneratedOrder.TryGetValue(radioBtnName, out KeyValuePair<string, string> panelInfo))
@@ -181,6 +212,13 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="radioBtnName"></param>
+        /// <param name="correctAnswer"></param>
+        /// <param name="redBlackTree"></param>
+        /// <returns></returns>
         private string ValidateTensSet(string radioBtnName, int correctAnswer, RedBlackTree redBlackTree)
         {
             if (tensCaptionPanelGeneratedOrder.TryGetValue(radioBtnName, out KeyValuePair<string, string> panelInfo))
@@ -205,6 +243,13 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="radioBtnName"></param>
+        /// <param name="correctAnswer"></param>
+        /// <param name="redBlackTree"></param>
+        /// <returns></returns>
         private string ValidateIntegerSet(string radioBtnName, int correctAnswer, RedBlackTree redBlackTree)
         {
             if (integerCaptionPanelGeneratedOrder.TryGetValue(radioBtnName, out KeyValuePair<string, string> panelInfo))
@@ -237,19 +282,32 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Used ChatGPT.
+        /// Creating a custom message box.
+        /// Customize the appearance of the message box.
+        /// Show the message box with the specified parameters
+        /// Reset the message box appearance
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="caption"></param>
+        /// <param name="icon"></param>
         private void ShowCustomMessageBox(string message, string caption, MessageBoxIcon icon)
         {
-            // Customize the appearance of the message box
             MessageBoxManager.OK = "OK";
             MessageBoxManager.Register();
 
-            // Show the message box with the specified parameters
             MessageBox.Show(message, caption, MessageBoxButtons.OK, icon);
 
-            // Reset the message box appearance
             MessageBoxManager.Unregister();
         }
 
+        //-------------------------------------------------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="options"></param>
         public void CreateLabelsForHundredsSet(List<int> options)
         {
             for (int i = 1; i < 5; i++)
@@ -284,6 +342,10 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="options"></param>
         public void CreateLabelsForTensSet(List<int> options)
         {
             for (int i = 1; i < 5; i++)
@@ -318,6 +380,10 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="options"></param>
         public void CreateLabelsForIntegerSet(List<int> options)
         {
             for (int i = 1; i < 5; i++)
@@ -341,7 +407,7 @@ namespace PROG7312_Part1
 
                     captionPanelLabel.Dock = DockStyle.Bottom;
                     captionPanelLabel.BorderStyle = BorderStyle.FixedSingle;
-                    captionPanelLabel.BackColor = Color.DodgerBlue;
+                    captionPanelLabel.BackColor = Color.SkyBlue;
                     captionPanelLabel.AutoSize = false;
 
                     captionPanel.Controls.Add(captionPanelLabel);
@@ -353,6 +419,10 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Iterate through panels.
+        /// Remove labels from the panels.
+        /// </summary>
         private void RemoveLabelsFromPanels()
         {
             for (int i = 1; i < 5; i++)
@@ -368,18 +438,24 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Remove all labels from the panel.
+        /// Dispose the label to free up resources
+        /// </summary>
+        /// <param name="panel"></param>
         private void RemoveLabelsFromPanel(Panel panel)
         {
-            // Remove all labels from the panel
             foreach (Control control in panel.Controls.OfType<Label>().ToList())
             {
                 panel.Controls.Remove(control);
-                control.Dispose(); // Dispose the label to free up resources
+                control.Dispose();
             }
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
+
         /// <summary>
+        /// Used ChatGPT.
         /// 
         /// </summary>
         /// <param name="redBlackTree"></param>
@@ -423,14 +499,16 @@ namespace PROG7312_Part1
                     }
                 }
             }
-            catch (Exception ex)
-            {
-
-            }
+            catch (Exception ex){}
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnStart_Click(object sender, EventArgs e)
         {
             btnStart.Enabled = false;
@@ -450,6 +528,11 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CallingNumbersUserControl_Load(object sender, EventArgs e)
         {
             btnPause.Enabled = false;
@@ -467,6 +550,11 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Used ChatGPT.
+        /// Create the different quiz sets.
+        /// Start with the top-level set.
+        /// </summary>
         private void CreateQuizGame()
         {
             ConfigureRedBlackTree();
@@ -485,6 +573,10 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
+        /// <summary>
+        /// Finds the dewey.csv file.
+        /// Read the csv file.
+        /// </summary>
         private void ConfigureRedBlackTree()
         {
             string fileName = "dewey.csv";
@@ -498,7 +590,7 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// Set the correct answer for each quiz set.
         /// </summary>
         /// <param name="firstLevelElement"></param>
         /// <param name="secondLevelElement"></param>
@@ -594,7 +686,7 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// Reset the radio buttons to unchecked.
         /// </summary>
         private void ResetRadioButtons()
         {
@@ -607,7 +699,7 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// Enable all the radio buttons.
         /// </summary>
         private void EnableRadioButtons()
         {
@@ -620,7 +712,7 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// Disable all the radio buttons.
         /// </summary>
         private void DisableRadioButtons()
         {
@@ -633,7 +725,8 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// Hide the radio buttons.
+        /// Find and hide all the panels.
         /// </summary>
         private void HidePanelsAndButtons()
         {
@@ -656,7 +749,8 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// Make the radio buttons visable.
+        /// Find and shopw all the panels.
         /// </summary>
         private void ShowPanelsAndButtons()
         {
@@ -692,7 +786,7 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// On click event for the first radio button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -704,7 +798,7 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// On click event for the second radio button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -716,7 +810,7 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// On click event for the third radio button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -728,7 +822,7 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// On click event for the fourth radio button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -742,8 +836,7 @@ namespace PROG7312_Part1
         /// <summary>
         /// Allows the user to pause the game.
         /// Enable, disable, hide and display specific buttons.
-        /// Checks if the timer is running and if the 
-        /// random number is 0 or 1.
+        /// Checks if the timer is running.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -772,8 +865,6 @@ namespace PROG7312_Part1
         /// Allows the user to resume the game after the pause button is clicked.
         /// Enable, disable, hide and display specific buttons.
         /// Checks if the timer is not running.
-        /// Checks if the timer is running and if the 
-        /// random number is 0 or 1.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -800,7 +891,10 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// Ask the user if they would like to play again.
+        /// Enable, disable, hide and display specific buttons.
+        /// Reset the timer and caption label.
+        /// Clear the dictionaries.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

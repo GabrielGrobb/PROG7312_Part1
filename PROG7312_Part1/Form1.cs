@@ -142,7 +142,7 @@ namespace PROG7312_Part1
         //------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// Messagebox to indicate a game is coming soon.
+        /// Navigate to Identifying areas game.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -158,14 +158,17 @@ namespace PROG7312_Part1
         //------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// Messagebox to indicate a game is coming soon.
+        /// Navigate to calling numbers game.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnCallNumbers_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Game is in working Progress...\n"
-                            , "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            progressTimer.Start();
+            CallNumbersForm myCallingNumbersForm = new CallNumbersForm();
+            myCallingNumbersForm.Show();
+
+            this.Hide();
         }
 
         //------------------------------------------------------------------------------------------//
