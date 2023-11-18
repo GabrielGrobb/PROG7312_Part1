@@ -24,6 +24,15 @@ namespace PROG7312_Part1
         /// </summary>
         public string gameName { get; set; }
 
+        //------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// Creating a constructor for the UserResultsClass to pass results.
+        /// </summary>
+        /// <param name="Attempt"></param>
+        /// <param name="CorrectBool"></param>
+        /// <param name="TimeTaken"></param>
+        /// <param name="gameName"></param>
         public UserResults(int Attempt, int CorrectBool, TimeSpan TimeTaken, string gameName) 
         {
             this.Attempt = Attempt;
@@ -31,6 +40,9 @@ namespace PROG7312_Part1
             this.TimeTaken = TimeTaken;
             this.gameName = gameName;
         }
+
+        //------------------------------------------------------------------------------------------//
+
     }
 }
 //------------------------------------------EndOfFile-----------------------------------------------//

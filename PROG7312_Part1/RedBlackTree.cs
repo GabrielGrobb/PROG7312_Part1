@@ -24,8 +24,15 @@ namespace PROG7312_Part1
             public Node parent;
             public int data;
 
+            /// <summary>
+            /// Getting and setting the CSVModel.
+            /// </summary>
             public CSVModel DeweyData { get; set; }
 
+            /// <summary>
+            /// Passing the CSVModel in the Node class constructor.
+            /// </summary>
+            /// <param name="deweyData"></param>
             public Node(CSVModel deweyData)
             {
                 this.DeweyData = deweyData;
@@ -192,12 +199,10 @@ namespace PROG7312_Part1
             }
             if (isFound)
             {
-                //Console.WriteLine("{0} was found", classNumber);
                 return temp;
             }
             else
             {
-                //Console.WriteLine("{0} not found", classNumber);
                 return null;
             }
         }
@@ -210,7 +215,7 @@ namespace PROG7312_Part1
         }
         //-------------------------------------------------------------------------------------------------//
         /// <summary>
-        /// Insert a new object into the RB Tree
+        /// Insert a new object into the Red black Tree
         /// </summary>
         /// <param name="item"></param>
         public void Insert(CSVModel deweyModel)
@@ -257,7 +262,8 @@ namespace PROG7312_Part1
 
         //-------------------------------------------------------------------------------------------------//
         /// <summary>
-        /// 
+        /// Display the Red Black Tree format in console.
+        /// Displays from the largest number to the lowest.
         /// </summary>
         /// <param name="current"></param>
         private void InOrderDisplay(Node current, int depth)
@@ -275,7 +281,7 @@ namespace PROG7312_Part1
         }
         //-------------------------------------------------------------------------------------------------//
         /// <summary>
-        /// 
+        /// Responsible for Altering the tree as values are inserted.
         /// </summary>
         /// <param name="item"></param>
         private void InsertFixUp(Node item)
@@ -287,7 +293,7 @@ namespace PROG7312_Part1
 
                 if (grandparent == null)
                 {
-                    break; // Exit the loop if the grandparent is null
+                    break;
                 }
 
                 if (parent == grandparent.left)
