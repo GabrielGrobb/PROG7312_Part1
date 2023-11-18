@@ -16,7 +16,7 @@ namespace PROG7312_Part1
         /// Setting the currentImageIndex to zero.
         /// String array for the images' names.
         /// </summary>
-        private int currentImageIndex = 1;
+        private int currentImageIndex = 0;
         private string[] imageNames = { "CNHelp1", "CNHelp2", "CNHelp3", "CNHelp4", "CNHelp5", "CNHelp6", "CNHelp7"};
 
         //------------------------------------------------------------------------------------------//
