@@ -26,6 +26,7 @@ namespace PROG7312_Part1
         private int seconds = 0;
         private int score = 0;
 
+        private string validationMessage = "";
         private bool isTimerRunning = false;
         private int correctHundredAnswer;
         private int correctTensAnswer;
@@ -46,7 +47,7 @@ namespace PROG7312_Part1
 
         private void HandleRadioButtonClick(RadioButton clickedRadioButton)
         {
-            string validationMessage = "";
+            
             switch (currentQuizSet)
             {
                 case QuizSet.Hundreds:
@@ -125,7 +126,7 @@ namespace PROG7312_Part1
                         RemoveLabelsFromPanels();
                         ResetRadioButtons();
                         DisableRadioButtons();
-                        ShowCustomMessageBox($"Thank you for playing!\nScore: {score}", "Game Completed", MessageBoxIcon.Information);
+                        ShowCustomMessageBox($"Thank you for playing!\nFinal Score: {score}", "Game Completed", MessageBoxIcon.Information);
                         btnPlayAgain.Visible = true;
                         btnPlayAgain.Enabled = true;
                     }
@@ -139,9 +140,6 @@ namespace PROG7312_Part1
                     }
                     break;
             }
-
-            // Display or handle the validation message as needed
-            //MessageBox.Show(validationMessage);
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
@@ -676,6 +674,19 @@ namespace PROG7312_Part1
             tensCaptionPanelGeneratedOrder.Clear();
             integerCaptionPanelGeneratedOrder.Clear();
             
+        }
+
+        private void btnMainMenu_Click(object sender, EventArgs e)
+        {
+            DialogResult myResult = MessageBox.Show("Are you sure you would like to return to the Main Menu?\n" +
+                "Leaving will result in loss of progress.\nClick Yes to Confirm or No to Cancel."
+                            , "Exiting", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (myResult == DialogResult.Yes)
+            {
+                this.ParentForm.Close();
+                Form1 mainForm = new Form1();
+                mainForm.Show();
+            }
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------//

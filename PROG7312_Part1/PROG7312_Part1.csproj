@@ -197,6 +197,7 @@
       <DependentUpon>ResultsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="bin\Debug\dewey.csv" />
+    <None Include="bin\Debug\images\btnPlay.png" />
     <None Include="bin\Debug\PROG7312_Part1.exe.config" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
@@ -228,6 +229,10 @@
     <Content Include="bin\Debug\BooksClassLibrary.dll" />
     <Content Include="bin\Debug\BooksClassLibrary.pdb" />
     <Content Include="bin\Debug\Control.Draggable.dll" />
+    <None Include="bin\Debug\images\btnPause.png" />
+    <None Include="bin\Debug\images\btnResume.png" />
+    <None Include="bin\Debug\images\btnHome.png" />
+    <None Include="bin\Debug\images\btnHelp.png" />
     <Content Include="bin\Debug\images\CallingNumbers.png" />
     <Content Include="bin\Debug\Interop.WMPLib.dll" />
     <Content Include="obj\Debug\AxInterop.WMPLib.dll" />

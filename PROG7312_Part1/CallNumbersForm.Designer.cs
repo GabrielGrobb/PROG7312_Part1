@@ -47,6 +47,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1072, 616);
             this.Controls.Add(this.callingNumbersUserControl1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CallNumbersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CallNumbersForm";
