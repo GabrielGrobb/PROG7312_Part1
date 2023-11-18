@@ -24,6 +24,8 @@ namespace PROG7312_Part1
         private QuizSet currentQuizSet;
         private Random random = new Random();
         private int seconds = 0;
+        private int score = 0;
+
         private bool isTimerRunning = false;
         private int correctHundredAnswer;
         private int correctTensAnswer;
@@ -53,6 +55,7 @@ namespace PROG7312_Part1
                     // Check if the validation was correct before moving to the next set
                     if (validationMessage.StartsWith("Correct"))
                     {
+                        score++;
                         RemoveLabelsFromPanels();
                         // Set state to Tens set
                         currentQuizSet = QuizSet.Tens;
@@ -70,6 +73,7 @@ namespace PROG7312_Part1
                     }
                     else if (validationMessage.StartsWith("Try Again"))
                     {
+                        score--;
                         ResetRadioButtons();
                         MessageBox.Show(validationMessage);
                         // Exit the method to avoid showing the message box for the Hundreds set
@@ -82,6 +86,7 @@ namespace PROG7312_Part1
                     // Check if the validation was correct before moving to the next set
                     if (validationMessage.StartsWith("Correct"))
                     {
+                        score++;
                         RemoveLabelsFromPanels();
                         // Set state to Integer set
                         currentQuizSet = QuizSet.Integers;
@@ -100,6 +105,7 @@ namespace PROG7312_Part1
                     }
                     else if (validationMessage.StartsWith("Try Again"))
                     {
+                        score--;
                         ResetRadioButtons();
                         MessageBox.Show(validationMessage);
                         // Exit the method to avoid showing the message box for the Hundreds set
@@ -111,15 +117,21 @@ namespace PROG7312_Part1
                     validationMessage = ValidateIntegerSet(clickedRadioButton.Name, correctAnswer, globalRedBlackTree);
                     if (validationMessage.StartsWith("Correct"))
                     {
+                        score++;
+                        if (score <= 0) 
+                        {
+                            score = 0;
+                        }
                         RemoveLabelsFromPanels();
                         ResetRadioButtons();
                         DisableRadioButtons();
-                        ShowCustomMessageBox("Thank you for playing!", "Game Completed", MessageBoxIcon.Information);
+                        ShowCustomMessageBox($"Thank you for playing!\nScore: {score}", "Game Completed", MessageBoxIcon.Information);
                         btnPlayAgain.Visible = true;
                         btnPlayAgain.Enabled = true;
                     }
                     else if (validationMessage.StartsWith("Try Again"))
                     {
+                        score--;
                         ResetRadioButtons();
                         MessageBox.Show(validationMessage);
                         // Exit the method to avoid showing the message box for the Hundreds set
@@ -659,6 +671,7 @@ namespace PROG7312_Part1
             lblTimer.Text = "Timer: 0 seconds";
             lblCaption.Text = "";
             seconds = 0;
+            score = 0;
             hundredsCaptionPanelGeneratedOrder.Clear();
             tensCaptionPanelGeneratedOrder.Clear();
             integerCaptionPanelGeneratedOrder.Clear();
