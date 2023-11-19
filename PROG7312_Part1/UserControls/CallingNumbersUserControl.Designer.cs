@@ -49,6 +49,7 @@
             this.btnResume = new PROG7312_Part1.CustomButton();
             this.btnPause = new PROG7312_Part1.CustomButton();
             this.btnStart = new PROG7312_Part1.CustomButton();
+            this.btnExit = new PROG7312_Part1.CustomButton();
             this.SuspendLayout();
             // 
             // lblDescription
@@ -71,7 +72,7 @@
             this.rdoOption1.BackColor = System.Drawing.Color.Transparent;
             this.rdoOption1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdoOption1.Location = new System.Drawing.Point(244, 406);
-            this.rdoOption1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdoOption1.Margin = new System.Windows.Forms.Padding(4);
             this.rdoOption1.Name = "rdoOption1";
             this.rdoOption1.Size = new System.Drawing.Size(20, 23);
             this.rdoOption1.TabIndex = 3;
@@ -86,7 +87,7 @@
             this.rdoOption2.BackColor = System.Drawing.Color.Transparent;
             this.rdoOption2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdoOption2.Location = new System.Drawing.Point(556, 406);
-            this.rdoOption2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdoOption2.Margin = new System.Windows.Forms.Padding(4);
             this.rdoOption2.Name = "rdoOption2";
             this.rdoOption2.Size = new System.Drawing.Size(17, 16);
             this.rdoOption2.TabIndex = 4;
@@ -100,7 +101,7 @@
             this.rdoOption3.BackColor = System.Drawing.Color.Transparent;
             this.rdoOption3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdoOption3.Location = new System.Drawing.Point(860, 406);
-            this.rdoOption3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdoOption3.Margin = new System.Windows.Forms.Padding(4);
             this.rdoOption3.Name = "rdoOption3";
             this.rdoOption3.Size = new System.Drawing.Size(17, 16);
             this.rdoOption3.TabIndex = 5;
@@ -114,7 +115,7 @@
             this.rdoOption4.BackColor = System.Drawing.Color.Transparent;
             this.rdoOption4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdoOption4.Location = new System.Drawing.Point(1155, 406);
-            this.rdoOption4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdoOption4.Margin = new System.Windows.Forms.Padding(4);
             this.rdoOption4.Name = "rdoOption4";
             this.rdoOption4.Size = new System.Drawing.Size(17, 16);
             this.rdoOption4.TabIndex = 6;
@@ -140,7 +141,7 @@
             this.captionPanel1.BackColor = System.Drawing.Color.Transparent;
             this.captionPanel1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.captionPanel1.Location = new System.Drawing.Point(125, 437);
-            this.captionPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.captionPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.captionPanel1.Name = "captionPanel1";
             this.captionPanel1.Size = new System.Drawing.Size(277, 85);
             this.captionPanel1.TabIndex = 8;
@@ -150,7 +151,7 @@
             this.captionPanel2.BackColor = System.Drawing.Color.Transparent;
             this.captionPanel2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.captionPanel2.Location = new System.Drawing.Point(423, 437);
-            this.captionPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.captionPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.captionPanel2.Name = "captionPanel2";
             this.captionPanel2.Size = new System.Drawing.Size(277, 85);
             this.captionPanel2.TabIndex = 9;
@@ -160,7 +161,7 @@
             this.captionPanel3.BackColor = System.Drawing.Color.Transparent;
             this.captionPanel3.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.captionPanel3.Location = new System.Drawing.Point(732, 437);
-            this.captionPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.captionPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.captionPanel3.Name = "captionPanel3";
             this.captionPanel3.Size = new System.Drawing.Size(277, 85);
             this.captionPanel3.TabIndex = 10;
@@ -170,7 +171,7 @@
             this.captionPanel4.BackColor = System.Drawing.Color.Transparent;
             this.captionPanel4.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.captionPanel4.Location = new System.Drawing.Point(1032, 437);
-            this.captionPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.captionPanel4.Margin = new System.Windows.Forms.Padding(4);
             this.captionPanel4.Name = "captionPanel4";
             this.captionPanel4.Size = new System.Drawing.Size(255, 85);
             this.captionPanel4.TabIndex = 11;
@@ -207,7 +208,7 @@
             this.btnResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResults.ForeColor = System.Drawing.Color.Black;
             this.btnResults.Location = new System.Drawing.Point(1189, 28);
-            this.btnResults.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnResults.Margin = new System.Windows.Forms.Padding(4);
             this.btnResults.Name = "btnResults";
             this.btnResults.Size = new System.Drawing.Size(223, 58);
             this.btnResults.TabIndex = 18;
@@ -233,7 +234,7 @@
             this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelp.ForeColor = System.Drawing.Color.Transparent;
             this.btnHelp.Location = new System.Drawing.Point(151, 15);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(4);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(113, 97);
             this.btnHelp.TabIndex = 17;
@@ -258,7 +259,7 @@
             this.btnMainMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMainMenu.ForeColor = System.Drawing.Color.Transparent;
             this.btnMainMenu.Location = new System.Drawing.Point(12, 15);
-            this.btnMainMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMainMenu.Margin = new System.Windows.Forms.Padding(4);
             this.btnMainMenu.Name = "btnMainMenu";
             this.btnMainMenu.Size = new System.Drawing.Size(113, 97);
             this.btnMainMenu.TabIndex = 16;
@@ -281,7 +282,7 @@
             this.btnPlayAgain.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlayAgain.ForeColor = System.Drawing.Color.Black;
             this.btnPlayAgain.Location = new System.Drawing.Point(607, 581);
-            this.btnPlayAgain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPlayAgain.Margin = new System.Windows.Forms.Padding(4);
             this.btnPlayAgain.Name = "btnPlayAgain";
             this.btnPlayAgain.Size = new System.Drawing.Size(223, 58);
             this.btnPlayAgain.TabIndex = 15;
@@ -307,7 +308,7 @@
             this.btnResume.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResume.ForeColor = System.Drawing.Color.Black;
             this.btnResume.Location = new System.Drawing.Point(607, 135);
-            this.btnResume.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnResume.Margin = new System.Windows.Forms.Padding(4);
             this.btnResume.Name = "btnResume";
             this.btnResume.Size = new System.Drawing.Size(120, 110);
             this.btnResume.TabIndex = 13;
@@ -332,7 +333,7 @@
             this.btnPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPause.ForeColor = System.Drawing.Color.Transparent;
             this.btnPause.Location = new System.Drawing.Point(485, 142);
-            this.btnPause.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPause.Margin = new System.Windows.Forms.Padding(4);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(113, 97);
             this.btnPause.TabIndex = 12;
@@ -358,7 +359,7 @@
             this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.Transparent;
             this.btnStart.Location = new System.Drawing.Point(485, 15);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(113, 97);
             this.btnStart.TabIndex = 2;
@@ -366,12 +367,34 @@
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnExit.BackgroundImage = global::PROG7312_Part1.Properties.Resources.btnExit;
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnExit.BorderColor = System.Drawing.Color.Transparent;
+            this.btnExit.BorderRadius = 0;
+            this.btnExit.BorderSize = 0;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.Transparent;
+            this.btnExit.Location = new System.Drawing.Point(12, 142);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(113, 97);
+            this.btnExit.TabIndex = 19;
+            this.btnExit.TextColor = System.Drawing.Color.Transparent;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // CallingNumbersUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PROG7312_Part1.Properties.Resources.CallingNumbers;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnResults);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnMainMenu);
@@ -391,7 +414,7 @@
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lblDescription);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CallingNumbersUserControl";
             this.Size = new System.Drawing.Size(1428, 759);
             this.Load += new System.EventHandler(this.CallingNumbersUserControl_Load);
@@ -421,5 +444,6 @@
         private CustomButton btnMainMenu;
         private CustomButton btnHelp;
         private CustomButton btnResults;
+        private CustomButton btnExit;
     }
 }

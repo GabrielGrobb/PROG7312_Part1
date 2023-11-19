@@ -1168,6 +1168,25 @@ namespace PROG7312_Part1
             }
         }
 
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// A button to exit the application entirely.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to exit?\nExiting will result in data loss", "Warning",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            // Check the user's response
+            if (result == DialogResult.Yes)
+            {
+                System.Environment.Exit(0);
+            }
+        }
+
 
         //-------------------------------------------------------------------------------------------//
 

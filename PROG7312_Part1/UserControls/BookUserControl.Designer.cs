@@ -59,6 +59,7 @@
             this.btnResults = new System.Windows.Forms.Button();
             this.btnMainMenu = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bottomShelf10
@@ -67,9 +68,10 @@
             this.bottomShelf10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bottomShelf10.BackgroundImage")));
             this.bottomShelf10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bottomShelf10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bottomShelf10.Location = new System.Drawing.Point(868, 239);
+            this.bottomShelf10.Location = new System.Drawing.Point(1157, 294);
+            this.bottomShelf10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bottomShelf10.Name = "bottomShelf10";
-            this.bottomShelf10.Size = new System.Drawing.Size(80, 150);
+            this.bottomShelf10.Size = new System.Drawing.Size(107, 185);
             this.bottomShelf10.TabIndex = 22;
             // 
             // bottomShelf9
@@ -78,9 +80,10 @@
             this.bottomShelf9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bottomShelf9.BackgroundImage")));
             this.bottomShelf9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bottomShelf9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bottomShelf9.Location = new System.Drawing.Point(782, 239);
+            this.bottomShelf9.Location = new System.Drawing.Point(1043, 294);
+            this.bottomShelf9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bottomShelf9.Name = "bottomShelf9";
-            this.bottomShelf9.Size = new System.Drawing.Size(80, 150);
+            this.bottomShelf9.Size = new System.Drawing.Size(107, 185);
             this.bottomShelf9.TabIndex = 20;
             // 
             // bottomShelf8
@@ -89,9 +92,10 @@
             this.bottomShelf8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bottomShelf8.BackgroundImage")));
             this.bottomShelf8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bottomShelf8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bottomShelf8.Location = new System.Drawing.Point(696, 239);
+            this.bottomShelf8.Location = new System.Drawing.Point(928, 294);
+            this.bottomShelf8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bottomShelf8.Name = "bottomShelf8";
-            this.bottomShelf8.Size = new System.Drawing.Size(80, 150);
+            this.bottomShelf8.Size = new System.Drawing.Size(107, 185);
             this.bottomShelf8.TabIndex = 19;
             // 
             // bottomShelf7
@@ -100,9 +104,10 @@
             this.bottomShelf7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bottomShelf7.BackgroundImage")));
             this.bottomShelf7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bottomShelf7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bottomShelf7.Location = new System.Drawing.Point(610, 239);
+            this.bottomShelf7.Location = new System.Drawing.Point(813, 294);
+            this.bottomShelf7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bottomShelf7.Name = "bottomShelf7";
-            this.bottomShelf7.Size = new System.Drawing.Size(80, 150);
+            this.bottomShelf7.Size = new System.Drawing.Size(107, 185);
             this.bottomShelf7.TabIndex = 18;
             // 
             // bottomShelf6
@@ -111,9 +116,10 @@
             this.bottomShelf6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bottomShelf6.BackgroundImage")));
             this.bottomShelf6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bottomShelf6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bottomShelf6.Location = new System.Drawing.Point(524, 239);
+            this.bottomShelf6.Location = new System.Drawing.Point(699, 294);
+            this.bottomShelf6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bottomShelf6.Name = "bottomShelf6";
-            this.bottomShelf6.Size = new System.Drawing.Size(80, 150);
+            this.bottomShelf6.Size = new System.Drawing.Size(107, 185);
             this.bottomShelf6.TabIndex = 17;
             // 
             // bottomShelf5
@@ -122,9 +128,10 @@
             this.bottomShelf5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bottomShelf5.BackgroundImage")));
             this.bottomShelf5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bottomShelf5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bottomShelf5.Location = new System.Drawing.Point(438, 239);
+            this.bottomShelf5.Location = new System.Drawing.Point(584, 294);
+            this.bottomShelf5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bottomShelf5.Name = "bottomShelf5";
-            this.bottomShelf5.Size = new System.Drawing.Size(80, 150);
+            this.bottomShelf5.Size = new System.Drawing.Size(107, 185);
             this.bottomShelf5.TabIndex = 16;
             // 
             // bottomShelf4
@@ -133,9 +140,10 @@
             this.bottomShelf4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bottomShelf4.BackgroundImage")));
             this.bottomShelf4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bottomShelf4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bottomShelf4.Location = new System.Drawing.Point(352, 239);
+            this.bottomShelf4.Location = new System.Drawing.Point(469, 294);
+            this.bottomShelf4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bottomShelf4.Name = "bottomShelf4";
-            this.bottomShelf4.Size = new System.Drawing.Size(80, 150);
+            this.bottomShelf4.Size = new System.Drawing.Size(107, 185);
             this.bottomShelf4.TabIndex = 15;
             // 
             // bottomShelf3
@@ -144,9 +152,10 @@
             this.bottomShelf3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bottomShelf3.BackgroundImage")));
             this.bottomShelf3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bottomShelf3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bottomShelf3.Location = new System.Drawing.Point(266, 239);
+            this.bottomShelf3.Location = new System.Drawing.Point(355, 294);
+            this.bottomShelf3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bottomShelf3.Name = "bottomShelf3";
-            this.bottomShelf3.Size = new System.Drawing.Size(80, 150);
+            this.bottomShelf3.Size = new System.Drawing.Size(107, 185);
             this.bottomShelf3.TabIndex = 14;
             // 
             // bottomShelf2
@@ -155,9 +164,10 @@
             this.bottomShelf2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bottomShelf2.BackgroundImage")));
             this.bottomShelf2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bottomShelf2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bottomShelf2.Location = new System.Drawing.Point(180, 239);
+            this.bottomShelf2.Location = new System.Drawing.Point(240, 294);
+            this.bottomShelf2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bottomShelf2.Name = "bottomShelf2";
-            this.bottomShelf2.Size = new System.Drawing.Size(80, 150);
+            this.bottomShelf2.Size = new System.Drawing.Size(107, 185);
             this.bottomShelf2.TabIndex = 21;
             // 
             // bottomShelf1
@@ -166,107 +176,119 @@
             this.bottomShelf1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bottomShelf1.BackgroundImage")));
             this.bottomShelf1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bottomShelf1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bottomShelf1.Location = new System.Drawing.Point(94, 239);
+            this.bottomShelf1.Location = new System.Drawing.Point(125, 294);
+            this.bottomShelf1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bottomShelf1.Name = "bottomShelf1";
-            this.bottomShelf1.Size = new System.Drawing.Size(80, 150);
+            this.bottomShelf1.Size = new System.Drawing.Size(107, 185);
             this.bottomShelf1.TabIndex = 13;
             // 
             // topShelf10
             // 
             this.topShelf10.BackColor = System.Drawing.Color.Transparent;
             this.topShelf10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.topShelf10.Location = new System.Drawing.Point(868, 52);
+            this.topShelf10.Location = new System.Drawing.Point(1157, 64);
+            this.topShelf10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.topShelf10.Name = "topShelf10";
-            this.topShelf10.Size = new System.Drawing.Size(80, 150);
+            this.topShelf10.Size = new System.Drawing.Size(107, 185);
             this.topShelf10.TabIndex = 12;
             // 
             // topShelf9
             // 
             this.topShelf9.BackColor = System.Drawing.Color.Transparent;
             this.topShelf9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.topShelf9.Location = new System.Drawing.Point(782, 52);
+            this.topShelf9.Location = new System.Drawing.Point(1043, 64);
+            this.topShelf9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.topShelf9.Name = "topShelf9";
-            this.topShelf9.Size = new System.Drawing.Size(80, 150);
+            this.topShelf9.Size = new System.Drawing.Size(107, 185);
             this.topShelf9.TabIndex = 11;
             // 
             // topShelf8
             // 
             this.topShelf8.BackColor = System.Drawing.Color.Transparent;
             this.topShelf8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.topShelf8.Location = new System.Drawing.Point(696, 52);
+            this.topShelf8.Location = new System.Drawing.Point(928, 64);
+            this.topShelf8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.topShelf8.Name = "topShelf8";
-            this.topShelf8.Size = new System.Drawing.Size(80, 150);
+            this.topShelf8.Size = new System.Drawing.Size(107, 185);
             this.topShelf8.TabIndex = 10;
             // 
             // topShelf7
             // 
             this.topShelf7.BackColor = System.Drawing.Color.Transparent;
             this.topShelf7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.topShelf7.Location = new System.Drawing.Point(610, 52);
+            this.topShelf7.Location = new System.Drawing.Point(813, 64);
+            this.topShelf7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.topShelf7.Name = "topShelf7";
-            this.topShelf7.Size = new System.Drawing.Size(80, 150);
+            this.topShelf7.Size = new System.Drawing.Size(107, 185);
             this.topShelf7.TabIndex = 9;
             // 
             // topShelf6
             // 
             this.topShelf6.BackColor = System.Drawing.Color.Transparent;
             this.topShelf6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.topShelf6.Location = new System.Drawing.Point(524, 52);
+            this.topShelf6.Location = new System.Drawing.Point(699, 64);
+            this.topShelf6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.topShelf6.Name = "topShelf6";
-            this.topShelf6.Size = new System.Drawing.Size(80, 150);
+            this.topShelf6.Size = new System.Drawing.Size(107, 185);
             this.topShelf6.TabIndex = 8;
             // 
             // topShelf5
             // 
             this.topShelf5.BackColor = System.Drawing.Color.Transparent;
             this.topShelf5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.topShelf5.Location = new System.Drawing.Point(438, 52);
+            this.topShelf5.Location = new System.Drawing.Point(584, 64);
+            this.topShelf5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.topShelf5.Name = "topShelf5";
-            this.topShelf5.Size = new System.Drawing.Size(80, 150);
+            this.topShelf5.Size = new System.Drawing.Size(107, 185);
             this.topShelf5.TabIndex = 7;
             // 
             // topShelf4
             // 
             this.topShelf4.BackColor = System.Drawing.Color.Transparent;
             this.topShelf4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.topShelf4.Location = new System.Drawing.Point(352, 52);
+            this.topShelf4.Location = new System.Drawing.Point(469, 64);
+            this.topShelf4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.topShelf4.Name = "topShelf4";
-            this.topShelf4.Size = new System.Drawing.Size(80, 150);
+            this.topShelf4.Size = new System.Drawing.Size(107, 185);
             this.topShelf4.TabIndex = 6;
             // 
             // topShelf3
             // 
             this.topShelf3.BackColor = System.Drawing.Color.Transparent;
             this.topShelf3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.topShelf3.Location = new System.Drawing.Point(266, 52);
+            this.topShelf3.Location = new System.Drawing.Point(355, 64);
+            this.topShelf3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.topShelf3.Name = "topShelf3";
-            this.topShelf3.Size = new System.Drawing.Size(80, 150);
+            this.topShelf3.Size = new System.Drawing.Size(107, 185);
             this.topShelf3.TabIndex = 5;
             // 
             // topShelf2
             // 
             this.topShelf2.BackColor = System.Drawing.Color.Transparent;
             this.topShelf2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.topShelf2.Location = new System.Drawing.Point(180, 52);
+            this.topShelf2.Location = new System.Drawing.Point(240, 64);
+            this.topShelf2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.topShelf2.Name = "topShelf2";
-            this.topShelf2.Size = new System.Drawing.Size(80, 150);
+            this.topShelf2.Size = new System.Drawing.Size(107, 185);
             this.topShelf2.TabIndex = 4;
             // 
             // topShelf1
             // 
             this.topShelf1.BackColor = System.Drawing.Color.Transparent;
             this.topShelf1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.topShelf1.Location = new System.Drawing.Point(94, 52);
+            this.topShelf1.Location = new System.Drawing.Point(125, 64);
+            this.topShelf1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.topShelf1.Name = "topShelf1";
-            this.topShelf1.Size = new System.Drawing.Size(80, 150);
+            this.topShelf1.Size = new System.Drawing.Size(107, 185);
             this.topShelf1.TabIndex = 3;
             // 
             // btnSubmit
             // 
             this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSubmit.Location = new System.Drawing.Point(533, 440);
+            this.btnSubmit.Location = new System.Drawing.Point(711, 542);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(88, 38);
+            this.btnSubmit.Size = new System.Drawing.Size(117, 47);
             this.btnSubmit.TabIndex = 23;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -275,9 +297,10 @@
             // btnReset
             // 
             this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReset.Location = new System.Drawing.Point(390, 511);
+            this.btnReset.Location = new System.Drawing.Point(520, 629);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(88, 38);
+            this.btnReset.Size = new System.Drawing.Size(117, 47);
             this.btnReset.TabIndex = 24;
             this.btnReset.Text = "Reset Books";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -288,9 +311,10 @@
             this.lblTimer.BackColor = System.Drawing.Color.Transparent;
             this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimer.ForeColor = System.Drawing.Color.GreenYellow;
-            this.lblTimer.Location = new System.Drawing.Point(691, 440);
+            this.lblTimer.Location = new System.Drawing.Point(855, 542);
+            this.lblTimer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(257, 57);
+            this.lblTimer.Size = new System.Drawing.Size(343, 70);
             this.lblTimer.TabIndex = 25;
             this.lblTimer.Text = "label1";
             // 
@@ -298,9 +322,10 @@
             // 
             this.btnStart.BackColor = System.Drawing.Color.White;
             this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStart.Location = new System.Drawing.Point(533, 511);
+            this.btnStart.Location = new System.Drawing.Point(711, 629);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(88, 38);
+            this.btnStart.Size = new System.Drawing.Size(117, 47);
             this.btnStart.TabIndex = 26;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = false;
@@ -315,9 +340,10 @@
             // 
             this.btnRestart.BackColor = System.Drawing.Color.Transparent;
             this.btnRestart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestart.Location = new System.Drawing.Point(94, 511);
+            this.btnRestart.Location = new System.Drawing.Point(125, 629);
+            this.btnRestart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(88, 38);
+            this.btnRestart.Size = new System.Drawing.Size(117, 47);
             this.btnRestart.TabIndex = 27;
             this.btnRestart.Text = "Restart?";
             this.btnRestart.UseVisualStyleBackColor = false;
@@ -326,9 +352,10 @@
             // btnResults
             // 
             this.btnResults.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnResults.Location = new System.Drawing.Point(390, 440);
+            this.btnResults.Location = new System.Drawing.Point(520, 542);
+            this.btnResults.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnResults.Name = "btnResults";
-            this.btnResults.Size = new System.Drawing.Size(88, 38);
+            this.btnResults.Size = new System.Drawing.Size(117, 47);
             this.btnResults.TabIndex = 28;
             this.btnResults.Text = "View Results";
             this.btnResults.UseVisualStyleBackColor = true;
@@ -338,9 +365,10 @@
             // 
             this.btnMainMenu.BackColor = System.Drawing.Color.Transparent;
             this.btnMainMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMainMenu.Location = new System.Drawing.Point(94, 440);
+            this.btnMainMenu.Location = new System.Drawing.Point(125, 542);
+            this.btnMainMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMainMenu.Name = "btnMainMenu";
-            this.btnMainMenu.Size = new System.Drawing.Size(88, 38);
+            this.btnMainMenu.Size = new System.Drawing.Size(117, 47);
             this.btnMainMenu.TabIndex = 29;
             this.btnMainMenu.Text = "Main Menu";
             this.btnMainMenu.UseVisualStyleBackColor = false;
@@ -349,22 +377,35 @@
             // btnHelp
             // 
             this.btnHelp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHelp.Location = new System.Drawing.Point(868, 511);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHelp.Location = new System.Drawing.Point(267, 542);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(88, 38);
+            this.btnHelp.Size = new System.Drawing.Size(117, 47);
             this.btnHelp.TabIndex = 30;
             this.btnHelp.Text = "Help?";
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
+            // btnExit
+            // 
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.Location = new System.Drawing.Point(1157, 629);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(117, 47);
+            this.btnExit.TabIndex = 31;
+            this.btnExit.Text = "EXIT";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // BookUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::PROG7312_Part1.Properties.Resources.BookShelf;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnResults);
@@ -394,8 +435,9 @@
             this.Controls.Add(this.topShelf2);
             this.Controls.Add(this.topShelf1);
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "BookUserControl";
-            this.Size = new System.Drawing.Size(1042, 600);
+            this.Size = new System.Drawing.Size(1389, 738);
             this.Load += new System.EventHandler(this.BookUserControl_Load);
             this.ResumeLayout(false);
 
@@ -432,5 +474,6 @@
         private System.Windows.Forms.Button btnResults;
         private System.Windows.Forms.Button btnMainMenu;
         private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.Button btnExit;
     }
 }
