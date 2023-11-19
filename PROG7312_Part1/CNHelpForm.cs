@@ -27,6 +27,7 @@ namespace PROG7312_Part1
         public CNHelpForm()
         {
             InitializeComponent();
+            DisplayImage(currentImageIndex);
         }
 
         //------------------------------------------------------------------------------------------//

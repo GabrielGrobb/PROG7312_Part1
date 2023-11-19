@@ -104,7 +104,6 @@
     <Compile Include="CNHelpForm.Designer.cs">
       <DependentUpon>CNHelpForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CollectionReader.cs" />
     <Compile Include="CSVModel.cs" />
     <Compile Include="CustomButton.cs">
       <SubType>Component</SubType>
@@ -243,15 +242,32 @@
     <None Include="bin\Debug\images\btnResume.png" />
     <None Include="bin\Debug\images\btnHome.png" />
     <None Include="bin\Debug\images\btnHelp.png" />
+    <Content Include="bin\Debug\Eco.Handles.dll" />
+    <Content Include="bin\Debug\Eco.Interfaces.dll" />
+    <Content Include="bin\Debug\Eco.LinqExtender.dll" />
+    <Content Include="bin\Debug\Eco.WPF.dll" />
     <Content Include="bin\Debug\images\CallingNumbers.png" />
-    <None Include="bin\Debug\images\CNHelp1.png" />
-    <None Include="bin\Debug\images\CNHelp2.png" />
-    <None Include="bin\Debug\images\CNHelp3.png" />
-    <None Include="bin\Debug\images\CNHelp4.png" />
-    <None Include="bin\Debug\images\CNHelp5.png" />
-    <None Include="bin\Debug\images\CNHelp6.png" />
-    <None Include="bin\Debug\images\CNHelp7.png" />
+    <Content Include="bin\Debug\images\CNHelp1.png" />
+    <Content Include="bin\Debug\images\CNHelp2.png" />
+    <Content Include="bin\Debug\images\CNHelp3.png" />
+    <Content Include="bin\Debug\images\CNHelp4.png" />
+    <Content Include="bin\Debug\images\CNHelp5.png" />
+    <Content Include="bin\Debug\images\CNHelp6.png" />
+    <Content Include="bin\Debug\images\CNHelp7.png" />
     <Content Include="bin\Debug\Interop.WMPLib.dll" />
+    <Content Include="bin\Debug\MDriven.Net.Http.dll" />
+    <Content Include="bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\System.Buffers.dll" />
+    <Content Include="bin\Debug\System.Memory.dll" />
+    <Content Include="bin\Debug\System.Numerics.Vectors.dll" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="bin\Debug\System.Text.Encodings.Web.dll" />
+    <Content Include="bin\Debug\System.Text.Json.dll" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\Debug\System.ValueTuple.dll" />
+    <Content Include="bin\Debug\WECPOFLogic.dll" />
+    <Content Include="bin\Debug\WPFViewModelExternalControls.dll" />
     <Content Include="obj\Debug\AxInterop.WMPLib.dll" />
     <Content Include="obj\Debug\Interop.WMPLib.dll" />
     <Content Include="obj\Debug\PROG7312_Part1.csproj.FileListAbsolute.txt" />
