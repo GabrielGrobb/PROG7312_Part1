@@ -17,7 +17,7 @@ namespace PROG7312_Part1
         /// String array for the images' names.
         /// </summary>
         private int currentImageIndex = 0;
-        private string[] imageNames = { "helpImage1", "helpImage2", "helpImage3", "helpImage4", "helpImage5", "helpImage6", "helpImage7", "helpImage8" };
+        private string[] imageNames = { "CNHelp1", "CNHelp2", "CNHelp3", "CNHelp4", "CNHelp5", "CNHelp6", "CNHelp7" };
 
         //------------------------------------------------------------------------------------------//
 
@@ -27,6 +27,7 @@ namespace PROG7312_Part1
         public CNHelpForm()
         {
             InitializeComponent();
+            DisplayImage(currentImageIndex);
         }
 
         //------------------------------------------------------------------------------------------//

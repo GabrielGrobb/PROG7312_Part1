@@ -193,4 +193,25 @@
   <data name="btnHelp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\images\btnHelp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CNHelp1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\CNHelp1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CNHelp2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\CNHelp2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CNHelp3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\CNHelp3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CNHelp4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\CNHelp4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CNHelp5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\CNHelp5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CNHelp6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\CNHelp6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CNHelp7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\images\CNHelp7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
