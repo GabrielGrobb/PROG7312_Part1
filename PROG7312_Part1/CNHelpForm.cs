@@ -17,7 +17,7 @@ namespace PROG7312_Part1
         /// String array for the images' names.
         /// </summary>
         private int currentImageIndex = 0;
-        private string[] imageNames = { "CNHelp1", "CNHelp2", "CNHelp3", "CNHelp4", "CNHelp5", "CNHelp6", "CNHelp7" };
+        private string[] imageNames = { "CNHelp1", "CNHelp2", "CNHelp3", "CNHelp4", "CNHelp5", "CNHelp6", "CNHelp7"};
 
         //------------------------------------------------------------------------------------------//
 

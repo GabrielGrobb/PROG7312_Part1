@@ -8,33 +8,38 @@ namespace PROG7312_Part1
 {
     public class UserResultsManager
     {
-        //-------------------------------------------------------------------------------------------//
+        /// <summary>
+        /// Used ChatGPT
+        /// Static field to store the cumulative attempts count.
+        /// Static property to expose the attempts count.
+        /// List to store user results.
+        /// </summary>
 
-        // Static field to store the cumulative attempts count
         private static int attempts = 0;
-
-        // Static property to expose the attempts count
         public static int Attempts => attempts;
-
-        // List to store user results
         public static List<UserResults> UserResultsList { get; } = new List<UserResults>();
 
         //-------------------------------------------------------------------------------------------//
 
-        // Method to add user results
+        /// <summary>
+        /// Method to add user results.
+        /// Increment the attempts count for other games.
+        /// Add user results to the list
+        /// </summary>
+        /// <param name="results"></param>
         public static void AddUserResults(UserResults results)
         {
-            // Increment the attempts count
             attempts++;
             results.Attempt = attempts;
 
-            // Add user results to the list
             UserResultsList.Add(results);
         }
 
         //-------------------------------------------------------------------------------------------//
 
-        // Method to reset user results
+        /// <summary>
+        ///  Method to reset user results
+        /// </summary>
         public static void ResetUserResults()
         {
             UserResultsList.Clear();

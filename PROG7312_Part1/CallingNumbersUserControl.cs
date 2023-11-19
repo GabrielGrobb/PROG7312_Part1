@@ -13,7 +13,7 @@ namespace PROG7312_Part1
     public partial class CallingNumbersUserControl : UserControl
     {
         /// <summary>
-        /// 
+        /// enum for which quiz set is active.
         /// </summary>
         private enum QuizSet
         {
@@ -28,30 +28,45 @@ namespace PROG7312_Part1
         private static CallingNumbersHelper Helper = new CallingNumbersHelper();
 
         /// <summary>
-        /// 
+        /// Creating instances of
+        /// QuizSet enum.
+        /// Red Black tree class.
+        /// Random type.
         /// </summary>
         private QuizSet currentQuizSet;
         private RedBlackTree globalRedBlackTree;
         private Random random = new Random();
 
+        /// <summary>
+        /// int for the correct first level.
+        /// int for the correct second level.
+        /// int for the correct thrid level.
+        /// int for the seconds.
+        /// int for the score.
+        /// </summary>
         private int correctHundredAnswer;
         private int correctTensAnswer;
         private int correctAnswer;
         private int seconds = 0;
         private int score = 0;
 
+        /// <summary>
+        /// string for the name of the game.
+        /// global string for the validation message.
+        /// bool value for the timer.
+        /// </summary>
         private string callNumberGame = "Calling Numbers Game";
         private string validationMessage = "";
         private bool isTimerRunning = false;
         
-        
         /// <summary>
-        /// 
+        /// List to store the user results.
         /// </summary>
         private List<UserResults> results = new List<UserResults>();
 
         /// <summary>
-        /// Diction
+        /// Dictionaries to store the radio button,
+        /// panel names and the content of the labels.
         /// </summary>
         private Dictionary<string, KeyValuePair<string, string>> hundredsCaptionPanelGeneratedOrder = new Dictionary<string, KeyValuePair<string, string>>();
         private Dictionary<string, KeyValuePair<string, string>> tensCaptionPanelGeneratedOrder = new Dictionary<string, KeyValuePair<string, string>>();
@@ -60,7 +75,7 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// initialize components.
         /// </summary>
         public CallingNumbersUserControl()
         {
@@ -70,7 +85,11 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// Used ChatGPT.
+        /// Using a switch case to validate if the correct panel is selected.
+        /// If correct, the next quiz set will be launched,
+        /// score will increment for every correct answer.
+        /// score will decrement for every incorrect answer.
         /// </summary>
         /// <param name="clickedRadioButton"></param>
         private void HandleRadioButtonClick(RadioButton clickedRadioButton)
@@ -182,20 +201,23 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// Used ChatGPT.
+        /// Extract the hundreds digit from the correct answer.
+        /// Extract the hundreds digit from the user answer (using the panel information)
+        /// Find the name of the caption in the tree associated to the first level
+        /// field.
+        /// Validate if the user selected the correct panel.
         /// </summary>
-        /// <param name="radioBtnName"></param>
-        /// <param name="correctAnswer"></param>
-        /// <param name="redBlackTree"></param>
+        /// <param name="radioBtnName">Checking which radio button stores the correct answer</param>
+        /// <param name="correctAnswer">Passing the correct answer</param>
+        /// <param name="redBlackTree">Checking the tree for the caption.</param>
         /// <returns></returns>
         private string ValidateHundredsSet(string radioBtnName, int correctAnswer, RedBlackTree redBlackTree)
         {
             if (hundredsCaptionPanelGeneratedOrder.TryGetValue(radioBtnName, out KeyValuePair<string, string> panelInfo))
             {
-                // Extract the hundreds digit from the correct answer
                 int correctHundredsDigit = (correctAnswer / 100) % 10;
-
-                // Extract the hundreds digit from the user answer (using the panel information)
+ 
                 int userHundredsDigit = int.Parse(panelInfo.Value);
 
                 Node hundreds = redBlackTree.FindElementByCallingNumber((correctHundredsDigit * 100).ToString());
@@ -204,20 +226,22 @@ namespace PROG7312_Part1
                     ? "Correct!"
                     : $"Try Again! Correct answer is: {hundreds.DeweyData.Caption}";
             }
-
-            // Handle the case where the radio button name is not found in the dictionary
             return "Error: Radio button information not found.";
         }
-
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// Used ChatGPT.
+        /// Extract the tnes digit from the correct answer.
+        /// Extract the tens digit from the user answer (using the panel information)
+        /// Find the name of the caption in the tree associated to the hundred
+        /// second level.
+        /// Validate if the user selected the correct panel.        
         /// </summary>
-        /// <param name="radioBtnName"></param>
-        /// <param name="correctAnswer"></param>
-        /// <param name="redBlackTree"></param>
+        /// <param name="radioBtnName">Checking which radio button stores the correct answer</param>
+        /// <param name="correctAnswer">Passing the correct answer</param>
+        /// <param name="redBlackTree">Checking the tree for the caption.</param>
         /// <returns></returns>
         private string ValidateTensSet(string radioBtnName, int correctAnswer, RedBlackTree redBlackTree)
         {
@@ -225,10 +249,9 @@ namespace PROG7312_Part1
             {
                 int hundredsDigit = (correctAnswer / 100) % 10;
                 hundredsDigit *= 100;
-                // Extract the tens digit from the correct answer
+
                 int correctTensDigit = (correctAnswer / 10) % 10;
 
-                // Extract the tens digit from the user answer
                 int userTensDigit = int.Parse(panelInfo.Value);
 
                 Node tens = redBlackTree.FindElementByCallingNumber((hundredsDigit + (correctTensDigit * 10)).ToString());
@@ -237,18 +260,22 @@ namespace PROG7312_Part1
                      ? "Correct!"
             : $"Try Again! Correct answer is: {tens.DeweyData.Caption}";
             }
-            // Handle the case where the radio button name is not found in the dictionary
             return "Error: Radio button information not found.";
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// Used ChatGPT.
+        /// Extract the integer digit from the correct answer.
+        /// Extract the integer digit from the user answer (using the panel information)
+        /// Find the name of the whole number in the tree associated to the last
+        /// level.
+        /// Validate if the user selected the correct panel.
         /// </summary>
-        /// <param name="radioBtnName"></param>
-        /// <param name="correctAnswer"></param>
-        /// <param name="redBlackTree"></param>
+        /// <param name="radioBtnName">Checking which radio button stores the correct answer</param>
+        /// <param name="correctAnswer">Passing the correct answer</param>
+        /// <param name="redBlackTree">Checking the tree for the caption.</param>
         /// <returns></returns>
         private string ValidateIntegerSet(string radioBtnName, int correctAnswer, RedBlackTree redBlackTree)
         {
@@ -256,12 +283,11 @@ namespace PROG7312_Part1
             {
                 int hundredsDigit = (correctAnswer / 100) % 10;
                 hundredsDigit *= 100;
-                // Extract the tens digit from the correct answer
+
                 int tensDigit = (correctAnswer / 10) % 10;
-                // Extract the ones digit from the correct answer
+
                 int correctOnesDigit = correctAnswer % 10;
 
-                // Extract the ones digit from the user answer
                 int userOnesDigit = int.Parse(panelInfo.Value);
 
                 Node integer = redBlackTree.FindElementByCallingNumber((hundredsDigit + (tensDigit * 10) + correctOnesDigit).ToString());
@@ -276,7 +302,6 @@ namespace PROG7312_Part1
                     ? "Correct!"
                     : $"Try Again! Correct answer is: {integer.DeweyData.Caption}";
             }
-            // Handle the case where the radio button name is not found in the dictionary
             return "Error: Radio button information not found.";
         }
 
@@ -305,7 +330,9 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// Create the labels for the first level.
+        /// Find the radio buttons and panels on the form.
+        /// Add the first level to the hundreds dictionary.
         /// </summary>
         /// <param name="options"></param>
         public void CreateLabelsForHundredsSet(List<int> options)
@@ -343,7 +370,9 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// Create the labels for the second level.
+        /// Find the radio buttons and panels on the form.
+        /// Add the second level to the tens dictionary.
         /// </summary>
         /// <param name="options"></param>
         public void CreateLabelsForTensSet(List<int> options)
@@ -381,7 +410,9 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// Create the labels for the third level.
+        /// Find the radio buttons and panels on the form.
+        /// Add the third level to the integer dictionary.
         /// </summary>
         /// <param name="options"></param>
         public void CreateLabelsForIntegerSet(List<int> options)
@@ -440,7 +471,7 @@ namespace PROG7312_Part1
 
         /// <summary>
         /// Remove all labels from the panel.
-        /// Dispose the label to free up resources
+        /// Dispose the label to free up resources.
         /// </summary>
         /// <param name="panel"></param>
         private void RemoveLabelsFromPanel(Panel panel)
@@ -456,7 +487,10 @@ namespace PROG7312_Part1
 
         /// <summary>
         /// Used ChatGPT.
-        /// 
+        /// Using TextFieldParser to loop through
+        /// the CSV file rows. 
+        /// Skip the first row as it contains headings.
+        /// Adds the contents to the CSV model.
         /// </summary>
         /// <param name="redBlackTree"></param>
         /// <param name="filePath"></param>
@@ -474,16 +508,14 @@ namespace PROG7312_Part1
 
                     while (!parser.EndOfData)
                     {
-                        // Read the fields from the CSV file
                         string[] fields = parser.ReadFields();
 
                         if (isFirstRow)
                         {
                             isFirstRow = false;
-                            continue; // Skip the first row
+                            continue;
                         }
 
-                        // Assuming Class is an integer
                         if (fields.Length >= 3 && int.TryParse(fields[0].Trim(), out int deweyDecimal))
                         {
                             CSVModel model = new CSVModel
@@ -493,7 +525,6 @@ namespace PROG7312_Part1
                                 Summary = int.Parse(fields[2].Trim())
                             };
 
-                            // Insert deweyDecimal into the Red-Black Tree
                             redBlackTree.Insert(model);
                         }
                     }
@@ -505,7 +536,10 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// Specific buttons will be disabled and enabled.
+        /// Enable radio buttons.
+        /// Create the quiz game.
+        /// Start the timer.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -529,7 +563,10 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// Specific buttons will be disabled and 
+        /// invisable.
+        /// Diabling the radio buttons.
+        /// Setting the timer to zero.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -592,9 +629,9 @@ namespace PROG7312_Part1
         /// <summary>
         /// Set the correct answer for each quiz set.
         /// </summary>
-        /// <param name="firstLevelElement"></param>
-        /// <param name="secondLevelElement"></param>
-        /// <param name="thirdLevelElement"></param>
+        /// <param name="firstLevelElement">Setting the first level element</param>
+        /// <param name="secondLevelElement">Setting the second level element</param>
+        /// <param name="thirdLevelElement">Setting the third level element</param>
         private void SetCorrectLevelAnswers(int firstLevelElement, int secondLevelElement, int thirdLevelElement)
         {
             correctHundredAnswer = firstLevelElement;
@@ -605,7 +642,8 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// Finding the third level element and 
+        /// setting it to the label text.
         /// </summary>
         /// <param name="thirdLevelElement"></param>
         private void DisplayNodeInformation(int thirdLevelElement)
@@ -615,7 +653,7 @@ namespace PROG7312_Part1
             if (foundNode != null)
             {
                 // Assuming you have properties like Class, Caption, and Summary in your Node class
-                lblCaption.Text = $"{foundNode.DeweyData.Class}, {foundNode.DeweyData.Caption}";
+                lblCaption.Text = $"{foundNode.DeweyData.Caption}";
             }
         }
 
@@ -775,7 +813,8 @@ namespace PROG7312_Part1
         //-------------------------------------------------------------------------------------------------------------------------------------//
 
         /// <summary>
-        /// 
+        /// While the timer ticks, display the seconds
+        /// in a label.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

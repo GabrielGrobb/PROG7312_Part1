@@ -38,28 +38,30 @@
             this.bookUserControl1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bookUserControl1.BackgroundImage")));
             this.bookUserControl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bookUserControl1.Location = new System.Drawing.Point(0, -1);
-            this.bookUserControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.bookUserControl1.MaximumSize = new System.Drawing.Size(1042, 600);
-            this.bookUserControl1.MinimumSize = new System.Drawing.Size(1042, 600);
+            this.bookUserControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bookUserControl1.MaximumSize = new System.Drawing.Size(1389, 738);
+            this.bookUserControl1.MinimumSize = new System.Drawing.Size(1389, 738);
             this.bookUserControl1.Name = "bookUserControl1";
-            this.bookUserControl1.Size = new System.Drawing.Size(1042, 600);
+            this.bookUserControl1.Size = new System.Drawing.Size(1389, 738);
             this.bookUserControl1.TabIndex = 0;
             // 
             // BookForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1044, 598);
+            this.ClientSize = new System.Drawing.Size(1389, 726);
             this.Controls.Add(this.bookUserControl1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1060, 637);
+            this.MaximumSize = new System.Drawing.Size(1407, 773);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1060, 637);
+            this.MinimumSize = new System.Drawing.Size(1407, 773);
             this.Name = "BookForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BookForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookForm_FormClosing);
             this.ResumeLayout(false);
 
         }

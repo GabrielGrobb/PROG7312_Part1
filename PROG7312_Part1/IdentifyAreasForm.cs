@@ -17,9 +17,21 @@ namespace PROG7312_Part1
             InitializeComponent();
         }
 
+        //-------------------------------------------------------------------------------------------//
+
+        /// <summary>
+        /// An event for when the form is closing.
+        /// This will terminate the application.
+        /// All threads will be removed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void IdentifyAreasForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             System.Environment.Exit(0);
         }
+
+        //-------------------------------------------------------------------------------------------//
     }
 }
+//---------------------------------------------EndOfFile---------------------------------------------//

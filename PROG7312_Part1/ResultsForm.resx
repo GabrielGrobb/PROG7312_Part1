@@ -123,17 +123,17 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="dgvResults.Location" type="System.Drawing.Point, System.Drawing">
-    <value>410, 102</value>
+    <value>547, 126</value>
   </data>
   <data name="dgvResults.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="dgvResults.RowHeadersWidth" type="System.Int32, mscorlib">
     <value>51</value>
   </data>
   <data name="dgvResults.Size" type="System.Drawing.Size, System.Drawing">
-    <value>448, 338</value>
+    <value>597, 416</value>
   </data>
   <data name="dgvResults.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -154,13 +154,10 @@
     <value>Microsoft YaHei, 13.8pt</value>
   </data>
   <data name="lblBestAttempt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 121</value>
-  </data>
-  <data name="lblBestAttempt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>245, 149</value>
   </data>
   <data name="lblBestAttempt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 71</value>
+    <value>187, 87</value>
   </data>
   <data name="lblBestAttempt.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -187,13 +184,10 @@
     <value>Microsoft YaHei, 13.8pt</value>
   </data>
   <data name="lblCorrectBooks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 205</value>
-  </data>
-  <data name="lblCorrectBooks.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>245, 252</value>
   </data>
   <data name="lblCorrectBooks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 71</value>
+    <value>187, 87</value>
   </data>
   <data name="lblCorrectBooks.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -220,13 +214,10 @@
     <value>Microsoft YaHei, 13.8pt</value>
   </data>
   <data name="lblTimeTaken.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 297</value>
-  </data>
-  <data name="lblTimeTaken.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>245, 366</value>
   </data>
   <data name="lblTimeTaken.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 71</value>
+    <value>187, 87</value>
   </data>
   <data name="lblTimeTaken.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -253,13 +244,10 @@
     <value>Impact, 19.8pt, style=Bold, Underline</value>
   </data>
   <data name="lblBestAttemptHeading.Location" type="System.Drawing.Point, System.Drawing">
-    <value>66, 18</value>
-  </data>
-  <data name="lblBestAttemptHeading.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>88, 22</value>
   </data>
   <data name="lblBestAttemptHeading.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 84</value>
+    <value>291, 103</value>
   </data>
   <data name="lblBestAttemptHeading.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -286,13 +274,10 @@
     <value>Microsoft YaHei, 13.8pt</value>
   </data>
   <data name="lblAttempt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 121</value>
-  </data>
-  <data name="lblAttempt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>27, 149</value>
   </data>
   <data name="lblAttempt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 71</value>
+    <value>181, 87</value>
   </data>
   <data name="lblAttempt.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -319,19 +304,16 @@
     <value>Microsoft YaHei, 13.8pt</value>
   </data>
   <data name="lblBooks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 205</value>
-  </data>
-  <data name="lblBooks.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>24, 252</value>
   </data>
   <data name="lblBooks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 71</value>
+    <value>184, 87</value>
   </data>
   <data name="lblBooks.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="lblBooks.Text" xml:space="preserve">
-    <value>Correct Books:</value>
+    <value>Amount Correct:</value>
   </data>
   <data name="lblBooks.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -352,13 +334,10 @@
     <value>Microsoft YaHei, 13.8pt</value>
   </data>
   <data name="lblTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 297</value>
-  </data>
-  <data name="lblTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>21, 366</value>
   </data>
   <data name="lblTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 71</value>
+    <value>187, 87</value>
   </data>
   <data name="lblTime.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -385,13 +364,10 @@
     <value>Impact, 25.8000011pt, style=Bold, Underline</value>
   </data>
   <data name="lblResultsTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>346, 16</value>
-  </data>
-  <data name="lblResultsTitle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>461, 20</value>
   </data>
   <data name="lblResultsTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 84</value>
+    <value>291, 103</value>
   </data>
   <data name="lblResultsTitle.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -421,13 +397,10 @@
     <value>NoControl</value>
   </data>
   <data name="lblGame.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 385</value>
-  </data>
-  <data name="lblGame.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>21, 474</value>
   </data>
   <data name="lblGame.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 71</value>
+    <value>187, 87</value>
   </data>
   <data name="lblGame.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -457,13 +430,10 @@
     <value>NoControl</value>
   </data>
   <data name="lblGameName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 385</value>
-  </data>
-  <data name="lblGameName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>245, 474</value>
   </data>
   <data name="lblGameName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 71</value>
+    <value>187, 87</value>
   </data>
   <data name="lblGameName.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -490,22 +460,22 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>8, 16</value>
   </data>
   <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>895, 489</value>
+    <value>1191, 592</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>911, 528</value>
+    <value>1209, 639</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>911, 528</value>
+    <value>1209, 639</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

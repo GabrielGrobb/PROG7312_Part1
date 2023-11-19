@@ -47,9 +47,10 @@
             this.lblMainMenu.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblMainMenu.Font = new System.Drawing.Font("MS Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMainMenu.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblMainMenu.Location = new System.Drawing.Point(501, 47);
+            this.lblMainMenu.Location = new System.Drawing.Point(668, 58);
+            this.lblMainMenu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMainMenu.Name = "lblMainMenu";
-            this.lblMainMenu.Size = new System.Drawing.Size(397, 238);
+            this.lblMainMenu.Size = new System.Drawing.Size(529, 293);
             this.lblMainMenu.TabIndex = 0;
             this.lblMainMenu.Text = "Main Menu";
             this.lblMainMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -57,9 +58,10 @@
             // btnReplacingBooks
             // 
             this.btnReplacingBooks.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReplacingBooks.Location = new System.Drawing.Point(439, 396);
+            this.btnReplacingBooks.Location = new System.Drawing.Point(585, 487);
+            this.btnReplacingBooks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReplacingBooks.Name = "btnReplacingBooks";
-            this.btnReplacingBooks.Size = new System.Drawing.Size(128, 48);
+            this.btnReplacingBooks.Size = new System.Drawing.Size(171, 59);
             this.btnReplacingBooks.TabIndex = 1;
             this.btnReplacingBooks.Text = "Replace Books";
             this.btnReplacingBooks.UseVisualStyleBackColor = true;
@@ -68,9 +70,10 @@
             // btnIdentifyAreas
             // 
             this.btnIdentifyAreas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnIdentifyAreas.Location = new System.Drawing.Point(649, 396);
+            this.btnIdentifyAreas.Location = new System.Drawing.Point(865, 487);
+            this.btnIdentifyAreas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIdentifyAreas.Name = "btnIdentifyAreas";
-            this.btnIdentifyAreas.Size = new System.Drawing.Size(128, 48);
+            this.btnIdentifyAreas.Size = new System.Drawing.Size(171, 59);
             this.btnIdentifyAreas.TabIndex = 2;
             this.btnIdentifyAreas.Text = "Identify Areas";
             this.btnIdentifyAreas.UseVisualStyleBackColor = true;
@@ -79,9 +82,10 @@
             // btnCallNumbers
             // 
             this.btnCallNumbers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCallNumbers.Location = new System.Drawing.Point(853, 396);
+            this.btnCallNumbers.Location = new System.Drawing.Point(1137, 487);
+            this.btnCallNumbers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCallNumbers.Name = "btnCallNumbers";
-            this.btnCallNumbers.Size = new System.Drawing.Size(139, 48);
+            this.btnCallNumbers.Size = new System.Drawing.Size(185, 59);
             this.btnCallNumbers.TabIndex = 3;
             this.btnCallNumbers.Text = "Finding Call Numbers";
             this.btnCallNumbers.UseVisualStyleBackColor = true;
@@ -91,6 +95,7 @@
             // 
             this.MXP.Enabled = true;
             this.MXP.Location = new System.Drawing.Point(556, 37);
+            this.MXP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MXP.Name = "MXP";
             this.MXP.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MXP.OcxState")));
             this.MXP.Size = new System.Drawing.Size(269, 57);
@@ -100,10 +105,11 @@
             // 
             this.pgDataLoad.BackColor = System.Drawing.Color.Firebrick;
             this.pgDataLoad.ForeColor = System.Drawing.Color.Firebrick;
-            this.pgDataLoad.Location = new System.Drawing.Point(439, 511);
+            this.pgDataLoad.Location = new System.Drawing.Point(585, 629);
+            this.pgDataLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pgDataLoad.Minimum = 1;
             this.pgDataLoad.Name = "pgDataLoad";
-            this.pgDataLoad.Size = new System.Drawing.Size(553, 23);
+            this.pgDataLoad.Size = new System.Drawing.Size(737, 28);
             this.pgDataLoad.TabIndex = 5;
             this.pgDataLoad.Value = 1;
             this.pgDataLoad.Visible = false;
@@ -117,9 +123,10 @@
             this.button1.BackColor = System.Drawing.Color.Firebrick;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(911, 12);
+            this.button1.Location = new System.Drawing.Point(1215, 15);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 48);
+            this.button1.Size = new System.Drawing.Size(185, 59);
             this.button1.TabIndex = 6;
             this.button1.Text = "EXIT";
             this.button1.UseVisualStyleBackColor = false;
@@ -127,11 +134,11 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PROG7312_Part1.Properties.Resources.Prog;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1062, 592);
+            this.ClientSize = new System.Drawing.Size(1413, 719);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pgDataLoad);
             this.Controls.Add(this.MXP);
@@ -140,14 +147,16 @@
             this.Controls.Add(this.btnReplacingBooks);
             this.Controls.Add(this.lblMainMenu);
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1078, 631);
+            this.MaximumSize = new System.Drawing.Size(1431, 766);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1078, 631);
+            this.MinimumSize = new System.Drawing.Size(1431, 766);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MXP)).EndInit();
             this.ResumeLayout(false);
