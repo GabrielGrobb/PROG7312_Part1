@@ -39,25 +39,24 @@
             this.identifyAreasUserControl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.identifyAreasUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.identifyAreasUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.identifyAreasUserControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.identifyAreasUserControl1.MaximumSize = new System.Drawing.Size(1333, 844);
-            this.identifyAreasUserControl1.MinimumSize = new System.Drawing.Size(1333, 844);
+            this.identifyAreasUserControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.identifyAreasUserControl1.MaximumSize = new System.Drawing.Size(1000, 686);
+            this.identifyAreasUserControl1.MinimumSize = new System.Drawing.Size(1000, 686);
             this.identifyAreasUserControl1.Name = "identifyAreasUserControl1";
-            this.identifyAreasUserControl1.Size = new System.Drawing.Size(1333, 844);
+            this.identifyAreasUserControl1.Size = new System.Drawing.Size(1000, 686);
             this.identifyAreasUserControl1.TabIndex = 0;
             // 
             // IdentifyAreasForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1332, 833);
+            this.ClientSize = new System.Drawing.Size(1000, 683);
             this.Controls.Add(this.identifyAreasUserControl1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1350, 880);
+            this.MaximumSize = new System.Drawing.Size(1016, 722);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1350, 880);
+            this.MinimumSize = new System.Drawing.Size(1016, 722);
             this.Name = "IdentifyAreasForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -104,7 +104,6 @@
     <Compile Include="CNHelpForm.Designer.cs">
       <DependentUpon>CNHelpForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CollectionReader.cs" />
     <Compile Include="CSVModel.cs" />
     <Compile Include="CustomButton.cs">
       <SubType>Component</SubType>

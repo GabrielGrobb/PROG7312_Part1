@@ -10,7 +10,8 @@ namespace PROG7312_Part1
     {
         //-------------------------------------------------------------------------------------------------//
         /// <summary>
-        /// 
+        /// Storing the 3 rows from the CSV file
+        /// into objects.
         /// </summary>
 
         public string Class { get; set; }
