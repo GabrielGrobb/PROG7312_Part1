@@ -151,13 +151,6 @@ C:\Users\gabri\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1
 C:\Users\gabri\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1\PROG7312_Part1\bin\Debug\PROG7312_Part1.exe
 C:\Users\gabri\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1\PROG7312_Part1\bin\Debug\PROG7312_Part1.pdb
 C:\Users\gabri\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1\PROG7312_Part1\bin\Debug\BooksClassLibrary.dll
-C:\Users\gabri\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1\PROG7312_Part1\bin\Debug\Eco.Handles.dll
-C:\Users\gabri\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1\PROG7312_Part1\bin\Debug\Eco.Interfaces.dll
-C:\Users\gabri\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1\PROG7312_Part1\bin\Debug\Eco.LinqExtender.dll
-C:\Users\gabri\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1\PROG7312_Part1\bin\Debug\Eco.WPF.dll
-C:\Users\gabri\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1\PROG7312_Part1\bin\Debug\MDriven.Net.Http.dll
-C:\Users\gabri\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1\PROG7312_Part1\bin\Debug\WECPOFLogic.dll
-C:\Users\gabri\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1\PROG7312_Part1\bin\Debug\WPFViewModelExternalControls.dll
 C:\Users\gabri\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1\PROG7312_Part1\bin\Debug\System.Buffers.dll
 C:\Users\gabri\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1\PROG7312_Part1\bin\Debug\System.Memory.dll
 C:\Users\gabri\Desktop\Gabriel_Grobbelaar_ST10082002_PROG7312_POE\PROG7312_Part1\PROG7312_Part1\bin\Debug\Newtonsoft.Json.dll

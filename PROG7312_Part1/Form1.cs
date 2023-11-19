@@ -9,6 +9,7 @@ namespace PROG7312_Part1
         public Form1()
         {
             InitializeComponent();
+            this.ControlBox = false;
         }
 
         //------------------------------------------------------------------------------------------//
@@ -149,6 +150,7 @@ namespace PROG7312_Part1
         private void btnIdentifyAreas_Click(object sender, EventArgs e)
         {
             progressTimer.Start();
+            this.ParentForm.Close();
             IdentifyAreasForm myIdentifyAreasForm = new IdentifyAreasForm();
             myIdentifyAreasForm.Show();
 
@@ -165,9 +167,11 @@ namespace PROG7312_Part1
         private void btnCallNumbers_Click(object sender, EventArgs e)
         {
             progressTimer.Start();
+            
             CallNumbersForm myCallingNumbersForm = new CallNumbersForm();
             myCallingNumbersForm.Show();
 
+            //this.Close();
             this.Hide();
         }
 

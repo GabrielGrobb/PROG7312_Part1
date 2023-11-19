@@ -37,7 +37,7 @@
             this.callingNumbersUserControl1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("callingNumbersUserControl1.BackgroundImage")));
             this.callingNumbersUserControl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.callingNumbersUserControl1.Location = new System.Drawing.Point(0, 0);
-            this.callingNumbersUserControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.callingNumbersUserControl1.Margin = new System.Windows.Forms.Padding(5);
             this.callingNumbersUserControl1.Name = "callingNumbersUserControl1";
             this.callingNumbersUserControl1.Size = new System.Drawing.Size(1428, 759);
             this.callingNumbersUserControl1.TabIndex = 0;
@@ -48,13 +48,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1429, 758);
             this.Controls.Add(this.callingNumbersUserControl1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CallNumbersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CallNumbersForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CallNumbersForm_FormClosing);
             this.ResumeLayout(false);
 
         }

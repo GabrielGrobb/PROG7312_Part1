@@ -15,20 +15,7 @@ namespace PROG7312_Part1
         public BookForm()
         {
             InitializeComponent();
-        }
-
-        //-------------------------------------------------------------------------------------------//
-
-        /// <summary>
-        /// An event for when the form is closing.
-        /// This will terminate the application.
-        /// All threads will be removed.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BookForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            System.Environment.Exit(0);
+            this.ControlBox = false;
         }
 
         //-------------------------------------------------------------------------------------------//

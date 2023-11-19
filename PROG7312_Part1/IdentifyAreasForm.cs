@@ -15,21 +15,10 @@ namespace PROG7312_Part1
         public IdentifyAreasForm()
         {
             InitializeComponent();
+            this.ControlBox = false;
         }
 
         //-------------------------------------------------------------------------------------------//
-
-        /// <summary>
-        /// An event for when the form is closing.
-        /// This will terminate the application.
-        /// All threads will be removed.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void IdentifyAreasForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            System.Environment.Exit(0);
-        }
 
         //-------------------------------------------------------------------------------------------//
     }
