@@ -149,7 +149,7 @@ namespace PROG7312_Part1
         private void btnIdentifyAreas_Click(object sender, EventArgs e)
         {
             progressTimer.Start();
-            this.ParentForm.Close();
+            this.Hide();
             IdentifyAreasForm myIdentifyAreasForm = new IdentifyAreasForm();
             myIdentifyAreasForm.Show();
 

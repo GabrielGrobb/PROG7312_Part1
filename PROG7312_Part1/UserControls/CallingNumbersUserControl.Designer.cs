@@ -135,6 +135,7 @@
             this.lblTimer.Size = new System.Drawing.Size(369, 49);
             this.lblTimer.TabIndex = 7;
             this.lblTimer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTimer.Click += new System.EventHandler(this.lblTimer_Click);
             // 
             // captionPanel1
             // 
