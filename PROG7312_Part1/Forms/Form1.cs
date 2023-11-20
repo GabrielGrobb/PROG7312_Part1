@@ -67,7 +67,6 @@ namespace PROG7312_Part1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-
         private void btnReplacingBooks_Click(object sender, EventArgs e)
         {
             progressTimer.Start();

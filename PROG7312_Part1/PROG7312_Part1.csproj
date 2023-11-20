@@ -72,73 +72,61 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BookForm.Designer.cs">
-      <DependentUpon>BookForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BookHelper.cs" />
-    <Compile Include="BookUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="BookUserControl.Designer.cs">
-      <DependentUpon>BookUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CallingNumbersHelper.cs" />
-    <Compile Include="CallingNumbersUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CallingNumbersUserControl.Designer.cs">
-      <DependentUpon>CallingNumbersUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CallNumbersForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CallNumbersForm.Designer.cs">
-      <DependentUpon>CallNumbersForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CNHelpForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CNHelpForm.Designer.cs">
-      <DependentUpon>CNHelpForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CSVModel.cs" />
-    <Compile Include="CustomButton.cs">
+    <Compile Include="CustomButtons\CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\BookForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Forms\BookForm.Designer.cs">
+      <DependentUpon>BookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CallNumbersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CallNumbersForm.Designer.cs">
+      <DependentUpon>CallNumbersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="HelpForm.cs">
+    <Compile Include="Forms\IdentifyAreasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HelpForm.Designer.cs">
-      <DependentUpon>HelpForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IDAreasHelpForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IDAreasHelpForm.Designer.cs">
-      <DependentUpon>IDAreasHelpForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IdentifyAreasForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IdentifyAreasForm.Designer.cs">
+    <Compile Include="Forms\IdentifyAreasForm.Designer.cs">
       <DependentUpon>IdentifyAreasForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IdentifyAreasHelperClass.cs" />
-    <Compile Include="IdentifyAreasUserControl.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Forms\ResultsForm.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IdentifyAreasUserControl.Designer.cs">
-      <DependentUpon>IdentifyAreasUserControl.cs</DependentUpon>
+    <Compile Include="Forms\ResultsForm.Designer.cs">
+      <DependentUpon>ResultsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HelperClasses\BookHelper.cs" />
+    <Compile Include="HelperClasses\CallingNumbersHelper.cs" />
+    <Compile Include="HelperClasses\IdentifyAreasHelperClass.cs" />
+    <Compile Include="HelpForms\CNHelpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpForms\CNHelpForm.Designer.cs">
+      <DependentUpon>CNHelpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpForms\HelpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpForms\HelpForm.Designer.cs">
+      <DependentUpon>HelpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpForms\IDAreasHelpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpForms\IDAreasHelpForm.Designer.cs">
+      <DependentUpon>IDAreasHelpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CSVModel.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -147,44 +135,50 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RedBlackTree.cs" />
-    <Compile Include="ResultsForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="RedBlackTree\RedBlackTree.cs" />
+    <Compile Include="UserControls\BookUserControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ResultsForm.Designer.cs">
-      <DependentUpon>ResultsForm.cs</DependentUpon>
+    <Compile Include="UserControls\BookUserControl.Designer.cs">
+      <DependentUpon>BookUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserResults.cs" />
-    <Compile Include="UserResultsManager.cs" />
-    <EmbeddedResource Include="BookForm.resx">
+    <Compile Include="UserControls\CallingNumbersUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CallingNumbersUserControl.Designer.cs">
+      <DependentUpon>CallingNumbersUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\IdentifyAreasUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\IdentifyAreasUserControl.Designer.cs">
+      <DependentUpon>IdentifyAreasUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserResults\UserResults.cs" />
+    <Compile Include="UserResults\UserResultsManager.cs" />
+    <EmbeddedResource Include="Forms\BookForm.resx">
       <DependentUpon>BookForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BookUserControl.resx">
-      <DependentUpon>BookUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CallingNumbersUserControl.resx">
-      <DependentUpon>CallingNumbersUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CallNumbersForm.resx">
+    <EmbeddedResource Include="Forms\CallNumbersForm.resx">
       <DependentUpon>CallNumbersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CNHelpForm.resx">
-      <DependentUpon>CNHelpForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HelpForm.resx">
-      <DependentUpon>HelpForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IDAreasHelpForm.resx">
-      <DependentUpon>IDAreasHelpForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IdentifyAreasForm.resx">
+    <EmbeddedResource Include="Forms\IdentifyAreasForm.resx">
       <DependentUpon>IdentifyAreasForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IdentifyAreasUserControl.resx">
-      <DependentUpon>IdentifyAreasUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ResultsForm.resx">
+      <DependentUpon>ResultsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForms\CNHelpForm.resx">
+      <DependentUpon>CNHelpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForms\HelpForm.resx">
+      <DependentUpon>HelpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForms\IDAreasHelpForm.resx">
+      <DependentUpon>IDAreasHelpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\PROG7312_Part1.BookForm.resources" />
     <EmbeddedResource Include="obj\Debug\PROG7312_Part1.BookUserControl.resources" />
@@ -202,8 +196,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResultsForm.resx">
-      <DependentUpon>ResultsForm.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\BookUserControl.resx">
+      <DependentUpon>BookUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CallingNumbersUserControl.resx">
+      <DependentUpon>CallingNumbersUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\IdentifyAreasUserControl.resx">
+      <DependentUpon>IdentifyAreasUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="bin\Debug\dewey.csv" />
     <None Include="bin\Debug\images\btnPlay.png" />
