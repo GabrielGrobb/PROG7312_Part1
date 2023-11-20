@@ -149,7 +149,6 @@ namespace PROG7312_Part1
         private void btnIdentifyAreas_Click(object sender, EventArgs e)
         {
             progressTimer.Start();
-            this.Hide();
             IdentifyAreasForm myIdentifyAreasForm = new IdentifyAreasForm();
             myIdentifyAreasForm.Show();
 
@@ -170,7 +169,6 @@ namespace PROG7312_Part1
             CallNumbersForm myCallingNumbersForm = new CallNumbersForm();
             myCallingNumbersForm.Show();
 
-            //this.Close();
             this.Hide();
         }
 
